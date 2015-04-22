@@ -1,9 +1,14 @@
 VictoriousSecret::Application.routes.draw do
-  devise_for :users
+  resources :providers
+
+  resources :consumers
+
+  devise_for :users #, controllers: { sessions: "users/sessions",registrations: "users/registrations"  }
+  
   get "login/index"
 
 
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

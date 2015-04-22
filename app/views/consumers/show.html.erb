@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @consumer.user %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @consumer.name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @consumer.age %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @consumer.phone %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @consumer.address %>
+</p>
+
+<%= link_to 'Edit', edit_consumer_path(@consumer) %> |
+<%= link_to 'Back', consumers_path %>
