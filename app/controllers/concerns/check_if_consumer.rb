@@ -1,9 +1,9 @@
 module CheckIfConsumer
 	extend ActiveSupport::Concern
 	private
-	def check
+	def check(id)
 		
-		consumer_url
+		
 	rescue ActiveRecord::RecordNotFound
 		new_consumer_url
 	end
