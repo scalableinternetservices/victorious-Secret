@@ -1,6 +1,7 @@
 class ConsumersController < ApplicationController
+  include CheckIfConsumer
   before_action :set_consumer, only: [:show, :edit, :update, :destroy]
-
+  
   respond_to :html
 
   def index
@@ -42,6 +43,6 @@ class ConsumersController < ApplicationController
     end
 
     def consumer_params
-      params.require(:consumer).permit(:user_id, :name, :age, :phone, :address)
+      params.require(:consumer).permit(:user_id, :rating)
     end
 end

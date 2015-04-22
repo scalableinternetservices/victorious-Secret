@@ -18,7 +18,7 @@ class ConsumersControllerTest < ActionController::TestCase
 
   test "should create consumer" do
     assert_difference('Consumer.count') do
-      post :create, consumer: { address: @consumer.address, age: @consumer.age, name: @consumer.name, phone: @consumer.phone, user_id: @consumer.user_id }
+      post :create, consumer: { rating: @consumer.rating, user_id: @consumer.user_id }
     end
 
     assert_redirected_to consumer_path(assigns(:consumer))
@@ -35,7 +35,7 @@ class ConsumersControllerTest < ActionController::TestCase
   end
 
   test "should update consumer" do
-    patch :update, id: @consumer, consumer: { address: @consumer.address, age: @consumer.age, name: @consumer.name, phone: @consumer.phone, user_id: @consumer.user_id }
+    patch :update, id: @consumer, consumer: { rating: @consumer.rating, user_id: @consumer.user_id }
     assert_redirected_to consumer_path(assigns(:consumer))
   end
 

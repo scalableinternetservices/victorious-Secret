@@ -4,10 +4,7 @@
   <thead>
     <tr>
       <th>User</th>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Phone</th>
-      <th>Address</th>
+      <th>Rating</th>
       <th></th>
       <th></th>
       <th></th>
@@ -18,10 +15,7 @@
     <% @consumers.each do |consumer| %>
       <tr>
         <td><%= consumer.user %></td>
-        <td><%= consumer.name %></td>
-        <td><%= consumer.age %></td>
-        <td><%= consumer.phone %></td>
-        <td><%= consumer.address %></td>
+        <td><%= consumer.rating %></td>
         <td><%= link_to 'Show', consumer %></td>
         <td><%= link_to 'Edit', edit_consumer_path(consumer) %></td>
         <td><%= link_to 'Destroy', consumer, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -9,7 +9,7 @@ class Users::SessionsController < Devise::SessionsController
    #POST /resource/sign_in
    #def create
     # super
-     #redirect_to (show_consumer_url, notice: 'successfully signed in')
+     
    #end
 
   # DELETE /resource/sign_out

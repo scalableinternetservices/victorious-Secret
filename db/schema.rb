@@ -11,14 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421235256) do
+ActiveRecord::Schema.define(version: 20150422034735) do
 
   create_table "consumers", force: true do |t|
     t.integer  "user_id"
-    t.string   "name"
-    t.integer  "age"
-    t.string   "phone"
-    t.text     "address"
+    t.integer  "rating",     default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,10 +24,7 @@ ActiveRecord::Schema.define(version: 20150421235256) do
 
   create_table "providers", force: true do |t|
     t.integer  "user_id"
-    t.string   "name"
-    t.integer  "age"
-    t.string   "phone"
-    t.text     "address"
+    t.integer  "rating",     default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -10,7 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
    #POST /resource
    #def create
     # super
-     #redirect_to (new_consumer_url, notice: 'user successfully created')
+     
    #end
 
   # GET /resource/edit
