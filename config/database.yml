@@ -21,7 +21,7 @@ test:
   pool: 5
   timeout: 5000
   username: root
-  password: 
+  password: naren
   host: localhost
 
 production:
@@ -31,4 +31,12 @@ production:
   timeout: 5000
   username: root
   password: naren
+  host: localhost
+travis:
+  adapter: mysql
+  database: library_test
+  pool: 5
+  timeout: 5000
+  username: root
+  password:
   host: localhost
