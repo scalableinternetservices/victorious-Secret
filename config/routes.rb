@@ -1,10 +1,12 @@
 VictoriousSecret::Application.routes.draw do
+  resources :posts
+
   get "welcome/index"
   resources :consumers
 
   resources :providers
 
-  devise_for :users #, controllers: { sessions: "users/sessions",registrations: "users/registrations"  }
+  devise_for :users, controllers: { registrations: "users/registrations"  }
   
   get "login/index"
 
