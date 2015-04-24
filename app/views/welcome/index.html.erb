@@ -1,29 +1,19 @@
-
-
-
 <%= button_to 'Request a service', new_post_path, method: :get %>
 
 <% @posts.each do |post| %>
-<div class="container"
-<p>
-  <strong>Title:</strong>
-  <%= post.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= post.description %>
-</p>
-
-<p>
-  <strong>Picture:</strong>
-  <%= image_tag(post.picture_url, size: "50x50", alt: "User hasn't posted a picture") if post.picture.present? %>
-</p>
-
-<div class="actions">
+<div class="container">
+	<h4><%= post.title %></h4>
+	<div class="items">
+		<div class="itemPic">
+		<%= image_tag(post.picture_url, size: "150x150", alt: "User hasn't posted a picture") if post.picture.present? %>
+		</div>
+		<div class="itemDesc">
+		  <strong>Description:</strong>
+		  <%= post.description %>
+		</div>
+	</div>
+	
+</div>
 <%= link_to 'Edit', edit_post_path(post) %>
-</div>
-</div>
 <% end %>
- |
 <%= link_to 'Back', welcome_path %>
