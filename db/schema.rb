@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150422070321) do
+ActiveRecord::Schema.define(version: 20150424053846) do
 
   create_table "consumers", force: true do |t|
     t.integer  "user_id"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 20150422070321) do
   end
 
   add_index "consumers", ["user_id"], name: "index_consumers_on_user_id", using: :btree
+
+  create_table "posts", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "picture"
+    t.integer  "consumer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "posts", ["consumer_id"], name: "index_posts_on_consumer_id", using: :btree
 
   create_table "providers", force: true do |t|
     t.integer  "user_id"

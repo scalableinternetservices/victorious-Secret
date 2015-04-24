@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @post.description %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= image_tag(@post.picture_url, size: "50x50", alt: "user hasn't uploaded a picure for this post") if @post.picture.present? %>
+</p>
+
+<p>
+  <strong>Consumer:</strong>
+  <%= @post.consumer %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
