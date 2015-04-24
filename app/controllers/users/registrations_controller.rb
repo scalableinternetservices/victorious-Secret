@@ -9,11 +9,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
    #POST /resource
    def create
+    
     build_resource(sign_up_params)
     resource.consumer = Consumer.new()
-    resource.save
+    resource_saved = resource.save
     yield resource if block_given?
-    if resource.persisted?
+    if resource_saved
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_flashing_format?
         sign_up(resource_name, resource)
@@ -25,7 +26,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
     else
       clean_up_passwords resource
-      set_minimum_password_length
+      @validatable = devise_mapping.validatable?
+      if @validatable
+        @minimum_password_length = resource_class.password_length.min
+      end
       respond_with resource
     end
      
