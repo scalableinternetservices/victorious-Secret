@@ -13,7 +13,6 @@ script:
   - bundle exec rake db:test:prepare
   - bundle exec rake
 before_script:
-  - cp config/database.travis.yml config/database.yml
-  - mysql -e 'create database library_development'
+  - mysql -e 'create database library_test'
 # uncomment this line if your project needs to run something other than `rake`:
 # script: bundle exec rspec spec
