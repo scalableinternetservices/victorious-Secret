@@ -15,5 +15,10 @@
   <%= image_tag(@post.picture_url, size: "50x50", alt: "user hasn't uploaded a picure for this post") if @post.picture.present? %>
 </p>
 
+<p>
+  <strong>Price:</strong>
+  <%= number_to_currency(@post.price) %>
+</p>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', welcome_path %>

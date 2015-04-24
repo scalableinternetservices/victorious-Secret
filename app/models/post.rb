@@ -3,6 +3,6 @@ class Post < ActiveRecord::Base
 
   mount_uploader :picture, PictureUploader
 
-  validates :title, :description, presence: true
-  
+  validates :title, :description, :price,  presence: true
+  default_scope order('created_at DESC')
 end
