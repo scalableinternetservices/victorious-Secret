@@ -9,5 +9,5 @@ class User < ActiveRecord::Base
   validates :phone, uniqueness: true
 
   has_one :consumer, dependent: :destroy 
-  has_one :producer, dependent: :destroy 
+  has_one :provider, dependent: :destroy 
 end

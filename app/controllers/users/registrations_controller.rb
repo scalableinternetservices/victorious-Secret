@@ -12,6 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     
     build_resource(sign_up_params)
     resource.consumer = Consumer.new()
+    resource.provider = Provider.new()
     resource_saved = resource.save
     yield resource if block_given?
     if resource_saved
@@ -46,9 +47,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+   def destroy
+    resource.destroy
+    if resource.destroy
+      redirect_to welcome_path,notice: "user delete"
+    end
+
+   end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign

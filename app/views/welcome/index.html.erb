@@ -4,11 +4,7 @@
 		<% @posts.each do |post| %>
 			<%= link_to post_path(post.id) do %>
 			<div class="pin">
-				<h4><%= post.title %></h4>
-				<%= image_tag(post.picture_url, size: "150x150", alt: "User hasn't posted a picture") if post.picture.present? %>
-				<p><%= post.description %></p>
-				<p><%= number_to_currency(post.price) %></p>
-			<%= link_to 'Edit', edit_post_path(post) %>
+			<%= render(post)%>
 			</div>
 			<% end %>
 		<% end %>
