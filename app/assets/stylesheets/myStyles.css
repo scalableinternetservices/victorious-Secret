@@ -81,3 +81,15 @@ html{
 .footerText{
 	color: white;
 }
+
+.splash-container{
+	background-image: url(/assets/background.jpg);
+}
+
+.menuText{
+	text-decoration: none !important;
+	color: white !important;
+}
+.menuText:hover{
+	background-color: rgb(99, 99, 195) !important
+}
