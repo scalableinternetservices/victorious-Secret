@@ -37,6 +37,6 @@ travis:
   database: library_test
   pool: 5
   timeout: 5000
-  username: root
+  username: 
   password:
   host: localhost
