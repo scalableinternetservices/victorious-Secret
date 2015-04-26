@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150424235431) do
+ActiveRecord::Schema.define(version: 20150426050638) do
 
   create_table "carts", force: true do |t|
     t.datetime "created_at"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20150424235431) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "price"
+    t.string   "categories"
   end
 
   add_index "posts", ["consumer_id"], name: "index_posts_on_consumer_id", using: :btree

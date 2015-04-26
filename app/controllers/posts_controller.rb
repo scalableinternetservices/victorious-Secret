@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    respond_with(@post)
+    respond_with(@post,@categories)
   end
 
   def edit
@@ -23,6 +23,10 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.consumer = current_user.consumer
+    params[:categories].each do
+      |x|
+      @post.categories << x
+    end
     
     respond_with do |format|
       if @post.save
@@ -51,6 +55,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :description, :picture, :price)
+      params.require(:post).permit(:title, :description, :picture, :price,:categories)
     end
 end
