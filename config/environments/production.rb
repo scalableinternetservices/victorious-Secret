@@ -77,4 +77,6 @@ VictoriousSecret::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  config.categories = ['automobile', 'beauty', 'computer', 'creative', 'event', 'household', 'financial', 'labor', 'legal', 'tutoring', 'pet', 'therapeutic', 'travel']
+  
 end

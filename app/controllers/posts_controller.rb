@@ -23,7 +23,10 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.consumer = current_user.consumer
-    
+    params[:categories].each do
+      |x|
+      @post.categories << x
+    end
     
     respond_with do |format|
       if @post.save
