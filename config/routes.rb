@@ -1,4 +1,6 @@
 VictoriousSecret::Application.routes.draw do
+  resources :bids
+
   resources :posts
 
   get "welcome/index"
