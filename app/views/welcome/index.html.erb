@@ -5,7 +5,9 @@
 			<%= link_to post_path(post.id) do %>
 			<div class="pin">
 			<%= render(post)%>
-			<%= link_to '(bid on this)', new_bid_path(post_id: post) %>
+
+			<%= link_to '(bid on this)', new_bid_path(post_id: post) unless(current_user.consumer.posts.include? post) %>
+			<p>there have been <%= pluralize(post.bids.count,'Bid') %></p>
 			</div>
 			<% end %>
 		<% end %>
