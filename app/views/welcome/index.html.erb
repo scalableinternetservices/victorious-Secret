@@ -5,6 +5,7 @@
 			<%= link_to post_path(post.id) do %>
 			<div class="pin">
 			<%= render(post)%>
+			<%= link_to '(bid on this)', new_bid_path(post_id: post) %>
 			</div>
 			<% end %>
 		<% end %>
