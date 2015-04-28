@@ -13,17 +13,42 @@ class BidsController < ApplicationController
   end
 
   def new
-    @bid = Bid.new
-    session[:post_id] = params[:post_id]
-    respond_with(@bid)
+    post = Post.find(params[:post_id])
+    $flag = false
+    #if the user has already bid on the item, he can edit his bid
+    bids = post.bids
+    bids.each do |bid|
+      if bid.provider == current_user.provider
+        $bid = bid
+        $flag = true
+      end
+    end
+
+    if $flag
+      redirect_to action: :edit, id: $bid.id
+
+    ##if the user hasn't bid on the post already 
+    else
+
+      if post.consumer.user == current_user
+        respond_with do |format|
+          format.html{redirect_to welcome_url, alert: 'cannot bid on your own post'}
+        end
+      else  
+      @bid = Bid.new
+      session[:post_id] = params[:post_id]
+      respond_with(@bid)
+    end
+  end
   end
 
   def edit
   end
 
   def create
-    @bid = Bid.new(bid_params)
     post = Post.find(session[:post_id])
+    @bid = Bid.new(bid_params)
+    
     @bid.post = post
     @bid.provider = current_user.provider
     respond_with do |format|

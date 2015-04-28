@@ -5,17 +5,22 @@
 			<%= link_to post_path(post.id) do %>
 			<div class="pin">
 				<%= render(post)%>
-				<%= link_to '(bid on this)', new_bid_path(post_id: post) %>
+
 				<p>there have been <%= pluralize(post.bids.count,'Bid') %></p>
-					<button type="button" data-toggle="modal" data-target="#myModal">
-		            Launch demo modal
-		            </button>			
+				<% if !(current_user.consumer.posts.include?(post))  %>
+				
+				<%= link_to '(bid on this)', new_bid_path(post_id: post)%>
+				
+				<% end %>
+								
 		     </div>
 			<% end %>
+			
 		<% end %>
 	</div>
 </div>
-<!-- Modal -->
+<!-- 
+<!
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -32,4 +37,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
