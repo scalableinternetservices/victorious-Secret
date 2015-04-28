@@ -14,6 +14,7 @@ class BidsController < ApplicationController
 
   def new
     @bid = Bid.new
+    session[:post_id] = params[:post_id]
     respond_with(@bid)
   end
 
@@ -22,8 +23,18 @@ class BidsController < ApplicationController
 
   def create
     @bid = Bid.new(bid_params)
-    @bid.save
-    respond_with(@bid)
+    post = Post.find(session[:post_id])
+    @bid.post = post
+    @bid.provider = current_user.provider
+    respond_with do |format|
+      if @bid.save
+       format.html { redirect_to welcome_url, notice: 'Your bid has been placed' }
+     else
+       format.html { render action: 'new' }
+       format.json { render json: @bid.errors, status: :unprocessable_entity }
+     end
+   end
+
   end
 
   def update
