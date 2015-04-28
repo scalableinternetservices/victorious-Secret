@@ -60,8 +60,8 @@
             <li class="pure-menu-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'pure-menu-link menuText'%></li>
           <% else %>
             <li class="pure-menu-item"><%= link_to "Sign up", new_user_registration_path, :class => 'pure-menu-link menuText'%></li>
-            <li class="pure-menu-item"><%= link_to "Login", new_user_session_path, :class => 'pure-menu-link menuText'%></li>
-          <% end %>
+            <li class="pure-menu-item"><%= link_to "Login", new_user_session_path, :class => 'pure-menu-link menuText'%></li>   
+        <% end %>
         </ul>
     </div>
 </div>
