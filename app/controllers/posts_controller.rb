@@ -41,6 +41,10 @@ class PostsController < ApplicationController
 
   def update
     @post.update(post_params)
+    params[:categories].each do |x|
+      @post.categories << x
+    end
+    
     respond_with(@post)
   end
 

@@ -1,1 +1,14 @@
 <%= render(@post)%>
+<% if @post.bids.length !=0 %>
+	<ul>
+	<% @post.bids.each do |bid| %>
+	<li>
+		<h4>
+			<%if current_user.provider == bid.provider%> you have bidded an amount of <%= number_to_currency(bid.amount) %> 
+			<% else %> <%= bid.provider.user.name %> has bidden an amount of <%= number_to_currency(bid.amount) %> 
+			<% end %>
+		</h4> 
+	</li>
+	<% end %>
+	</ul>
+<% end %>

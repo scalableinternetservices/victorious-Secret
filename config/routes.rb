@@ -12,8 +12,9 @@ VictoriousSecret::Application.routes.draw do
   
   get "login/index"
 
-
-
+  get 'welcome/consumer_side' => 'welcome#consumer_side', as: :consumer_welcome
+  get 'welcome/provider_side' => 'welcome#provider_side', as: :provider_welcome
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -27,6 +27,7 @@ html{
 	column-count: 3;
 	column-gap: 15px;
 	column-fill: auto;
+	
 }
 
 .pin {
@@ -101,3 +102,4 @@ html{
   margin-left: 25%;
   margin-top: 12%;
 }
+
