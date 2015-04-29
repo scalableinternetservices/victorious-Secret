@@ -45,6 +45,8 @@ class BidsController < ApplicationController
   def edit
   end
 
+  
+
   def create
     post = Post.find(session[:post_id])
     @bid = Bid.new(bid_params)

@@ -9,20 +9,18 @@
 <div id="wrapper">
 	<div id="columns">
 		<% @posts.each do |post| %>
-			<%= link_to post_path(post.id) do %>
+			
 			<div class="pin">
+			<%= link_to post_path(post.id) do %>
 				<%= render(post)%>
-
 				<p>there have been <%= pluralize(post.bids.count,'Bid') %></p>
 				<% if !(current_user.consumer.posts.include?(post))  %>
-				
-				<%= link_to '(bid on this)', new_bid_path(post_id: post)%>
-				
+				<h2><%= link_to '(bid on this)', new_bid_path(post_id: post) , method: :get%>	</h2>			
 				<% end %>
-								
-		     </div>
 			<% end %>
+			</div>
 			
+				
 		<% end %>
 	</div>
 </div>
