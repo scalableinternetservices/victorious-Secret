@@ -6,6 +6,9 @@ class BidsController < ApplicationController
   def accept
   	@bid = Bid.find(params[:bid_id])
   	@post = Post.find(params[:post_id])
+
+    @post.provider = @bid.provider
+    @post.save
   	respond_with(@post,@bid)
   end
 
