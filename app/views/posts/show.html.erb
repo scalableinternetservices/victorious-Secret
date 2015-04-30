@@ -6,6 +6,7 @@
 		<h4>
 			<%if current_user.provider == bid.provider%> you have bid an amount of <%= number_to_currency(bid.amount) %> 
 			<% else %> <%= bid.provider.user.name %> has bid an amount of <%= number_to_currency(bid.amount) %> 
+			<%= link_to 'accept this bid',accept_bids_path(post_id: @post, bid_id: bid) if @show_accept %>
 			<% end %>
 		</h4> 
 	</li>

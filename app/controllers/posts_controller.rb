@@ -9,7 +9,12 @@ class PostsController < ApplicationController
   end
 
   def show
-    respond_with(@post)
+    @show_accept = false
+    if current_user.consumer == @post.consumer
+      @show_accept = true
+    end
+
+    respond_with(@post,@show_accept)
   end
 
   def new
