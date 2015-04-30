@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 20150430074332) do
 
   add_index "posts", ["consumer_id"], name: "index_posts_on_consumer_id", using: :btree
   add_index "posts", ["provider_id"], name: "index_posts_on_provider_id", using: :btree
-
   create_table "providers", force: true do |t|
     t.integer  "user_id"
     t.integer  "rating",     default: 0

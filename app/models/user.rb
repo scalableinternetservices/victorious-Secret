@@ -9,5 +9,10 @@ class User < ActiveRecord::Base
   validates :phone, uniqueness: true
 
   has_one :consumer, dependent: :destroy 
-  has_one :provider, dependent: :destroy 
+  has_one :provider, dependent: :destroy
+
+  #auto indexer plus name index
+  searchable do
+    text :name
+  end
 end

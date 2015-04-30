@@ -1,5 +1,6 @@
 VictoriousSecret::Application.routes.draw do
-  resources :bids do 
+   post "search/posts" 
+   resources :bids do  
     collection do
       get :accept
     end
