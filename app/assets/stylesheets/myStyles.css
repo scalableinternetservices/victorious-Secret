@@ -95,6 +95,11 @@ html{
 	background-color: rgb(99, 99, 195) !important
 }
 
+.pure-menu-item {
+	text-decoration: none !important;
+	color: white !important;
+}
+
 #myModal{
   display: block;
   width: 50%;
