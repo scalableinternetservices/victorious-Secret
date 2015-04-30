@@ -108,3 +108,14 @@ html{
   margin-top: 12%;
 }
 
+.navbar-default{
+	border-color: #283F9B;
+}
+
+.navbar-fixed-top {
+  border-width: 0 0 2px;
+}
+
+.welcomeMsg{
+	margin-top: 16px;
+}
