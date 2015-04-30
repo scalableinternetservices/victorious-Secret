@@ -1,5 +1,6 @@
+<div id = "bid_page">
 <%= render(@post)%>
-
+</div>
 <% if @post.provider %>
 <% if @post.consumer == current_user.consumer %>
 <h1> the accepted bidders name is <%= @post.provider.user.name %> </h1>
@@ -11,21 +12,30 @@
 
 
 <% if @post.bids.length !=0 %>
-	<ul>
+	<table cellspacing = '0' id = "bid_table">
 	<% @post.bids.each do |bid| %>
-	<li>
-		<h4>
-			<%if current_user.provider == bid.provider%> you have bid an amount of <%= number_to_currency(bid.amount) %> 
-			<% else %> <%= bid.provider.user.name %> has bid an amount of <%= number_to_currency(bid.amount) %> 
+	<thead>
+		<tr>
+			<th>Bidder</th>
+			<th>Amount</th>
+			<th>Description</th>
+			<th>Accept Bid</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+				<%if current_user.provider == bid.provider%> <td><%= current_user.name %> </td><td><%= number_to_currency(bid.amount) %></td> 
+				<td><%= bid.description %></td><td></td>
+		</tr>
+		<tr>
+				<% else %> <td><%= bid.provider.user.name %> </td><td><%= number_to_currency(bid.amount) %> </td><td><%= bid.description %></td>
 				<% if (@show_accept) %>
 					<% if(@post.provider.nil?)%>
-						<%= link_to 'accept the bid', accept_bids_path(post_id: @post, bid_id: bid) %>
-			
+						<td><%= link_to 'accept the bid', accept_bids_path(post_id: @post, bid_id: bid) %></td></tr>
 					<% end %>
 				<% end %>
-			<% end %>
-		</h4> 
-	</li>
+			<% end %> 
 	<% end %>
-	</ul>
+	</tbody>
+	</table>
 <% end %>
