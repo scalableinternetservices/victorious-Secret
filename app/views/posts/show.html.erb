@@ -19,7 +19,7 @@
 			<% else %> <%= bid.provider.user.name %> has bid an amount of <%= number_to_currency(bid.amount) %> 
 				<% if (@show_accept) %>
 					<% if(@post.provider.nil?)%>
-						<%= link_to 'accept this bid',accept_bids_path(post_id: @post, bid_id: bid) %>
+						<%= link_to 'accept the bid', accept_bids_path(post_id: @post, bid_id: bid) %>
 			
 					<% end %>
 				<% end %>

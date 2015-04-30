@@ -1,10 +1,20 @@
 VictoriousSecret::Application.routes.draw do
   resources :bids do 
+    member do
+      post :new
+    end
+
     collection do
       get :accept
     end
+
+
   end
+
+
   
+  
+
 
   resources :posts
 

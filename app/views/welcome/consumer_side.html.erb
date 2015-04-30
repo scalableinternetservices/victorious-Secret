@@ -11,11 +11,7 @@
 				<%= render(post)%>
 
 				<p>there have been <%= pluralize(post.bids.count,'Bid') %></p>
-				<% if !(current_user.consumer.posts.include?(post))  %>
 				
-				
-				
-				<% end %>
 								
 		     </div>
 			<% end %>
