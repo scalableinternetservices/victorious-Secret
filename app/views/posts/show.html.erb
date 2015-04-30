@@ -1,10 +1,12 @@
 <%= render(@post)%>
 
 <% if @post.provider %>
+<% if @post.consumer == current_user.consumer %>
 <h1> the accepted bidders name is <%= @post.provider.user.name %> </h1>
 <p> so you can't accept anymore </p>
 <br />
 <br />
+<% end %>
 <% end %>
 
 
