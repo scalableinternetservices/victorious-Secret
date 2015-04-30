@@ -1,0 +1,25 @@
+<%= button_to 'Request a service', new_post_path, method: :get, class: "pure-button"%>
+<div id="center">
+	<h2>These are your posts </h2>
+</div>
+
+<div id="wrapper">
+	<div id="columns">
+		<% @posts.each do |post| %>
+			<%= link_to post_path(post.id) do %>
+			<div class="pin">
+				<%= render(post)%>
+
+				<p>there have been <%= pluralize(post.bids.count,'Bid') %></p>
+				<% if !(current_user.consumer.posts.include?(post))  %>
+				
+				
+				
+				<% end %>
+								
+		     </div>
+			<% end %>
+			
+		<% end %>
+	</div>
+</div>

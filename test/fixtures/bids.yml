@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  provider_id: 
+  post_id: 
+  amount: 1
+  description: MyText
+
+two:
+  provider_id: 
+  post_id: 
+  amount: 1
+  description: MyText

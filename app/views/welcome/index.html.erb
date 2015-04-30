@@ -1,13 +1,45 @@
-<%= button_to 'Request a service', new_post_path, method: :get, class: "pure-button"%>
+<%= button_to 'checkout my posts', consumer_welcome_path, method: :get, class: "pure-button"%>
+<br />
+<%= button_to 'checkout my bids', provider_welcome_path, method: :get, class: "pure-button"%>
+
+<div id="center">
+	<h2>These are some of the posts aroung you </h2>
+</div>
+
 <div id="wrapper">
 	<div id="columns">
 		<% @posts.each do |post| %>
-			<%= link_to post_path(post.id) do %>
+			
 			<div class="pin">
-			<%= render(post)%>
-			</div>
+			<%= link_to post_path(post.id) do %>
+				<%= render(post)%>
+				<p>there have been <%= pluralize(post.bids.count,'Bid') %></p>
+				<% if !(current_user.consumer.posts.include?(post))  %>
+				<h2><%= link_to '(bid on this)', new_bid_path(post_id: post) , method: :get%>	</h2>			
+				<% end %>
 			<% end %>
+			</div>
+			
+				
 		<% end %>
 	</div>
 </div>
-
+<!-- 
+<!
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        Need to put the form in here!!!!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->

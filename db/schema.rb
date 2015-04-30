@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150426075938) do
+ActiveRecord::Schema.define(version: 20150427054948) do
+
+  create_table "bids", force: true do |t|
+    t.integer  "provider_id"
+    t.integer  "post_id"
+    t.integer  "amount"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bids", ["post_id"], name: "index_bids_on_post_id", using: :btree
+  add_index "bids", ["provider_id"], name: "index_bids_on_provider_id", using: :btree
 
   create_table "carts", force: true do |t|
     t.datetime "created_at"

@@ -1,24 +1,14 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
-
-<p>
-  <strong>Picture:</strong>
-  <%= image_tag(@post.picture_url, size: "50x50", alt: "user hasn't uploaded a picure for this post") if @post.picture.present? %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= number_to_currency(@post.price) %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', welcome_path %>
+<%= render(@post)%>
+<% if @post.bids.length !=0 %>
+	<ul>
+	<% @post.bids.each do |bid| %>
+	<li>
+		<h4>
+			<%if current_user.provider == bid.provider%> you have bid an amount of <%= number_to_currency(bid.amount) %> 
+			<% else %> <%= bid.provider.user.name %> has bid an amount of <%= number_to_currency(bid.amount) %> 
+			<% end %>
+		</h4> 
+	</li>
+	<% end %>
+	</ul>
+<% end %>

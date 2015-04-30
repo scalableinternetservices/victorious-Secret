@@ -34,13 +34,17 @@ class PostsController < ApplicationController
         format.json { render action: 'show', status: :created, location: @product }
       else
         format.html { render action: 'new' }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def update
     @post.update(post_params)
+    params[:categories].each do |x|
+      @post.categories << x
+    end
+    
     respond_with(@post)
   end
 
