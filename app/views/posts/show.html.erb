@@ -4,8 +4,8 @@
 	<% @post.bids.each do |bid| %>
 	<li>
 		<h4>
-			<%if current_user.provider == bid.provider%> you have bidded an amount of <%= number_to_currency(bid.amount) %> 
-			<% else %> <%= bid.provider.user.name %> has bidden an amount of <%= number_to_currency(bid.amount) %> 
+			<%if current_user.provider == bid.provider%> you have bid an amount of <%= number_to_currency(bid.amount) %> 
+			<% else %> <%= bid.provider.user.name %> has bid an amount of <%= number_to_currency(bid.amount) %> 
 			<% end %>
 		</h4> 
 	</li>
