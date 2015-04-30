@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   belongs_to :consumer
+  belongs_to :provider
   serialize :categories, Array
 
   mount_uploader :picture, PictureUploader

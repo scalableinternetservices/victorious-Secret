@@ -1,4 +1,11 @@
 <%= render(@post)%>
+
+<h1> the accepted bidders name is <%= @post.provider.user.name %> </h1>
+<p> so you can't accept anymore </p>
+<br />
+<br />
+
+
 <% if @post.bids.length !=0 %>
 	<ul>
 	<% @post.bids.each do |bid| %>
@@ -6,6 +13,12 @@
 		<h4>
 			<%if current_user.provider == bid.provider%> you have bid an amount of <%= number_to_currency(bid.amount) %> 
 			<% else %> <%= bid.provider.user.name %> has bid an amount of <%= number_to_currency(bid.amount) %> 
+				<% if (@show_accept) %>
+					<% if(@post.provider.nil?)%>
+						<%= link_to 'accept this bid',accept_bids_path(post_id: @post, bid_id: bid) %>
+			
+					<% end %>
+				<% end %>
 			<% end %>
 		</h4> 
 	</li>

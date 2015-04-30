@@ -3,6 +3,16 @@ class BidsController < ApplicationController
 
   respond_to :html
 
+  def accept
+  	@bid = Bid.find(params[:bid_id])
+  	@post = Post.find(params[:post_id])
+
+    @post.provider = @bid.provider
+    @post.save
+  	respond_with(@post,@bid)
+  end
+
+
   def index
     @bids = Bid.all
     respond_with(@bids)
