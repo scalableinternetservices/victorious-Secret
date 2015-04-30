@@ -67,6 +67,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <% if user_signed_in? %>
+              <li><a href="\">Home</a></li>
               <li><%= link_to 'My posts', consumer_welcome_path, method: :get%></li>
               <li><%= link_to 'My Bids', provider_welcome_path, method: :get%></li>
             <%end%>
@@ -95,7 +96,7 @@
 <%= yield %>
 <footer>
     <div class="footer l-box is-center footerText">
-        Created By: Akshay Vangari, Naren Nagarajappa, Shahank Kothapalli, Praveen Alevoor
+        Created By: Akshay Vangari, Naren Nagarajappa, Shashank Kothapalli, Praveen Alevoor
     </div>
 </footer>
 <script src="//railsgirls.com/assets/bootstrap.js"></script>
