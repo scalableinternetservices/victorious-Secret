@@ -25,7 +25,7 @@
 	
 	<tbody>
 		<tr>
-				<%if current_user.provider == bid.provider%> <td><%= current_user.name %> </td><td><%= number_to_currency(bid.amount) %></td> 
+				<%if current_user.provider == bid.provider%> <td><%= current_user.name %><p>(you)</p> </td><td><%= number_to_currency(bid.amount) %></td> 
 				<td><%= bid.description %></td><td></td>
 		</tr>
 		<tr>

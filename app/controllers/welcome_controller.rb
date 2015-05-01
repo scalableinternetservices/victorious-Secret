@@ -4,6 +4,7 @@ class WelcomeController < ApplicationController
   	@posts = Post.all()
     @count = 0
 
+    @won = 0
     Notification.all.each do |n|
       unless n.bid.nil?
         if n.bid.post.consumer == current_user.consumer
@@ -11,6 +12,13 @@ class WelcomeController < ApplicationController
         end
 
       end
+
+      unless n.post.nil?
+        if n.post.provider == current_user.provider
+          @won = @won+1
+        end
+      end
+
 
     end
 
@@ -40,6 +48,18 @@ class WelcomeController < ApplicationController
   	current_user.provider.bids.each do |bid|
   		@posts << bid.post
 	end
+
+   @posts_update = []
+   Notification.all.each do |n|
+    unless n.post.nil?
+      if n.post.provider = current_user.provider
+        @posts_update << n.post
+      end
+
+    end
+
+   end
+
 
 
   end
