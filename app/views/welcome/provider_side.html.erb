@@ -1,9 +1,6 @@
 <div id="center">
-	<h2>You have bid on these items</h2>
+	<h3>You have bid on these items</h3>
 </div>
-
-
-
 <div id="wrapper">
 	<div id="columns">
 		<% @posts.each do |post| %>
@@ -12,19 +9,25 @@
 			<div class="new" >
 			<%else%>
 			<div class="pin">
-			<% end %>
-				<%= render(post)%>
-				<% end %>
-				<p>there have been <%= pluralize(post.bids.count,'Bid') %></p>
-				<% if !(current_user.consumer.posts.include?(post))  %>
-				
-				<h2><%= button_to '(bid on this)', new_bid_path(post_id: post), method: :post%></h2>
-				
-				<% end %>
-								
-		     </div>
-			
-			
+			<%end%>
+				<%= link_to post_path(post.id),html_options: {id: "link_hide"} do %>
+					<% if (post.picture.present?) %>
+						<%= image_tag(post.picture_url) %>
+					<% else %>
+						<img src="http://www.zeldadungeon.net/wiki/images/thumb/e/e3/No_Image.png/150px-No_Image.png" alt="no_image">
+					<%end%>
+					<h5><%=post.title%></h5>
+					<h5><%= number_to_currency(post.price)%>: <%= pluralize(post.bids.count,'Bid') %></h5>
+					<p><i><%= post.categories.to_sentence   if post.categories.to_s.length != 0 %></i></p>
+					<%end%>
+					<% if !(current_user.consumer.posts.include?(post))  %>
+						<%= button_to 'BID', new_bid_path(post_id: post) , method: :post, :class => 'btn btn-primary btn-xs'%>			
+					<% end %>
+					<% if(post.consumer.user == current_user) %>
+						<%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-primary btn-xs bidbtn' %>
+					<% end %>
+			</div>
 		<% end %>
+		<%end%>
 	</div>
 </div>
