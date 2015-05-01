@@ -107,10 +107,6 @@ html{
   margin-top: 12%;
 }
 
-.navbar-default{
-	border-color: #283F9B;
-}
-
 .navbar-fixed-top {
   border-width: 0 0 2px;
 }
@@ -226,3 +222,19 @@ html{
 	background: transparent;
 }
 
+.modal{
+	overflow: hidden;
+}
+
+.navbar-default{
+	background-color: #00486E !important;
+	background-image: none !important;
+}
+
+.navText{
+	color: white !important;
+}
+
+.navText:hover{
+	background-color: #28A4C9 !important;
+}

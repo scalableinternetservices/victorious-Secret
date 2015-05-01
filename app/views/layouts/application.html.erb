@@ -51,41 +51,43 @@
   </div>
 </nav> -->
 
-<div class="header">
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="<%=welcome_url%>">NOITCUA</a>
+<% if user_signed_in? %>
+  <div class="header">
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand navText" href="<%=welcome_url%>">NOITCUA</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <% if user_signed_in? %>
+                <li><a href="<%=welcome_url%>" class= "navText">Home</a></li>
+                <li><%= link_to 'My posts', consumer_welcome_path, method: :get, :class => "navText"%></li>
+                <li><%= link_to 'My Bids', provider_welcome_path, method: :get, :class => "navText"%></li>
+              <%end%>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
+                <li><p class="welcomeMsg navText">Welcome back <%= current_user.name %>!</p></li>
+                <li><%= link_to "Edit profile", edit_user_registration_path, :class => "navText"%></li>
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "navText"%></li>
+              <% else %>
+                <li><a href="" class="signupbtn">Sign Up</a></li>
+                <li><a href="" class="loginbtn">Log In</a></li>
+              <% end %>
+            </ul>
+          </div><!--/.nav-collapse -->
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <% if user_signed_in? %>
-              <li><a href="\">Home</a></li>
-              <li><%= link_to 'My posts', consumer_welcome_path, method: :get%></li>
-              <li><%= link_to 'My Bids', provider_welcome_path, method: :get%></li>
-            <%end%>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <% if user_signed_in? %>
-              <li><p class="welcomeMsg">Welcome back <%= current_user.name %>!</p></li>
-              <li><%= link_to "Edit profile", edit_user_registration_path%></li>
-              <li><%= link_to "Logout", destroy_user_session_path, method: :delete%></li>
-            <% else %>
-              <li><a href="" class="signupbtn">Sign Up</a></li>
-              <li><a href="" class="loginbtn">Log In</a></li>
-            <% end %>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-</div>
+      </nav>
+  </div>
+<%end%>
 
 	<% if notice %>
   <p class="alert alert-success"><%= notice %></p>
