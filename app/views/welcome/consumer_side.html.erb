@@ -6,8 +6,12 @@
 <div id="wrapper">
 	<div id="columns">
 		<% @posts.each do |post| %>
-			<%= link_to post_path(post.id) do %>
+			<%= link_to post_path(post.id) do%>
+			<% if @posts_update.include? post %>
+			<div class="new" >
+			<%else%>
 			<div class="pin">
+			<% end %>
 				<%= render(post)%>
 
 				<p>there have been <%= pluralize(post.bids.count,'Bid') %></p>
@@ -16,6 +20,7 @@
 		     </div>
 			<% end %>
 			
-		<% end %>
+			<% end %>
+		
 	</div>
 </div>

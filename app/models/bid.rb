@@ -1,11 +1,12 @@
 class Bid < ActiveRecord::Base
   belongs_to :provider
   belongs_to :post
-
+  has_one :notification
   validates :description, :amount, presence: true
   validates :amount, numericality: {greater_than_or_equal_to: 0.01}
 
   before_create :ensure_user_has_not_bid_already
+
 
   private
 

@@ -13,7 +13,6 @@
 
 <% if @post.bids.length !=0 %>
 	<table cellspacing = '0' id = "bid_table">
-	<% @post.bids.each do |bid| %>
 	<thead>
 		<tr>
 			<th>Bidder</th>
@@ -22,6 +21,8 @@
 			<th>Accept Bid</th>
 		</tr>
 	</thead>
+	<% @post.bids.each do |bid| %>
+	
 	<tbody>
 		<tr>
 				<%if current_user.provider == bid.provider%> <td><%= current_user.name %> </td><td><%= number_to_currency(bid.amount) %></td> 
