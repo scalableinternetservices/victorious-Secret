@@ -69,8 +69,18 @@
             <ul class="nav navbar-nav">
               <% if user_signed_in? %>
                 <li><a href="<%=welcome_url%>" class= "navText">Home</a></li>
-                <li><%= link_to 'My posts', consumer_welcome_path, method: :get, :class => "navText", :datanotifications => "10"%></li>
-                <li><%= link_to 'My Bids', provider_welcome_path, method: :get, :class => "navText"%></li>
+                <% if @count!=0 %>
+                  <li><%= link_to 'My posts', consumer_welcome_path,method: :get,:class => "navText",:datanotifications =>@count%></li>
+                <% else %>
+                  <li><%= link_to 'My posts', consumer_welcome_path, method: :get, :class => "navText"%></li>
+                <% end %>
+
+                <% if @won != 0 %>
+                  <li><%= link_to 'My Bids', provider_welcome_path, method: :get,:class => "navText",:datanotifications =>@won %> </li>
+                <% else %>
+                  <li><%= link_to 'My Bids', provider_welcome_path, method: :get, :class => "navText"%></li>
+                <%end%>
+
               <%end%>
             </ul>
             <ul class="nav navbar-nav navbar-right">
