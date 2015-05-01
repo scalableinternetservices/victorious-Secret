@@ -16,7 +16,7 @@
 					<% if (post.picture.present?) %>
 						<%= image_tag(post.picture_url,size: "150x150") %>
 					<% else %>
-						<img src="http://www.zeldadungeon.net/wiki/images/thumb/e/e3/No_Image.png/150px-No_Image.png" alt="no_image">
+						<img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image" width="150">
 					<%end%>
 					<h5><%=post.title%></h5>
 					<h5><%= number_to_currency(post.price)%>: <%= pluralize(post.bids.count,'Bid') %></h5>
