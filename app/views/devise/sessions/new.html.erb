@@ -4,10 +4,8 @@
         <h3 class="splash-subhead">
             The next big thing has finally arrived.
         </h3>
-        <button type="button" id="loginbtn" class="btn btn-info btn-lg">LOG IN</button>
-<!--         <p>
-            <%= link_to "Get Started", new_user_registration_path, :class => 'pure-button pure-button-primary'%>
-        </p> -->
+        <button type="button" class="loginbtn btn btn-info btn-lg">LOG IN</button>
+        <button type="button" class="signupbtn btn btn-info btn-lg">SIGN UP</button>
     </div>
 </div>
 
@@ -98,7 +96,8 @@
             </div>
         </div>
     </div>
-</div>   
+</div>  
+
 <div id="popup" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -119,29 +118,59 @@
     </div>
 </div>
 
-<!-- <h2>Log in</h2>
+<div id="popuptwo" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Sign Up</h4>
+            </div>
+            <div class="modal-body">
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                  <%= devise_error_messages! %>
+                  <div class="field">
+                    <%= f.label :name %><br />
+                    <%= f.text_field :name, autofocus: true %>
+                  </div>
+                  <div class="field">
+                    <%= f.label :age %><br />
+                    <%= f.text_field :age, autofocus: true %>
+                  </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+                  <div class="field">
+                    <%= f.label :phone %><br />
+                    <%= f.text_field :phone, autofocus: true %>
+                  </div>
+                  
+                  <div class="field">
+                    <%= f.label :address %><br />
+                    <%= f.text_field :address, autofocus: true %>
+                  </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+                  <div class="field">
+                    <%= f.label :email %><br />
+                    <%= f.email_field :email, autofocus: true %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :password %>
+                    <% if @validatable %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <% end %><br />
+                    <%= f.password_field :password, autocomplete: "off" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :password_confirmation %><br />
+                    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                  </div>
+
+                  <div class="actions">
+                    <%= f.submit "Sign up" %>
+                  </div>
+                <% end %>
+            </div>
+        </div>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %> -->
+</div>
