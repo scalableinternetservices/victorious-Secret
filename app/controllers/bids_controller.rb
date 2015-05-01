@@ -63,6 +63,11 @@ class BidsController < ApplicationController
     
     @bid.post = post
     @bid.provider = current_user.provider
+
+    notification = Notification.new()
+    notification.post = nil
+    @bid.notification = notification
+
     respond_with do |format|
       if @bid.save
        format.html { redirect_to welcome_url, notice: 'Your bid has been placed' }
