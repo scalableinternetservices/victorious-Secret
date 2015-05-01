@@ -4,11 +4,21 @@ VictoriousSecret::Application.routes.draw do
    post "search/search"
    get "search/search"
    resources :bids do  
+    member do
+      post :new
+    end
+
     collection do
       get :accept
     end
+
+
   end
+
+
   
+  
+
 
   resources :posts
 

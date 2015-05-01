@@ -16,5 +16,8 @@ class Post < ActiveRecord::Base
     text :categories
   end
 
+  has_one :notification
+  
+
 end
 																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			

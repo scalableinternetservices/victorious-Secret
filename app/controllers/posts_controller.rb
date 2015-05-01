@@ -14,6 +14,30 @@ class PostsController < ApplicationController
       @show_accept = true
     end
 
+    
+    Notification.all.each do |n|
+      if(request.referer == consumer_welcome_url)
+        unless n.bid.nil?
+          if ( (n.bid.post == @post) && (current_user.consumer == @post.consumer) )
+              n.destroy
+          end
+
+        end
+
+      end
+
+      if(request.referer == provider_welcome_url)
+        unless n.post.nil?
+          if ( n.post == @post ) && ( current_user.provider == @post.provider)
+            n.destroy
+          end
+        end
+      end
+      
+    end
+
+
+
     respond_with(@post,@show_accept)
   end
 
@@ -66,4 +90,7 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :description, :picture, :price,:categories)
     end
+
+    
+
 end

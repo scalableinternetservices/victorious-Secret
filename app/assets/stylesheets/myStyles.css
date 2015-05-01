@@ -84,7 +84,7 @@ html{
 }
 
 .splash-container{
-	background-image: url(/assets/background.jpg);
+	background-image: url("/assets/background.jpg");
 }
 
 .menuText{
@@ -100,16 +100,11 @@ html{
 	color: white !important;
 }
 
-#myModal{
-  display: block;
+#popup{
   width: 50%;
   height: 50%;
   margin-left: 25%;
   margin-top: 12%;
-}
-
-.navbar-default{
-	border-color: #283F9B;
 }
 
 .navbar-fixed-top {
@@ -118,4 +113,128 @@ html{
 
 .welcomeMsg{
 	margin-top: 16px;
+}
+
+#bid_page h4 {
+	font-size: 1.8em;
+	color: #3276b1;
+	margin-left: 200px;
+}
+
+#bid_page h5 {
+	margin-left: 200px;
+	font-size: 1em;
+}
+
+#bid_page .timestamp {
+	color: #999999;
+}
+
+#bid_page th {
+	border: none;
+	padding: 20px 20px 0px 0px;
+}
+
+#bid_page table {
+	margin-left: 200px;
+}
+
+#bid_page td {
+	padding: 20px 20px 0px 0px;
+}
+
+#bid_table th {
+	padding:21px 25px 22px 25px;
+	border-top:1px solid #fafafa;
+	border-bottom:1px solid #e0e0e0;
+
+	background: #ededed;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
+	background: -moz-linear-gradient(top,  #ededed,  #ebebeb);
+}
+
+#bid_table {
+	margin-top: 20px;
+	margin-left: 200px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#666;
+	font-size:12px;
+	text-shadow: 1px 1px 0px #fff;
+	background:#eaebec;
+	border:#ccc 1px solid;
+
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+
+	-moz-box-shadow: 0 1px 2px #d1d1d1;
+	-webkit-box-shadow: 0 1px 2px #d1d1d1;
+	box-shadow: 0 1px 2px #d1d1d1;
+}
+
+#bid_table tr {
+	text-align: center;
+	padding-left:20px;
+}
+
+#bid_table td {
+	padding:18px;
+	border-top: 1px solid #ffffff;
+	border-bottom:1px solid #e0e0e0;
+	border-left: 1px solid #e0e0e0;
+
+	background: #fafafa;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
+	background: -moz-linear-gradient(top,  #fbfbfb,  #fafafa);
+}
+
+#bid_page img {
+	float:left;
+}
+
+.new{
+
+	display: inline-block;
+	background: #DA1F1F;
+	border: 2px solid #FAFAFA;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+	margin: 0 2px 15px;
+	-webkit-column-break-inside: avoid;
+	-moz-column-break-inside: avoid;
+	column-break-inside: avoid;
+	padding: 15px;
+	padding-bottom: 5px;
+	background: -webkit-linear-gradient(45deg, #FFF, #DA1F1F);
+	opacity: 1;
+	
+	-webkit-transition: all .2s ease;
+	-moz-transition: all .2s ease;
+	-o-transition: all .2s ease;
+	transition: all .2s ease;
+}
+
+
+
+.loginbtn{
+	background: transparent;
+}
+.signupbtn{
+	background: transparent;
+}
+
+.modal{
+	overflow: hidden;
+}
+
+.navbar-default{
+	background-color: #00486E !important;
+	background-image: none !important;
+}
+
+.navText{
+	color: white !important;
+}
+
+.navText:hover{
+	background-color: #28A4C9 !important;
 }
