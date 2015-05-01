@@ -3,8 +3,7 @@
 </div>
 <% if @post.provider %>
 <% if @post.consumer == current_user.consumer %>
-<h1> the accepted bidders name is <%= @post.provider.user.name %> </h1>
-<p> so you can't accept anymore </p>
+<h1> This bid is won by <%=@post.provider.user.name%> </h1>
 <br />
 <br />
 <% end %>
@@ -32,7 +31,7 @@
 				<% else %> <td><%= bid.provider.user.name %> </td><td><%= number_to_currency(bid.amount) %> </td><td><%= bid.description %></td>
 				<% if (@show_accept) %>
 					<% if(@post.provider.nil?)%>
-						<td><%= link_to 'accept the bid', accept_bids_path(post_id: @post, bid_id: bid) %></td></tr>
+						<td><%= link_to 'accept the bid', accept_bids_path(post_id: @post, bid_id: bid), :class => 'btn btn-primary btn-xs bidbtn' %></td></tr>
 					<% end %>
 				<% end %>
 			<% end %> 
