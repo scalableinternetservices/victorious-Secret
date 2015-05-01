@@ -1,5 +1,5 @@
 <div id="center">
-	<h2>These are some of the posts aroung you </h2>
+	<h3>Posts around you: </h3>
 	<% if @count != 0 %>
 	<h1> you have <%= pluralize(@count,'bid')  %> new </h1>
 	<%end%>
@@ -8,25 +8,32 @@
 	<% end %>
 </div>
 
+<!--  -->
+
 <div id="wrapper">
 	<div id="columns">
 		<% @posts.each do |post| %>
-			
 			<div class="pin">
-			<%= link_to post_path(post.id),html_options: {id: "link_hide"} do %>
-				<%= render(post)%>
-				<% end %>
-				<p>there have been <%= pluralize(post.bids.count,'Bid') %></p>
-				<% if !(current_user.consumer.posts.include?(post))  %>
-				<h2><%= button_to '(bid on this)', new_bid_path(post_id: post) , method: :post%>	</h2>			
-				<% end %>
-			
+				<%= link_to post_path(post.id),html_options: {id: "link_hide"} do %>
+					<% if (post.picture.present?) %>
+						<%= image_tag(post.picture_url) %>
+					<%end%>
+					<h5><%=post.title%></h5>
+					<h5><%= number_to_currency(post.price)%>: <%= pluralize(post.bids.count,'Bid') %></h5>
+					<p><i><%= post.categories.to_sentence   if post.categories.to_s.length != 0 %></i></p>
+					<%end%>
+					<% if !(current_user.consumer.posts.include?(post))  %>
+						<%= button_to 'BID', new_bid_path(post_id: post) , method: :post, :class => 'btn btn-primary btn-xs'%>			
+					<% end %>
+					<% if(post.consumer.user == current_user) %>
+						<%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-primary btn-xs bidbtn' %>
+					<% end %>
 			</div>
-			
-				
 		<% end %>
 	</div>
 </div>
+
+
 <!-- 
 <!
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

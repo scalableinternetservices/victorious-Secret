@@ -1,6 +1,6 @@
 <%= button_to 'Request a service', new_post_path, method: :get, class: "pure-button"%>
 <div id="center">
-	<h2>These are your posts </h2>
+	<h3>These are your posts </h3>
 </div>
 
 <div id="wrapper">
@@ -11,16 +11,23 @@
 			<div class="new" >
 			<%else%>
 			<div class="pin">
+			<%end%>
+				<%= link_to post_path(post.id),html_options: {id: "link_hide"} do %>
+					<% if (post.picture.present?) %>
+						<%= image_tag(post.picture_url) %>
+					<%end%>
+					<h5><%=post.title%></h5>
+					<h5><%= number_to_currency(post.price)%>: <%= pluralize(post.bids.count,'Bid') %></h5>
+					<p><i><%= post.categories.to_sentence   if post.categories.to_s.length != 0 %></i></p>
+					<%end%>
+					<% if !(current_user.consumer.posts.include?(post))  %>
+						<%= button_to 'BID', new_bid_path(post_id: post) , method: :post, :class => 'btn btn-primary btn-xs'%>			
+					<% end %>
+					<% if(post.consumer.user == current_user) %>
+						<%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-primary btn-xs bidbtn' %>
+					<% end %>
+			</div>
 			<% end %>
-				<%= render(post)%>
-
-				<p>there have been <%= pluralize(post.bids.count,'Bid') %></p>
-				
-								
-		     </div>
 			<% end %>
-			
-			<% end %>
-		
 	</div>
 </div>
