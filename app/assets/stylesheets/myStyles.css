@@ -238,3 +238,19 @@ html{
 .navText:hover{
 	background-color: #28A4C9 !important;
 }
+
+[datanotifications] {
+	position: relative;
+}
+
+[datanotifications]:after {
+	content: attr(datanotifications);
+	position: absolute;
+	background: red;
+	border-radius: 50%;
+	display: inline-block;
+	padding: 0.3em;
+	color: #f2f2f2;
+  right: -10px;
+  top: 20px;
+}
