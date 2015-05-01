@@ -1,5 +1,5 @@
 <h4><%= post.title %></h4>  
-<h5><%= post.categories.to_sentence   if post.categories.to_s.length != 0 %> </h5>
+<h5> </h5>
 
 <% if (post.picture.present?) %>
 <%= image_tag(post.picture_url, size: "150x150", alt: "User hasn't posted a picture") %>
@@ -9,6 +9,9 @@
 
 <table>
 	<tbody>
+		<tr>
+			<th>Categories: </th> <td><%= post.categories.to_sentence   if post.categories.to_s.length != 0 %></td>
+		</tr>
 		<tr>
 			<th>Price: </th><td><%= number_to_currency(post.price) %></td>	
 		</tr>			
