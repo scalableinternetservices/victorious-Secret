@@ -14,7 +14,7 @@
 			<%end%>
 				<%= link_to post_path(post.id),html_options: {id: "link_hide"} do %>
 					<% if (post.picture.present?) %>
-						<%= image_tag(post.picture_url,size: "150x150") %>
+						<%= image_tag(post.picture_url) %>
 					<% else %>
 						<img src="http://www.zeldadungeon.net/wiki/images/thumb/e/e3/No_Image.png/150px-No_Image.png" alt="no_image">
 					<%end%>
