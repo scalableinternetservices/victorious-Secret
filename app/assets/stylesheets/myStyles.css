@@ -84,7 +84,7 @@ html{
 }
 
 .splash-container{
-	background-image: url(/assets/background.jpg);
+	background-image: url("/assets/background.jpg");
 }
 
 .menuText{
