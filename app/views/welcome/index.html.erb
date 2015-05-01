@@ -1,14 +1,12 @@
 <div id="center">
 	<h3>Posts around you: </h3>
 	<% if @count != 0 %>
-	<h1> you have <%= pluralize(@count,'bid')  %> new </h1>
+	<h3> you have <%= pluralize(@count,'bid')  %> new </h3>
 	<%end%>
 	<%if @won !=0 %>
-	<h1> you have won <%=pluralize(@won,'bid')%> </h1>
+	<h3> you have won <%=pluralize(@won,'bid')%> </h3>
 	<% end %>
 </div>
-
-<!--  -->
 
 <div id="wrapper">
 	<div id="columns">
