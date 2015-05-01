@@ -145,8 +145,8 @@ a.pure-button-primary {
 
 .splash {
     /* absolute center .splash within .splash-container */
-    width: 80%;
-    height: 50%;
+    width: 65%;
+    height: 80%;
     margin: auto;
     position: absolute;
     top: 100px; left: 0; bottom: 0; right: 0;
@@ -159,11 +159,11 @@ a.pure-button-primary {
     font-size: 20px;
     font-weight: bold;
     color: white;
-    border: 3px solid white;
-    padding: 1em 1.6em;
+    padding: 1em -0.4em;
     font-weight: 100;
     border-radius: 5px;
     line-height: 1em;
+    margin-bottom: 0px;
 }
 
 /* This is the subheading that appears on the blue section */
@@ -258,7 +258,7 @@ a.pure-button-primary {
     }
 
     .splash-head {
-        font-size: 250%;
+        font-size: 500%;
     }
 
 
@@ -277,6 +277,6 @@ a.pure-button-primary {
 @media (min-width: 78em) {
     /* We increase the header font size even more */
     .splash-head {
-        font-size: 300%;
+        font-size: 500%;
     }
 }
