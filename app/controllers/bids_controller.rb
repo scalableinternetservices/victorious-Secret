@@ -13,6 +13,7 @@ class BidsController < ApplicationController
     notification = Notification.new()
     notification.bid = nil
     @post.notification = notification
+    notification.save
     @post.save
   	respond_with(@post,@bid)
   end

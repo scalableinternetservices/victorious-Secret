@@ -13,7 +13,7 @@
 		<% @posts.each do |post| %>
 			
 			<div class="pin">
-			<%= link_to post_path(post.id) do %>
+			<%= link_to post_path(post.id),html_options: {id: "link_hide"} do %>
 				<%= render(post)%>
 				<% end %>
 				<p>there have been <%= pluralize(post.bids.count,'Bid') %></p>

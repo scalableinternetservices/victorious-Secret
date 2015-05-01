@@ -8,7 +8,7 @@
 	<div id="columns">
 		<% @posts.each do |post| %>
 			<%= link_to post_path(post.id) do %>
-			<% if @posts_update.include? post %>
+			<% if ( (@posts_provider_update.include? post) && (post.provider == current_user.provider) )%>
 			<div class="new" >
 			<%else%>
 			<div class="pin">

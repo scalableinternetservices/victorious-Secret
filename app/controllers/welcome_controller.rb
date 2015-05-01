@@ -49,11 +49,11 @@ class WelcomeController < ApplicationController
   		@posts << bid.post
 	end
 
-   @posts_update = []
+   @posts_provider_update = []
    Notification.all.each do |n|
     unless n.post.nil?
       if n.post.provider = current_user.provider
-        @posts_update << n.post
+        @posts_provider_update << n.post
       end
 
     end
