@@ -30,6 +30,8 @@ class BidsController < ApplicationController
 
   def new
     post = Post.find(params[:post_id])
+
+    @post = post
     $flag = false
     #if the user has already bid on the item, he can edit his bid
     bids = post.bids
