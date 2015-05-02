@@ -86,7 +86,7 @@ html{
 	text-decoration: none;
 }
 
-(.pin a:hover):not(.bidbtn){
+.pin a:hover{
 	all: unset !important;
 }
 
