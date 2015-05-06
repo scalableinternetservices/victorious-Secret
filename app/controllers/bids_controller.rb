@@ -15,7 +15,7 @@ class BidsController < ApplicationController
     @post.notification = notification
     notification.save
     @post.save
-  	respond_with(@post,@bid)
+  	redirect_to welcome_url,notice:"the provider has been notified of your acceptance"
   end
 
 

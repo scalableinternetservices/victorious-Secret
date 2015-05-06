@@ -19,7 +19,12 @@
 			<th>Description: </th><td><%= sanitize(post.description) %></td>
 		</tr>
 		<tr>
-			<th>Seller Information: </th><td><%=post.consumer.user.name%></td>
+			<th>Seller Information: </th>
+				<td>
+					<%= link_to view_path(user_id: post.consumer.user.id) do%>
+					<%=post.consumer.user.first%><%=post.consumer.user.last%>
+					<% end %>
+				</td> 
 	</tbody>
 </table>
 <% if(post.consumer.user == current_user) %>
