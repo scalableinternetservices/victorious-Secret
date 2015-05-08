@@ -1,21 +1,22 @@
-<h2><%= @user.first %></h2>
-<h2><%=@user.last%></h2>
+<h2><%= @user.first %> <%=@user.last%>'s Profile</h2>
 
-<h2><%=@user.age%></h2>
-<h2><%=@user.phone%></h2>
-<h2><%=@user.address%></h2>
-
+<div class="userinfo">
+<h4>Age: <%=@user.age%></h4>
+<h4>Phone: <%=@user.phone%></h4>
+<h4>Address: <%=@user.address%> (GOOGLE MAPS HERE...)</h4>
+</div>
 
 
 <% if @user.picture %>
-	<%= image_tag(@user.picture_url, size: "150x150", alt: "User hasn't posted a picture") %>
+	<img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image" width="250" height="250">
 <% else %>
 <img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image">
 <% end %>
 
 
-<h1> all the reviews of this user as a provider </h1>
-average rating : <%=@user.provider.rating %>
+<h4> All the reviews of this user as a provider: </h4>
+Overall Average Rating: <%=@user.provider.rating %>
+
 <ol>
 	<% @reviews.each do |review|%>
 		<li> <%= review.rating%> <br /> <%= review.description %> </li>
