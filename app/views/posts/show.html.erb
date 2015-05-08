@@ -3,11 +3,12 @@
 </div>
 <% if @post.provider %>
 <% if @post.consumer == current_user.consumer %>
-<h1> This bid is won by <%=@post.provider.user.first%> <%=@post.provider.user.last%> </h1>
-<br />
-<br />
+<h1> This bid is won by <%=@post.provider.user.first%> <%=@post.provider.user.last%> </h1>	
 <% end %>
 <% end %>
+<br />
+<br />
+
 
 
 <% if @post.bids.length !=0 %>
