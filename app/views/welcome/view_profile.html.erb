@@ -1,4 +1,4 @@
-<h2><%= @user.first %> <%=@user.last%>'s Profile</h2>
+<!-- <h2><%= @user.first %> <%=@user.last%>'s Profile</h2>
 
 <div class="userinfo">
 <h4>Age: <%=@user.age%></h4>
@@ -22,3 +22,40 @@ Overall Average Rating: <%=@user.provider.rating %>
 		<li> <%= review.rating%> <br /> <%= review.description %> </li>
 	<% end %>
 </ol>
+ -->
+
+ <h2><%= @user.first %> <%=@user.last%>'s Profile</h2>
+
+<div class="userinfo">
+<h4>Age: <%=@user.age%></h4>
+<h4>Phone: <%=@user.phone%></h4>
+<h4>Address: <%=@user.address%> (GOOGLE MAPS HERE...)</h4>
+<h4>Average Rating (as service provider): <%=@user.provider.rating %></h4>
+</div>
+
+
+<% if @user.picture %>
+	<img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image" width="250" height="250">
+<% else %>
+<img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image">
+<% end %>
+
+<% if @reviews.any? %>
+<h4> All the reviews of this user as a provider: </h4>
+<table class="pure-table">
+	<thead>
+	    <tr>
+	        <th>Rating</th>
+	        <th>Description</th>
+	    </tr>
+	</thead>
+	<tbody>
+		<% @reviews.each do |review|%>
+			<tr class="pure-table-odd">
+				<td><%= review.rating%></td>
+				<td><%= review.description %> </td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+<% end %>

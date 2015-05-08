@@ -1,5 +1,39 @@
 <%= button_to 'Request a service', new_post_path, method: :get, class: "pure-button"%>
-<%= render 'pins' %>
+<div id="wrapper">
+	<div id="content">
+		<ul id="movieposters">
+				<% @posts.each do |post| %>		
+				<% if @posts_update.include? post %>
+				<li class="newbid">
+				<% else %>
+					<li>
+					<%end %>
+						<%= link_to post_path(post.id) do %>
+						<% if (post.picture.present?) %>
+							<%= image_tag(post.picture_url, width: "250", height: "250")%>
+						<% else %>
+							<img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image" width="250" height="250">
+						<%end%>
+				<% end %>
+					<div class="movieinfo">
+							<%= link_to post_path(post.id) do %>
+									<h5><%=post.title%></h5>
+									<h5><%= number_to_currency(post.price)%>: <%= pluralize(post.bids.count,'Bid') %></h5>
+									<p><i><%= post.categories.to_sentence   if post.categories.to_s.length != 0 %></i></p>
+							<% end %>
+							<% if !(current_user.consumer.posts.include?(post))  %>
+								<%= button_to 'BID', new_bid_path(post_id: post) , method: :post, :class => 'btn btn-primary btn-xs'%>			
+							<% end %>
+							<% if(post.consumer.user == current_user) %>
+								<%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-primary btn-xs bidbtn' %>
+							<% end %>
+						</div>
+
+					</li>
+				<% end %>
+		</ul>
+	</div>
+</div>
 
 <!-- <div id="center">
 	<h3>These are your posts </h3>
