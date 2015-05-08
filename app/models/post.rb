@@ -17,6 +17,8 @@ class Post < ActiveRecord::Base
   end
 
   has_one :notification
+
+  has_one :proreview
   
   
 

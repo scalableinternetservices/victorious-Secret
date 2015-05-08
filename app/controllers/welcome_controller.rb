@@ -49,6 +49,15 @@ class WelcomeController < ApplicationController
 	  else
 		  @user = current_user
 	  end
+
+    @reviews = []
+    Proreview.all.each do |x|
+      if x.post.provider == @user.provider
+        @reviews << x
+      end
+
+    end
+
   end
 
 

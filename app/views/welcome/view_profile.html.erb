@@ -5,8 +5,19 @@
 <h2><%=@user.phone%></h2>
 <h2><%=@user.address%></h2>
 
+
+
 <% if @user.picture %>
 	<%= image_tag(@user.picture_url, size: "150x150", alt: "User hasn't posted a picture") %>
 <% else %>
 <img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image">
 <% end %>
+
+
+<h1> all the reviews of this user as a provider </h1>
+average rating : <%=@user.provider.rating %>
+<ol>
+	<% @reviews.each do |review|%>
+		<li> <%= review.rating%> <br /> <%= review.description %> </li>
+	<% end %>
+</ol>

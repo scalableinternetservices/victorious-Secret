@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   mount_uploader :picture, PictureUploader
 
-  validates :first, :last, :age, :phone, :address, presence: true
+  validates :first, :last, :age, :phone, :address,:picture, presence: true
   validates :age, numericality: {greater_than_or_equal_to: 18}
   validates :phone, uniqueness: true, format: {with: /\d{10}/, message: 'please enter a valid phone number'}
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150508021412) do
+ActiveRecord::Schema.define(version: 20150508201442) do
 
   create_table "bids", force: true do |t|
     t.integer  "provider_id"
@@ -59,6 +59,18 @@ ActiveRecord::Schema.define(version: 20150508021412) do
 
   add_index "posts", ["consumer_id"], name: "index_posts_on_consumer_id", using: :btree
   add_index "posts", ["provider_id"], name: "index_posts_on_provider_id", using: :btree
+
+  create_table "proreviews", force: true do |t|
+    t.integer  "rating"
+    t.text     "description"
+    t.integer  "consumer_id"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "proreviews", ["consumer_id"], name: "index_proreviews_on_consumer_id", using: :btree
+  add_index "proreviews", ["post_id"], name: "index_proreviews_on_post_id", using: :btree
 
   create_table "providers", force: true do |t|
     t.integer  "user_id"

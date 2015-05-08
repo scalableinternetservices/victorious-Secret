@@ -1,4 +1,11 @@
 VictoriousSecret::Application.routes.draw do
+  resources :proreviews do
+    member do
+      post :new
+    end
+  end
+
+
    post "search/posts"
    get "search/posts"
    post "search/search"

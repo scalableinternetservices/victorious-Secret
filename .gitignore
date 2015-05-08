@@ -19,6 +19,7 @@
 Gemfile.lock
 
 public/uploads/post/picture
+public/uploads/user/picture
 
 /config/database.yml
 

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @proreview.rating %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @proreview.description %>
+</p>
+
+
+<p>
+  <strong>Post:</strong>
+  <%= @proreview.post %>
+</p>
+
+<%= link_to 'Edit', edit_proreview_path(@proreview) %> |
+<%= link_to 'Back', proreviews_path %>

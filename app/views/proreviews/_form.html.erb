@@ -1,0 +1,26 @@
+<%= form_for(@proreview) do |f| %>
+  <% if @proreview.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@proreview.errors.count, "error") %> prohibited this proreview from being saved:</h2>
+
+      <ul>
+      <% @proreview.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :rating %><br>
+    <%= f.number_field :rating %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
