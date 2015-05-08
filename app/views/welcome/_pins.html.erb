@@ -2,11 +2,12 @@
 	<div id="content">
 		<ul id="movieposters">
 				<% @posts.each do |post| %>
+				<%= link_to post_path(post.id) do %>
 				<li>
 						<% if (post.picture.present?) %>
 							<%= image_tag(post.picture_url, width: "250", height: "250")%>
 						<% else %>
-							<img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image" width="300" height="450">
+							<img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image" width="250" height="250">
 						<%end%>
 					<div class="movieinfo">
 							<h5><%=post.title%></h5>
@@ -21,6 +22,7 @@
 							
 						</div>
 					</li>
+					<% end %>
 				<% end %>
 		</ul>
 	</div>

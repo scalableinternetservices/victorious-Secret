@@ -28,13 +28,13 @@
 #movieposters li:hover .movieinfo { -webkit-transform: rotateY(0deg); -webkit-box-shadow:0 5px 10px #888; margin:-175px 0 0 30px; }
 	
 .movieinfo h3 { color:#7a3f3a; font-variant: small-caps; font-family:Georgia,serif,Times; text-align:center; padding-bottom:15px; }
-.movieinfo a { background-color:#7a3f3a; padding:5px 10px; color:#eee; text-decoration:none; display:block; width:80px; text-align:center; margin:0 auto;
-	-moz-border-radius:5px; -webkit-border-radius:5px; }
-.movieinfo a:hover, .movieinfo a:focus { background-color:#6a191f; color:#fff; }
-.movieinfo:hover {opacity: 1;
+
+#movieposters li:hover .movieinfo {opacity: 1;
 }
 
 #movieposters > li{
 	padding-top: 75px;
 	margin-bottom: 75px;
 }
+
+#movieposters > a:hover{background-color: transparent; text-decoration: none;}
