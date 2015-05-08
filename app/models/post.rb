@@ -10,6 +10,11 @@ class Post < ActiveRecord::Base
   default_scope order('created_at DESC')
 
   has_many :bids, dependent: :destroy
+  searchable do
+    text :title
+    text :description
+    text :categories
+  end
 
   has_one :notification
   
