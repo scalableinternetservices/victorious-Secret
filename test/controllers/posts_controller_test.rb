@@ -6,17 +6,20 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
+    sign_in users(:user1)
     get :index
     assert_response :success
     assert_not_nil assigns(:posts)
   end
 
   test "should get new" do
+    sign_in users(:user1)
     get :new
     assert_response :success
   end
 
   test "should create post" do
+    sign_in users(:user1)
     assert_difference('Post.count') do
       post :create, post: { consumer_id: @post.consumer_id, description: @post.description, picture: @post.picture, title: @post.title }
     end
@@ -25,21 +28,25 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "should show post" do
+    sign_in users(:user1)
     get :show, id: @post
     assert_response :success
   end
 
   test "should get edit" do
+    sign_in users(:user1)
     get :edit, id: @post
     assert_response :success
   end
 
   test "should update post" do
+    sign_in users(:user1)
     patch :update, id: @post, post: { consumer_id: @post.consumer_id, description: @post.description, picture: @post.picture, title: @post.title }
     assert_redirected_to post_path(assigns(:post))
   end
 
   test "should destroy post" do
+    sign_in users(:user1)
     assert_difference('Post.count', -1) do
       delete :destroy, id: @post
     end

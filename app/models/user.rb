@@ -4,9 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :name, :age, :phone, :address, presence: true
+  mount_uploader :picture, PictureUploader
+
+  validates :first, :last, :age, :phone, :address, presence: true
   validates :age, numericality: {greater_than_or_equal_to: 18}
-  validates :phone, uniqueness: true
+  validates :phone, uniqueness: true, format: {with: /\d{10}/, message: 'please enter a valid phone number'}
 
   has_one :consumer, dependent: :destroy 
   has_one :provider, dependent: :destroy

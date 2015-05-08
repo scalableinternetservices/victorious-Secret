@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Noitcua</title>
-  <link rel="shortcut icon" type="image/png" href="../assets/N.png"> 
+  <link rel="shortcut icon" type="image/png" href= <%= asset_path('N.png' ) %> > 
   <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap.css">
   <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap-theme.css">
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
@@ -86,7 +86,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <% if user_signed_in? %>
-                <li><p class="welcomeMsg navText">Welcome back <%= current_user.name %>!</p></li>
+                <li><p class="welcomeMsg navText">Welcome back <%= current_user.first %>!</p></li>
                 <li><%= link_to "Edit profile", edit_user_registration_path, :class => "navText"%></li>
                 <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "navText"%></li>
               <% else %>

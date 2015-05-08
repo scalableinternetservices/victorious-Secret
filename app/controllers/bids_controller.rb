@@ -15,7 +15,7 @@ class BidsController < ApplicationController
     @post.notification = notification
     notification.save
     @post.save
-  	respond_with(@post,@bid)
+  	redirect_to welcome_url,notice:"the provider has been notified of your acceptance"
   end
 
 
@@ -30,6 +30,8 @@ class BidsController < ApplicationController
 
   def new
     post = Post.find(params[:post_id])
+
+    @post = post
     $flag = false
     #if the user has already bid on the item, he can edit his bid
     bids = post.bids

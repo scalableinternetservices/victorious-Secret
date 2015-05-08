@@ -1,38 +1,30 @@
-<div id="center">
-	<h3>Posts around you: </h3>
-	<% if @count != 0 %>
-	<h3> you have <%= pluralize(@count,'bid')  %> new </h3>
-	<%end%>
-	<%if @won !=0 %>
-	<h3> you have won <%=pluralize(@won,'bid')%> </h3>
-	<% end %>
-</div>
-
 <div id="wrapper">
-	<div id="columns">
-		<% @posts.each do |post| %>
-			<div class="pin">
-				<%= link_to post_path(post.id),html_options: {id: "link_hide"} do %>
-					<% if (post.picture.present?) %>
-						<%= image_tag(post.picture_url) %>
-					<% else %>
-						<img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image" width="150">
-					<%end%>
-					<h5><%=post.title%></h5>
-					<h5><%= number_to_currency(post.price)%>: <%= pluralize(post.bids.count,'Bid') %></h5>
-					<p><i><%= post.categories.to_sentence   if post.categories.to_s.length != 0 %></i></p>
-					<%end%>
-					<% if !(current_user.consumer.posts.include?(post))  %>
-						<%= button_to 'BID', new_bid_path(post_id: post) , method: :post, :class => 'btn btn-primary btn-xs'%>			
-					<% end %>
-					<% if(post.consumer.user == current_user) %>
-						<%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-primary btn-xs bidbtn' %>
-					<% end %>
-			</div>
-		<% end %>
+	<div id="content">
+		<ul id="movieposters">
+				<% @posts.each do |post| %>
+				<li>
+						<% if (post.picture.present?) %>
+							<%= image_tag(post.picture_url, width: "300", height: "400")%>
+						<% else %>
+							<img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image" width="300" height="450">
+						<%end%>
+					<div class="movieinfo">
+							<h5><%=post.title%></h5>
+							<h5><%= number_to_currency(post.price)%>: <%= pluralize(post.bids.count,'Bid') %></h5>
+							<p><i><%= post.categories.to_sentence   if post.categories.to_s.length != 0 %></i></p>
+							<% if !(current_user.consumer.posts.include?(post))  %>
+								<%= button_to 'BID', new_bid_path(post_id: post) , method: :post, :class => 'btn btn-primary btn-xs'%>			
+							<% end %>
+							<% if(post.consumer.user == current_user) %>
+								<%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-primary btn-xs bidbtn' %>
+							<% end %>
+							
+						</div>
+					</li>
+				<% end %>
+		</ul>
 	</div>
 </div>
-
 
 <!-- 
 <!

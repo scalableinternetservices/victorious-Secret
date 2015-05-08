@@ -3,7 +3,7 @@
 </div>
 <% if @post.provider %>
 <% if @post.consumer == current_user.consumer %>
-<h1> This bid is won by <%=@post.provider.user.name%> </h1>
+<h1> This bid is won by <%=@post.provider.user.first%> <%=@post.provider.user.last%> </h1>
 <br />
 <br />
 <% end %>
@@ -24,11 +24,11 @@
 	
 	<tbody>
 		<tr>
-				<%if current_user.provider == bid.provider%> <td><%= current_user.name %><p>(you)</p> </td><td><%= number_to_currency(bid.amount) %></td> 
+				<%if current_user.provider == bid.provider%> <td><%= link_to view_path(user_id: current_user.id) do %> <%= current_user.first %><%= current_user.last %><p>(you)</p> <% end %> </td><td><%= number_to_currency(bid.amount) %></td> 
 				<td><%= bid.description %></td><td></td>
 		</tr>
 		<tr>
-				<% else %> <td><%= bid.provider.user.name %> </td><td><%= number_to_currency(bid.amount) %> </td><td><%= bid.description %></td>
+				<% else %> <td><%= link_to view_path(user_id: bid.provider.user.id) do %> <%= bid.provider.user.first %> <%= bid.provider.user.last %> <% end %></td><td><%= number_to_currency(bid.amount) %> </td><td><%= bid.description %></td>
 				<% if (@show_accept) %>
 					<% if(@post.provider.nil?)%>
 						<td><%= link_to 'accept the bid', accept_bids_path(post_id: @post, bid_id: bid), :class => 'btn btn-primary btn-xs bidbtn' %></td></tr>

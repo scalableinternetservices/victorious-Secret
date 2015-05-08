@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  provider_id: 
-  post_id: 
+  provider_id: 1 
+  post_id: 1 
   amount: 1
   description: MyText
 
