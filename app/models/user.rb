@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
 
   #auto indexer plus name index
   searchable do
-    text :name
+    text :first
+    text :last
   end
 end

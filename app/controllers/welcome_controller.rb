@@ -44,8 +44,11 @@ class WelcomeController < ApplicationController
 
 
   def view_profile
-    @user = User.find(params[:user_id])
-    
+	  if params.has_key?("user_id")
+		  @user = User.find(params[:user_id])
+	  else
+		  @user = current_user
+	  end
   end
 
 

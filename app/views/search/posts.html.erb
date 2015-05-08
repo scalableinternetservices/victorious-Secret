@@ -7,7 +7,7 @@
 <div>
 <% @results.each do |result| %>
     <tr>
-      <td><%= result.name %></td>
+	<td><%= link_to result.first+" " +result.last, {:controller => :welcome, :action => :view_profile, :user_id => result.id } %></td>
     </tr>
 <% end %>
 </div>
