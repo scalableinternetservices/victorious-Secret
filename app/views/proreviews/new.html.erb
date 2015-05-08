@@ -1,5 +1,5 @@
 
-<h1>You are reviewing the user <%= @post.provider.user.first%> <%= @post.provider.user.last %> for his/her service </h1>
+<h1>You are reviewing the user <%= link_to view_path(user_id: @post.provider.user.id) do %><%= @post.provider.user.first%> <%= @post.provider.user.last %> <% end %> for his/her service </h1>
 
 <%= render 'form' %>
 
