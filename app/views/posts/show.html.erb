@@ -2,15 +2,18 @@
 <%= render(@post)%>
 </div>
 <% if @post.provider %>
-<% if @post.consumer == current_user.consumer %>
-<h1> This bid is won by <%=@post.provider.user.first%> <%=@post.provider.user.last%> </h1>	
-<% if @post.proreview.nil? %>
-<%= button_to 'rate this provider', new_proreview_path(post_id: @post),method: :post %>
-<% end %>
-<% end %>
+	<% if @post.consumer == current_user.consumer %>
+		<h1> This bid is won by <%=@post.provider.user.first%> <%=@post.provider.user.last%> </h1>	
+			<% if @post.proreview.nil? %>
+			<%= button_to 'rate this provider', new_proreview_path(post_id: @post),method: :post %>
+			<% end %>
+	<% else %>
+		<h1> this post is closed. The provider has chosen a winner </h1>	
+	<% end %>
 <% end %>
 <br />
 <br />
+
 
 
 

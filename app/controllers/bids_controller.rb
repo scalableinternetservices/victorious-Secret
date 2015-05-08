@@ -42,12 +42,21 @@ class BidsController < ApplicationController
       end
     end
 
+    ##if the bidding is closed
+    unless post.provider.nil?
+      flag2 = true
+    end
+
+
     if $flag
       redirect_to action: :edit, id: $bid.id
 
-    ##if the user hasn't bid on the post already 
-    else
+    ##if the bidding is closed
+    elsif flag2
+      redirect_to welcome_url,notice: 'sorry, the bid has been closed for this post'
 
+      ##if the user hasn't bid on the post already 
+    else
       if post.consumer.user == current_user
         respond_with do |format|
           format.html{redirect_to welcome_url, alert: 'cannot bid on your own post'}
