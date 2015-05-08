@@ -14,7 +14,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-
+/solr
+/log/*.lck
 Gemfile.lock
 
 public/uploads/post/picture
