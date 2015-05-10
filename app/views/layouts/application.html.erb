@@ -12,7 +12,12 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body style="padding-left: 5px">
+<% if current_page?(controller: 'welcome', action: 'consumer_side') or current_page?(controller: 'welcome', action: 'provider_side') or current_page?('/')
+%>
+  <body style="padding-left: 5px" class="addbackground">
+<% else %>
+  <body style="padding-left: 5px" class="nobackground">
+<% end %>
 <!-- <header class="navbar-inverse">
   <div class="container">
     <nav role="navigation">
@@ -109,9 +114,9 @@
   </div>
 <%end%>
 
-	<% if notice %>
+<!-- <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
-<% end %>
+<% end %> -->
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
