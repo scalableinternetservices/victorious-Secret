@@ -197,10 +197,6 @@ html{
   margin-top: 12%;
 }
 
-.navbar-fixed-top {
-  border-width: 0 0 2px;
-}
-
 .welcomeMsg{
 	margin-top: 16px;
 }
@@ -317,7 +313,7 @@ html{
 }
 
 .navbar-default{
-	background-color: #00486E !important;
+	background-color: #0079BA !important;
 	background-image: none !important;
 }
 
@@ -345,9 +341,18 @@ html{
   top: 20px;
 }
 
-body{
-	font-family: HelveticaNeue-Light;
+.nobackground{
 	background-color: #E4E4E4 !important;
+	font-family: HelveticaNeue-Light;
+}
+
+.addbackground{
+	background-image: url(asset_path("/assets/wallpapertwo.png"));
+	-webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	background-attachment: fixed;
 }
 
 .navbar-form{width: 400px;}
@@ -361,4 +366,13 @@ video{
 	min-width: 100%;
 	height: auto;
 	min-height: 100%;
+}
+
+.navbar{
+	border:none !important;
+	opacity: 0.6;
+}
+
+.navbar:hover{
+	opacity: 1.0;
 }
