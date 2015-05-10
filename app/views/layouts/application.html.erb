@@ -12,7 +12,7 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<% if current_page?(controller: 'welcome', action: 'consumer_side') or current_page?(controller: 'welcome', action: 'provider_side') or current_page?('/')
+<% if current_page?('/welcome/consumer_side') or current_page?('/welcome/provider_side')or current_page?('/')
 %>
   <body style="padding-left: 5px" class="addbackground">
 <% else %>
