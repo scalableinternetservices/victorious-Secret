@@ -1,4 +1,6 @@
 	$(document).ready(function(){
+		var vid = document.getElementById("wavegif");
+		vid.playbackRate = 3.0;
 		$('a[href^="#"]').on('click',function (e) {
 	    e.preventDefault();
 
