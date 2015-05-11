@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
+  respond_to :html, :js
 
   def index
     @posts = Post.all
@@ -13,7 +13,6 @@ class PostsController < ApplicationController
     if current_user.consumer == @post.consumer
       @show_accept = true
     end
-
     
     Notification.all.each do |n|
       if(request.referer == consumer_welcome_url)
@@ -33,11 +32,7 @@ class PostsController < ApplicationController
           end
         end
       end
-      
     end
-
-
-
     respond_with(@post,@show_accept)
   end
 
