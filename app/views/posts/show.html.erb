@@ -8,7 +8,11 @@
 			<%= button_to 'rate this provider', new_proreview_path(post_id: @post),method: :post %>
 			<% end %>
 	<% else %>
+	<% if @post.provider == current_user.provider %>
+		<h1> you have won this bid </h1>
+	<% else %>
 		<h1> this post is closed. The provider has chosen a winner </h1>	
+	<% end %>
 	<% end %>
 <% end %>
 <br />
