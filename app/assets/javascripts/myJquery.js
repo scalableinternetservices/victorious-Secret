@@ -1,4 +1,7 @@
 	$(document).ready(function(){
+		$( ".postmodal_link" ).click(function() {
+		  $("#popupthree").modal('show');
+		});
 		var vid = document.getElementById("wavegif");
 		vid.playbackRate = 3.0;
 		$('a[href^="#"]').on('click',function (e) {
@@ -19,4 +22,4 @@
 		$( ".signupbtn" ).click(function() {
 		  $("#popuptwo").modal('show');
 		});
-	});
+});

@@ -1,8 +1,8 @@
-<h4><%= post.title %></h4>  
+<h4><%= @post.title %></h4>  
 <h5> </h5>
 
-<% if (post.picture.present?) %>
-<%= image_tag(post.picture_url, size: "150x150", alt: "User hasn't posted a picture") %>
+<% if (@post.picture.present?) %>
+<%= image_tag(@post.picture_url, size: "150x150") %>
 <% else %>
 <img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image">
 <% end %>
@@ -10,23 +10,23 @@
 <table>
 	<tbody>
 		<tr>
-			<th>Categories: </th> <td><%= post.categories.to_sentence   if post.categories.to_s.length != 0 %></td>
+			<th>Categories: </th> <td><%= @post.categories.to_sentence   if @post.categories.to_s.length != 0 %></td>
 		</tr>
 		<tr>
-			<th>Price: </th><td><%= number_to_currency(post.price) %></td>	
+			<th>Price: </th><td><%= number_to_currency(@post.price) %></td>	
 		</tr>			
 		<tr>
-			<th>Description: </th><td><%= sanitize(post.description) %></td>
+			<th>Description: </th><td><%= sanitize(@post.description) %></td>
 		</tr>
 		<tr>
 			<th>Seller Information: </th>
 				<td>
-					<%= link_to view_path(user_id: post.consumer.user.id) do%>
-					<%=post.consumer.user.first%><%=post.consumer.user.last%>
+					<%= link_to view_path(user_id: @post.consumer.user.id) do%>
+					<%=@post.consumer.user.first%><%=@post.consumer.user.last%>
 					<% end %>
 				</td> 
 	</tbody>
 </table>
-<% if(post.consumer.user == current_user) %>
-<%= link_to 'Edit', edit_post_path(post) %>
+<% if(@post.consumer.user == current_user) %>
+<%= link_to 'Edit', edit_post_path(@post) %>
 <% end %>

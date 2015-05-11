@@ -3,15 +3,15 @@
 		<ul id="movieposters">
 				<% @posts.each do |post| %>		
 				<li>
-						<%= link_to post_path(post.id) do %>
+					<%= link_to post_path(post.id), :remote => true, :class => "postmodal_link", "data-toggle" => "modal" do%>
 						<% if (post.picture.present?) %>
 							<%= image_tag(post.picture_url, width: "250", height: "250")%>
 						<% else %>
 							<img src="http://www.nichebuilder.com/Shared/PageBuilder/images/empty-image-placeholder.png" alt="no_image" width="250" height="250">
 						<%end%>
-				<% end %>
+					<% end %>
 					<div class="movieinfo">
-							<%= link_to post_path(post.id) do %>
+							<%= link_to post_path(post.id), :remote => true, :class => "postmodal_link", "data-toggle" => "modal" do%>
 									<h5><%=post.title%></h5>
 									<h5><%= number_to_currency(post.price)%>: <%= pluralize(post.bids.count,'Bid') %></h5>
 									<p><i><%= post.categories.to_sentence   if post.categories.to_s.length != 0 %></i></p>
@@ -22,10 +22,24 @@
 							<% if(post.consumer.user == current_user) %>
 								<%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-primary btn-xs bidbtn' %>
 							<% end %>
+ 							
 						</div>
-
 					</li>
 				<% end %>
 		</ul>
 	</div>
+<div id="popupthree" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Log In</h4>
+            </div>
+            <div class="modal-body" id="popupthreebody">
+            </div>
+        </div>
+    </div>
 </div>
+</div>
+
+
