@@ -78,7 +78,6 @@
                 <% else %>
                   <li><%= link_to 'My posts', consumer_welcome_path, method: :get, :class => "navText"%></li>
                 <% end %>
-
                 <% if @won != 0 %>
                   <li><%= link_to 'My Bids', provider_welcome_path, method: :get,:class => "navText",:datanotifications =>@won %> </li>
                 <% else %>
@@ -98,8 +97,11 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <% if user_signed_in? %>
-                <li><p class="welcomeMsg navText">Welcome back <%= current_user.first %>!</p></li>
-                <li><%= link_to "Edit profile", edit_user_registration_path, :class => "navText"%></li>
+                <li class="dropdown"><a class="dropdown-toggle navText" data-toggle="dropdown" href="#"><%= current_user.first %><span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "Edit profile", edit_user_registration_path%></li>
+                  </ul>
+                </li>
                 <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "navText"%></li>
               <% else %>
                 <li><a href="" class="signupbtn">Sign Up</a></li>
