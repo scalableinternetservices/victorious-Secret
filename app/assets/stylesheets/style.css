@@ -20,7 +20,7 @@
 	-webkit-transition-property: transform; -webkit-transition-duration: 0.5s; }
 #movieposters li:hover img { -webkit-transform: rotateY(0deg); }
 
-.movieinfo { border:5px solid #fcfafa; padding:5px; width:200px; height:auto; background-color:#BDE1FF; margin:-195px 0 0 55px; position:absolute;
+.movieinfo {padding:5px; width:200px; height:auto; background-color:rgb(0, 101, 173); opacity:0.5; margin:-195px 0 0 55px; position:absolute;
 	-moz-box-shadow:0 20px 40px #888; -webkit-box-shadow:0 20px 40px #888;
 	-webkit-transform: translateZ(30px) rotateY(30deg);
 	-webkit-transition-property: transform, box-shadow, margin; -webkit-transition-duration: 0.5s; opacity:0.3;}
@@ -29,7 +29,9 @@
 	
 .movieinfo h3 { color:#7a3f3a; font-variant: small-caps; font-family:Georgia,serif,Times; text-align:center; padding-bottom:15px; }
 
-#movieposters li:hover .movieinfo {opacity: 1;
+#movieposters li:hover .movieinfo {opacity: 0.9;
+	color: white !important;
+	border:2px solid #fcfafa;
 }
 
 #movieposters > li{
@@ -39,3 +41,15 @@
 
 #movieposters > a:hover{background-color: transparent; text-decoration: none;}
 #movieposters .newbid img{border:10px solid #FF0000;}
+
+.movieinfo h4, h5{
+	text-align:center;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	color:white;}
+
+.modal-content{padding-bottom: 15px;}
+.modal{ overflow-y: scroll;}
+.postinfo{margin-bottom: 15px;	}
+
+#popupthree{min-height: 50%}

@@ -1,32 +1,24 @@
-<h4><%= @post.title %></h4>  
-<h5> </h5>
+<%if (@post.picture.present?)%>
+<%= image_tag(@post.picture_url, size: "150x150", class: "pull-left col-md-4") %>
+<%else%>
+	<img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image" class="pull-left">
+<%end%>
 
-<% if (@post.picture.present?) %>
-<%= image_tag(@post.picture_url, size: "150x150") %>
-<% else %>
-<img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image">
-<% end %>
-
-<table>
-	<tbody>
-		<tr>
-			<th>Categories: </th> <td><%= @post.categories.to_sentence   if @post.categories.to_s.length != 0 %></td>
-		</tr>
-		<tr>
-			<th>Price: </th><td><%= number_to_currency(@post.price) %></td>	
-		</tr>			
-		<tr>
-			<th>Description: </th><td><%= sanitize(@post.description) %></td>
-		</tr>
-		<tr>
-			<th>Seller Information: </th>
-				<td>
-					<%= link_to view_path(user_id: @post.consumer.user.id) do%>
-					<%=@post.consumer.user.first%><%=@post.consumer.user.last%>
-					<% end %>
-				</td> 
-	</tbody>
-</table>
-<% if(@post.consumer.user == current_user) %>
-<%= link_to 'Edit', edit_post_path(@post) %>
-<% end %>
+<div id="postinfo" class="pull-right col-md-8">
+	<h4>Price:  <%= number_to_currency(@post.price) %></h4>
+	<p><b>Description:</b> <%= sanitize(@post.description) %></p>
+	<p><b>Categories: </b><%= @post.categories.to_sentence   if @post.categories.to_s.length != 0 %></p>
+	<p><b>Seller: </b> <%= link_to view_path(user_id: @post.consumer.user.id) do%>
+						<%=@post.consumer.user.first%><%=@post.consumer.user.last%>
+						<% end %></p>
+	<% if(@post.consumer.user == current_user) %>
+	<%= link_to 'Edit', edit_post_path(@post) %>
+	<% end %>
+</div>
+<iframe
+  width="550"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAgFblGV3TfMawjKrWeOoCMjEJKN6RGn5A
+    &q=Space+Needle,Seattle+WA">
+</iframe>

@@ -1,6 +1,6 @@
 	$(document).ready(function(){
 		$( ".postmodal_link" ).click(function() {
-		  $("#popupthree").modal('show');
+		  $("#popupthree").modal();
 		});
 		var vid = document.getElementById("wavegif");
 		vid.playbackRate = 3.0;
