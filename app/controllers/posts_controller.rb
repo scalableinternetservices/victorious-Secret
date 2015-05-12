@@ -75,12 +75,19 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post.update(post_params)
-    params[:categories].each do |x|
-      @post.categories << x
+    
+    begin
+      categories = []
+      params[:categories].each do |x|
+        categories << x
+      end
+      @post.categories = categories
+      @post.update(post_params)
+    rescue
+      @post.update(post_params)
     end
     
-    respond_with(@post)
+    redirect_to welcome_url,notice: 'your post has been updated'
   end
 
   def destroy
