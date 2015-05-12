@@ -23,4 +23,16 @@
 		$( ".signupbtn" ).click(function() {
 		  $("#popuptwo").modal('show');
 		});
+
+
 });
+
+		$(window).scroll(function() {   
+   			if($(window).scrollTop() + $(window).height() == $(document).height()) {
+       			$(".footer").css("display","block");
+   			}
+   			else {
+   				$(".footer").css("display","none");
+   				$(".footer").css("color","white");
+   			}
+		});
