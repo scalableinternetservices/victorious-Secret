@@ -29,7 +29,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'carrierwave'
-gem 'seed_dump'
 
 #group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -52,3 +51,4 @@ gem 'devise'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'multi_json', '1.7.8'
+gem 'seed_dump'
