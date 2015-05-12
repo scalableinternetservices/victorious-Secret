@@ -3,19 +3,22 @@
 		<ul id="movieposters">
 				<% @posts.each do |post| %>		
 				<li>
+					<div class="contentmove">
 					<%= link_to post_path(post.id), :remote => true, :class => "postmodal_link", "data-toggle" => "modal" do%>
 						<% if (post.picture.present?) %>
 							<%= image_tag(post.picture_url, width: "250", height: "250")%>
 						<% else %>
 							<img src="http://www.nichebuilder.com/Shared/PageBuilder/images/empty-image-placeholder.png" alt="no_image" width="250" height="250">
 						<%end%>
-					<% end %>
+						<h4 class="pintext"><%=post.title%><h4>
+											<% end %>
+
+					</div>
 					<div class="movieinfo">
 							<%= link_to post_path(post.id), :remote => true, :class => "postmodal_link", "data-toggle" => "modal" do%>
-									<h4><%=post.title%></h4>
-									<h4><%= number_to_currency(post.price)%></h4>
-									<h5><%= pluralize(post.bids.count,'Bid')%></h5>
-									<!-- <p><i><%= post.categories.to_sentence   if post.categories.to_s.length != 0 %></i></p> -->
+									<h4 class="pintext"><%= number_to_currency(post.price)%></h4>
+									<h5 class="pintext"><%= pluralize(post.bids.count,'Bid')%></h5>
+									<p class="pintext">Categories: <i><%= post.categories.to_sentence   if post.categories.to_s.length != 0 %></i></p>
 							<% end %>
 							<% if !(current_user.consumer.posts.include?(post))  %>
 								<%= button_to 'BID', new_bid_path(post_id: post) , method: :post, :class => 'btn btn-success btn-xs center-block'%>			
@@ -23,7 +26,6 @@
 							<% if(post.consumer.user == current_user) %>
 								<%= button_to 'Edit', edit_post_path(post), method: :get, :class => 'btn btn-warning btn-xs bidbtn center-block' %>
 							<% end %>
- 							
 						</div>
 					</li>
 				<% end %>
