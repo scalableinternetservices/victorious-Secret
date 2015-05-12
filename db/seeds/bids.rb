@@ -1,0 +1,5 @@
+Bid.create(:id => 1, :provider_id => 2, :post_id => 1, :amount => 50, :description => "asdas")
+Bid.create(:id => 2, :provider_id => 2, :post_id => 5, :amount => 50, :description => "asdasda")
+Bid.create(:id => 3, :provider_id => 2, :post_id => 4, :amount => 50, :description => "asdasd")
+Bid.create(:id => 4, :provider_id => 3, :post_id => 3, :amount => 50, :description => "adasdasdasd")
+Bid.create(:id => 5, :provider_id => 1, :post_id => 7, :amount => 5, :description => "asdasd")
