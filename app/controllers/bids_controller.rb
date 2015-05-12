@@ -47,13 +47,13 @@ class BidsController < ApplicationController
       flag2 = true
     end
 
-
-    if $flag
+    if flag2
+      redirect_to welcome_url,notice: 'sorry, the bid has been closed for this post'
+    
+    ##if the bidding is closed
+    elsif $flag
       redirect_to action: :edit, id: $bid.id
 
-    ##if the bidding is closed
-    elsif flag2
-      redirect_to welcome_url,notice: 'sorry, the bid has been closed for this post'
 
       ##if the user hasn't bid on the post already 
     else
@@ -70,6 +70,7 @@ class BidsController < ApplicationController
   end
 
   def edit
+    @post = @bid.post
   end
 
   
