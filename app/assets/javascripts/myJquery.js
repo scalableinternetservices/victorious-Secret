@@ -2,8 +2,8 @@
 		$( ".postmodal_link" ).click(function() {
 		  $("#popupthree").modal();
 		});
-
-		$("wavegif").playbackRate = 3.0;
+		
+		document.getElementById("wavegif").playbackRate = 3.0;
 		
 		$('a[href^="#"]').on('click',function (e) {
 		    e.preventDefault();
@@ -19,6 +19,7 @@
 		$( ".loginbtn" ).click(function() {
 		  $("#popup").modal('show');
 		});
+		
 		$( ".signupbtn" ).click(function() {
 		  $("#popuptwo").modal('show');
 		});
