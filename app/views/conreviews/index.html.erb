@@ -1,0 +1,33 @@
+<h1>Listing conreviews</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rating</th>
+      <th>Description</th>
+      <th>Provider</th>
+      <th>Post</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @conreviews.each do |conreview| %>
+      <tr>
+        <td><%= conreview.rating %></td>
+        <td><%= conreview.description %></td>
+        <td><%= conreview.provider %></td>
+        <td><%= conreview.post %></td>
+        <td><%= link_to 'Show', conreview %></td>
+        <td><%= link_to 'Edit', edit_conreview_path(conreview) %></td>
+        <td><%= link_to 'Destroy', conreview, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Conreview', new_conreview_path %>

@@ -19,6 +19,7 @@ class Post < ActiveRecord::Base
   has_one :notification
 
   has_one :proreview
+  has_one :conreview
   
   
 

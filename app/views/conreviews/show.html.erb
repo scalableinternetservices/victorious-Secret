@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @conreview.rating %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @conreview.description %>
+</p>
+
+<p>
+  <strong>Provider:</strong>
+  <%= @conreview.provider %>
+</p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @conreview.post %>
+</p>
+
+<%= link_to 'Edit', edit_conreview_path(@conreview) %> |
+<%= link_to 'Back', conreviews_path %>

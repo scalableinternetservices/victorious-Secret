@@ -27,7 +27,7 @@
 								<%= button_to 'BID', new_bid_path(post_id: post) , method: :post, :class => 'btn btn-primary btn-xs'%>			
 							<% end %>
 							<% if(post.consumer.user == current_user) %>
-								<%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-primary btn-xs bidbtn' %>
+								<%= button_to 'Edit', edit_post_path(post), method: :get, :class => 'btn btn-primary btn-xs bidbtn' %>
 							<% end %>
 						</div>
 

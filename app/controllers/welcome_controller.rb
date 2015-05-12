@@ -51,12 +51,20 @@ class WelcomeController < ApplicationController
 	  end
 
     @reviews = []
-    Proreview.all.each do |x|
+    Proreview.order(:created_at).each do |x|
       if x.post.provider == @user.provider
         @reviews << x
       end
 
     end
+
+    @reviews_con = []
+    Conreview.order(:created_at).each do |x|
+      if x.post.consumer == @user.consumer
+        @reviews_con << x
+      end
+    end
+
 
   end
 

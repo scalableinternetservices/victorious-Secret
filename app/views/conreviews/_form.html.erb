@@ -1,10 +1,10 @@
-<%= form_for(@proreview) do |f| %>
-  <% if @proreview.errors.any? %>
+<%= form_for(@conreview) do |f| %>
+  <% if @conreview.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@proreview.errors.count, "error") %> prohibited this proreview from being saved:</h2>
+      <h2><%= pluralize(@conreview.errors.count, "error") %> prohibited this conreview from being saved:</h2>
 
       <ul>
-      <% @proreview.errors.full_messages.each do |msg| %>
+      <% @conreview.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -21,6 +21,6 @@
   </div>
   
   <div class="actions">
-    <%= f.submit 'submit review'%>
+    <%= f.submit 'Submit Review' %>
   </div>
 <% end %>

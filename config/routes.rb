@@ -1,4 +1,11 @@
 VictoriousSecret::Application.routes.draw do
+  resources :conreviews do
+    member do 
+      post :new
+    end
+  end
+  
+
   resources :proreviews do
     member do
       post :new

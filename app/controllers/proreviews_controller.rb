@@ -24,18 +24,18 @@ class ProreviewsController < ApplicationController
 
   def create
     @proreview = Proreview.new(proreview_params)
-    post = Post.find(session[:post_id])
+    
     @proreview.consumer = current_user.consumer
-    @proreview.post = post
+    @proreview.post = @post
 
     if @proreview.save
-        cur_rating = post.provider.rating
-        count = post.provider.count + 1
-        new_rating = (cur_rating + @proreview.rating)/count
-        post.provider.rating = new_rating
-        post.provider.count = count
-        post.save()
-        post.provider.save()
+        cur_rating = @post.provider.rating
+        count = @post.provider.count + 1
+        new_rating = ( (cur_rating*@post.provider.count) + @proreview.rating.to_f).fdiv(count)
+        @post.provider.rating = new_rating
+        @post.provider.count = count
+        @post.save()
+        @post.provider.save()
     end
     
     respond_with do |format|
@@ -54,6 +54,7 @@ class ProreviewsController < ApplicationController
   end
 
   def destroy
+
     @proreview.destroy
     respond_with(@proreview)
   end

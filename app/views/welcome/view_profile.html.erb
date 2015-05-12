@@ -31,6 +31,7 @@ Overall Average Rating: <%=@user.provider.rating %>
 <h4>Phone: <%=@user.phone%></h4>
 <h4>Address: <%=@user.address%> (GOOGLE MAPS HERE...)</h4>
 <h4>Average Rating (as service provider): <%=@user.provider.rating %></h4>
+<h4>Average Rating (as service consumer): <%=@user.consumer.rating %></h4>
 </div>
 
 
@@ -51,6 +52,26 @@ Overall Average Rating: <%=@user.provider.rating %>
 	</thead>
 	<tbody>
 		<% @reviews.each do |review|%>
+			<tr class="pure-table-odd">
+				<td><%= review.rating%></td>
+				<td><%= review.description %> </td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+<% end %>
+
+<% if @reviews_con.any? %>
+<h4> All the reviews of this user as a consumer: </h4>
+<table class="pure-table">
+	<thead>
+	    <tr>
+	        <th>Rating</th>
+	        <th>Description</th>
+	    </tr>
+	</thead>
+	<tbody>
+		<% @reviews_con.each do |review|%>
 			<tr class="pure-table-odd">
 				<td><%= review.rating%></td>
 				<td><%= review.description %> </td>

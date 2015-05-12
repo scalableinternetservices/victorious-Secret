@@ -18,7 +18,11 @@
 <br />
 <br />
 
-
+<!-- if the current user has won the bid and he hasn't rated the consumer yet, he can rate him -->
+<% if (@post.provider == current_user.provider) && (@post.conreview.nil?) %>
+<h2> you haven't rated this consumer yet for the service. you can <%= button_to 'rate this consumer', new_conreview_path(post_id: @post),method: :post %>
+</h2>
+<% end %>
 
 
 <% if @post.bids.length !=0 %>

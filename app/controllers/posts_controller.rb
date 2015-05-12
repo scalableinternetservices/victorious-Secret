@@ -43,7 +43,7 @@ class PostsController < ApplicationController
 
   def edit
     unless @post.provider.nil?
-      redirect_to welcome_url,alert: "you have accepted a provider for this already. Can' edit the post now"
+      redirect_to request.referer,alert: "you have accepted a provider for this already. Can' edit the post now"
     end
 
   end

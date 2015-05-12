@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150508201442) do
+ActiveRecord::Schema.define(version: 20150512082204) do
 
   create_table "bids", force: true do |t|
     t.integer  "provider_id"
@@ -25,12 +25,24 @@ ActiveRecord::Schema.define(version: 20150508201442) do
   add_index "bids", ["post_id"], name: "index_bids_on_post_id", using: :btree
   add_index "bids", ["provider_id"], name: "index_bids_on_provider_id", using: :btree
 
-  create_table "consumers", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "rating",     default: 0
+  create_table "conreviews", force: true do |t|
+    t.integer  "rating"
+    t.text     "description"
+    t.integer  "provider_id"
+    t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "count",      default: 0
+  end
+
+  add_index "conreviews", ["post_id"], name: "index_conreviews_on_post_id", using: :btree
+  add_index "conreviews", ["provider_id"], name: "index_conreviews_on_provider_id", using: :btree
+
+  create_table "consumers", force: true do |t|
+    t.integer  "user_id"
+    t.decimal  "rating",     precision: 3, scale: 2, default: 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "count",                              default: 0
   end
 
   add_index "consumers", ["user_id"], name: "index_consumers_on_user_id", using: :btree
@@ -74,10 +86,10 @@ ActiveRecord::Schema.define(version: 20150508201442) do
 
   create_table "providers", force: true do |t|
     t.integer  "user_id"
-    t.integer  "rating",     default: 0
+    t.decimal  "rating",     precision: 3, scale: 2, default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "count",      default: 0
+    t.integer  "count",                              default: 0
   end
 
   add_index "providers", ["user_id"], name: "index_providers_on_user_id", using: :btree
