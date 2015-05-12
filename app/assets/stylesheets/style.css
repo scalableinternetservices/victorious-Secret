@@ -23,7 +23,7 @@
 .movieinfo {padding:5px; width:200px; height:auto; background-color:rgb(0, 101, 173); opacity:0.5; margin:-195px 0 0 55px; position:absolute;
 	-moz-box-shadow:0 20px 40px #888; -webkit-box-shadow:0 20px 40px #888;
 	-webkit-transform: translateZ(30px) rotateY(30deg);
-	-webkit-transition-property: transform, box-shadow, margin; -webkit-transition-duration: 0.5s; opacity:0;}
+	-webkit-transition-property: transform, box-shadow, margin; -webkit-transition-duration: 0.5s; opacity:0.3;}
 	
 #movieposters li:hover .movieinfo { -webkit-transform: rotateY(0deg); -webkit-box-shadow:0 5px 15px #888; margin:-175px 0 0 30px; }
 	
