@@ -2,24 +2,37 @@
 		$( ".postmodal_link" ).click(function() {
 		  $("#popupthree").modal();
 		});
-		var vid = document.getElementById("wavegif");
-		vid.playbackRate = 3.0;
+		
+		document.getElementById("wavegif").playbackRate = 3.0;
+		
 		$('a[href^="#"]').on('click',function (e) {
-	    e.preventDefault();
+		    e.preventDefault();
+		    var target = this.hash;
+		    var $target = $(target);
+		    $('html, body').stop().animate({
+		        'scrollTop': $target.offset().top
+		    }, 900, 'swing', function () {
+		        window.location.hash = target;
+		    });
+		});
 
-	    var target = this.hash;
-	    var $target = $(target);
-
-	    $('html, body').stop().animate({
-	        'scrollTop': $target.offset().top
-	    }, 900, 'swing', function () {
-	        window.location.hash = target;
-	    });
-	});
 		$( ".loginbtn" ).click(function() {
 		  $("#popup").modal('show');
 		});
+		
 		$( ".signupbtn" ).click(function() {
 		  $("#popuptwo").modal('show');
 		});
+
+
 });
+
+		$(window).scroll(function() {   
+   			if($(window).scrollTop() + $(window).height() == $(document).height()) {
+       			$(".footer").css("display","block");
+   			}
+   			else {
+   				$(".footer").css("display","none");
+   				$(".footer").css("color","white");
+   			}
+		});

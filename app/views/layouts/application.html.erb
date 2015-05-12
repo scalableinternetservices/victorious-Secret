@@ -72,16 +72,36 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <% if user_signed_in? %>
-                <li><a href="<%=welcome_url%>" class= "navText">Home</a></li>
-                <% if @count!=0 %>
-                  <li><%= link_to 'My posts', consumer_welcome_path,method: :get,:class => "navText",:datanotifications =>@count%></li>
+                <% if current_page?('/') %>
+                  <li class = "active"><a href="<%=welcome_url%>" class= "navText">Home</a></li>
                 <% else %>
-                  <li><%= link_to 'My posts', consumer_welcome_path, method: :get, :class => "navText"%></li>
+                  <li><a href="<%=welcome_url%>" class= "navText">Home</a></li>
+                <% end %>
+                <% if @count!=0 %>
+                  <% if current_page?('/welcome/consumer_side') %>
+                    <li class = "active"><%= link_to 'My posts', consumer_welcome_path,method: :get,:class => "navText",:datanotifications =>@count%></li>
+                  <% else %>
+                    <li><%= link_to 'My posts', consumer_welcome_path,method: :get,:class => "navText",:datanotifications =>@count%></li>
+                  <% end %>
+                <% else %>
+                  <% if current_page?('/welcome/consumer_side') %>
+                    <li class = "active"><%= link_to 'My posts', consumer_welcome_path, method: :get, :class => "navText"%></li>
+                  <% else %>
+                    <li><%= link_to 'My posts', consumer_welcome_path, method: :get, :class => "navText"%></li>
+                  <% end %>
                 <% end %>
                 <% if @won != 0 %>
-                  <li><%= link_to 'My Bids', provider_welcome_path, method: :get,:class => "navText",:datanotifications =>@won %> </li>
+                  <% if current_page?('/welcome/provider_side') %>
+                    <li class = "active"><%= link_to 'My Bids', provider_welcome_path, method: :get,:class => "navText",:datanotifications =>@won %> </li>
+                  <% else %>
+                    <li><%= link_to 'My Bids', provider_welcome_path, method: :get,:class => "navText",:datanotifications =>@won %> </li>
+                  <% end %>
                 <% else %>
-                  <li><%= link_to 'My Bids', provider_welcome_path, method: :get, :class => "navText"%></li>
+                  <% if current_page?('/welcome/provider_side') %>
+                    <li class = "active"><%= link_to 'My Bids', provider_welcome_path, method: :get, :class => "navText"%></li>
+                  <% else %>
+                    <li><%= link_to 'My Bids', provider_welcome_path, method: :get, :class => "navText"%></li>
+                  <% end %>
                 <%end%>
               <%end%>
 	      <li>

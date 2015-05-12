@@ -5,6 +5,12 @@
 <%end%>
 
 <div id="postinfo" class="pull-right col-md-8">
+	<% if !(@current_user.consumer.posts.include?(@post))  %>
+		<%= button_to 'BID', new_bid_path(post_id: @post) , method: :post, :class => 'btn btn-success center-block'%>			
+	<% end %>
+	<% if(@post.consumer.user == @current_user) %>
+		<%= button_to 'Edit', edit_post_path(@post), method: :get, :class => 'btn btn-warning center-block' %>
+	<% end %>
 	<h4>Price:  <%= number_to_currency(@post.price) %></h4>
 	<p><b>Description:</b> <%= sanitize(@post.description) %></p>
 	<p><b>Categories: </b><%= @post.categories.to_sentence   if @post.categories.to_s.length != 0 %></p>
@@ -16,7 +22,7 @@
 	<% end %>
 </div>
 <iframe class="bidmap"
-  width="550"
+  width="560"
   height="450"
   frameborder="0" style="border:0"
   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAgFblGV3TfMawjKrWeOoCMjEJKN6RGn5A
