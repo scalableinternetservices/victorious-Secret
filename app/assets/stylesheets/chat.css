@@ -12,7 +12,7 @@
 }
 
 .chatboxhead {
-    background: #666;
+    background: #6BB9E4;
     color: white;
     padding: 0.5rem;
     overflow: hidden;
@@ -73,16 +73,22 @@
     border: 5px solid white;
     border-left-color: transparent;
     border-bottom-color: transparent;
+
+}
+.self .chatboxmessagecontent{
+    background-color: #D1E9F6;
 }
 
 .self {
     justify-content: flex-end;
     align-items: flex-end;
+
 }
 
 .self .chatboxmessagecontent {
     order: 1;
     border-bottom-right-radius: 0;
+
 }
 
 .self .avatar {
@@ -172,4 +178,12 @@
 
 .chatboxtitle {
     float: left;
+}
+
+.closeChat:hover {
+    background-color:#6BB9E4;
+}
+
+.fa{
+    background-color:#6BB9E4;
 }
