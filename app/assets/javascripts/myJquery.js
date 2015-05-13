@@ -1,7 +1,8 @@
 	var chatboxFocus = new Array();
 var chatBoxes = new Array();
 	
-	$(document).ready(function(){
+	$(document).ready(function()
+	{
 		/**
      * When the send message link on our home page is clicked
      * send an ajax request to our rails app with the sender_id and
@@ -379,16 +380,14 @@ var chatBoxes = new Array();
 		$( ".signupbtn" ).click(function() {
 		  $("#popuptwo").modal('show');
 		});
-
-
 });
 
-		$(window).scroll(function() {   
-   			if($(window).scrollTop() + $(window).height() == $(document).height()) {
-       			$(".footer").css("display","block");
-   			}
-   			else {
-   				$(".footer").css("display","none");
-   				$(".footer").css("color","white");
-   			}
-		});
+$(window).scroll(function() {   
+		if($(window).scrollTop() + $(window).height() == $(document).height()) {
+			$(".footer").css("display","block");
+		}
+		else {
+			$(".footer").css("display","none");
+			$(".footer").css("color","white");
+		}
+});
