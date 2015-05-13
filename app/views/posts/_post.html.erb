@@ -1,7 +1,8 @@
 <%if (@post.picture.present?)%>
 <%= image_tag(@post.picture_url, size: "150x150", class: "pull-left col-md-4") %>
 <%else%>
-	<img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image" class="pull-left">
+	<img src="http://lorempixel.com/150/150/nature/" alt="no_image" class="pull-left">
+	<!-- <img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image" class="pull-left"> -->
 <%end%>
 
 <div id="postinfo" class="pull-right col-md-8">
@@ -13,7 +14,7 @@
 	<% end %>
 	<h4>Price:  <%= number_to_currency(@post.price) %></h4>
 	<p><b>Description:</b> <%= sanitize(@post.description) %></p>
-	<p><b>Categories: </b><%= @post.categories.to_sentence   if @post.categories.to_s.length != 0 %></p>
+	<p><b>Categories: </b><%= @post.categories%></p>
 	<p><b>Seller: </b> <%= link_to view_path(user_id: @post.consumer.user.id) do%>
 						<%=@post.consumer.user.first%><%=@post.consumer.user.last%>
 						<% end %></p>

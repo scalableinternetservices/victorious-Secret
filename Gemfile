@@ -53,3 +53,5 @@ gem 'sunspot_solr'
 gem 'multi_json', '1.7.8'
 
 gem 'seed_dumper'
+gem 'faker'
+gem 'populator'
