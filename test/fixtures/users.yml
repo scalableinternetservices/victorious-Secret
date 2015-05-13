@@ -9,7 +9,8 @@ user1:
   email: a@test.com
   phone: 1111111111
   address: test
-  name: testUser1
+  first: testUser1
+  last: Use1
 # column: value
 #
 user2: 
@@ -17,5 +18,6 @@ user2:
   email: b@test.com
   phone: 1111111211
   address: test
-  name: testUser2
+  first: testUser2
+  last: User2
 #  column: value
