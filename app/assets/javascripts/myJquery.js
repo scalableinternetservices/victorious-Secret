@@ -1,10 +1,8 @@
-	var chatboxFocus = new Array();
+var chatboxFocus = new Array();
 var chatBoxes = new Array();
 	
 	$(document).ready(function(){
-
         $(".alert-success").delay(2000).fadeOut("slow");
-
         $(".alert-danger").delay(4000).fadeOut("slow");
 		/**
      * When the send message link on our home page is clicked
@@ -383,18 +381,21 @@ var chatBoxes = new Array();
 		$( ".signupbtn" ).click(function() {
 		  $("#popuptwo").modal('show');
 		});
+<<<<<<< HEAD
+=======
 
 
 
 
+>>>>>>> origin/master
 });
 
-		$(window).scroll(function() {   
-   			if($(window).scrollTop() + $(window).height() == $(document).height()) {
-       			$(".footer").css("display","block");
-   			}
-   			else {
-   				$(".footer").css("display","none");
-   				$(".footer").css("color","white");
-   			}
-		});
+$(window).scroll(function() {   
+		if($(window).scrollTop() + $(window).height() == $(document).height()) {
+			$(".footer").css("display","block");
+		}
+		else {
+			$(".footer").css("display","none");
+			$(".footer").css("color","white");
+		}
+});

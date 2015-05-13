@@ -21,7 +21,7 @@
 							<%= link_to post_path(post.id) do %>
 									<h5><%=post.title%></h5>
 									<h5><%= number_to_currency(post.price)%>: <%= pluralize(post.bids.count,'Bid') %></h5>
-									<p><i><%= post.categories.to_sentence   if post.categories.to_s.length != 0 %></i></p>
+									<p><i><%= post.categories %></i></p>
 							<% end %>
 							<% if !(current_user.consumer.posts.include?(post))  %>
 								<%= button_to 'BID', new_bid_path(post_id: post) , method: :post, :class => 'btn btn-primary btn-xs'%>			
@@ -36,35 +36,3 @@
 		</ul>
 	</div>
 </div>
-
-<!-- <div id="wrapper">
-	<div id="columns">
-		<% @posts.each do |post| %>
-			<%= link_to post_path(post.id) do %>
-			<% if ( (@posts_provider_update.include? post) && (post.provider == current_user.provider) )%>
-			<div class="new" >
-			<%else%>
-			<div class="pin">
-			<%end%>
-				<%= link_to post_path(post.id),html_options: {id: "link_hide"} do %>
-					<% if (post.picture.present?) %>
-						<%= image_tag(post.picture_url) %>
-					<% else %>
-						<img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image" width="150">
-					<%end%>
-					<h5><%=post.title%></h5>
-					<h5><%= number_to_currency(post.price)%>: <%= pluralize(post.bids.count,'Bid') %></h5>
-					<p><i><%= post.categories.to_sentence   if post.categories.to_s.length != 0 %></i></p>
-					<%end%>
-					<% if !(current_user.consumer.posts.include?(post))  %>
-						<%= button_to 'BID', new_bid_path(post_id: post) , method: :post, :class => 'btn btn-primary btn-xs'%>			
-					<% end %>
-					<% if(post.consumer.user == current_user) %>
-						<%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-primary btn-xs bidbtn' %>
-					<% end %>
-			</div>
-		<% end %>
-		<%end%>
-	</div>
-</div>
- -->

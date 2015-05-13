@@ -13,7 +13,7 @@ Then reindex any existing users and posts
 rake sunspot:reindex[,User]
 rake sunspot:reindex[,Post]
 
-We have to run the thin server for the chat application to work. Run this comman
+We have to run the thin server for the chat application to work. Run this command :
   bundle exec rackup private_pub.ru -s thin -E production
 
 ![alt tag](https://cloud.githubusercontent.com/assets/9247329/7383970/bacee962-eddd-11e4-95f5-635bece5db7b.jpg)
