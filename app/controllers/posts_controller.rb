@@ -45,6 +45,7 @@ class PostsController < ApplicationController
     unless @post.provider.nil?
       redirect_to request.referer,alert: "you have accepted a provider for this already. Can' edit the post now"
     end
+    @edit = true
 
   end
 
@@ -62,6 +63,17 @@ class PostsController < ApplicationController
       @post.categories<<'general'
     end
 
+    address = ''
+    ##iff address is provided
+    if (params.has_key?(:address))
+    address = address+params[:address]
+    end
+
+    if params.has_key?(:zip)
+      address = address+' '+params[:zip]
+    end
+
+    @post.address = address
     
     respond_with do |format|
       if @post.save
@@ -101,7 +113,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :description, :picture, :price,:categories)
+      params.require(:post).permit(:title, :description, :picture, :price,:categories,:address,:zip)
     end
 
     
