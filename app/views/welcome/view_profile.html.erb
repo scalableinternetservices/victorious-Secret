@@ -24,6 +24,7 @@ Overall Average Rating: <%=@user.provider.rating %>
 </ol>
  -->
 
+
  <h2><%= @user.first %> <%=@user.last%>'s Profile</h2>
 
 <div class="userinfo">
@@ -33,6 +34,9 @@ Overall Average Rating: <%=@user.provider.rating %>
 <h4>Average Rating (as service provider): <%=@user.provider.rating %></h4>
 <h4>Average Rating (as service consumer): <%=@user.consumer.rating %></h4>
 </div>
+
+ <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
+                    "data-sid" => current_user.id, "data-rip" => @user.id, id: "chatbtn" %>
 
 
 <% if @user.picture %>
