@@ -29,6 +29,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'carrierwave'
+gem 'private_pub'
+gem 'thin'
 
 #group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

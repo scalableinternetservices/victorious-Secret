@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>Noitcua</title>
+  <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
+  <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
   <link rel="shortcut icon" type="image/png" href= <%= asset_path('N.png' ) %> > 
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
@@ -134,7 +136,7 @@
   </div>
 <%end%>
 
-< <% if notice %>
+<% if notice %>
   <p class="alert alert-success"><%= notice %></p>
 <% end %> 
 <% if alert %>

@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_one :consumer, dependent: :destroy 
   has_one :provider, dependent: :destroy
 
+  has_many :conversations, :foreign_key => :sender_id
+
   #auto indexer plus name index
   searchable do
     text :first

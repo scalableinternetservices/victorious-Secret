@@ -24,59 +24,90 @@ Overall Average Rating: <%=@user.provider.rating %>
 </ol>
  -->
 
- <h2><%= @user.first %> <%=@user.last%>'s Profile</h2>
 
-<div class="userinfo">
-<h4>Age: <%=@user.age%></h4>
-<h4>Phone: <%=@user.phone%></h4>
-<h4>Address: <%=@user.address%> (GOOGLE MAPS HERE...)</h4>
-<h4>Average Rating (as service provider): <%=@user.provider.rating %></h4>
-<h4>Average Rating (as service consumer): <%=@user.consumer.rating %></h4>
+<div class = "panel panel-info">
+	<div class = "panel-heading">
+		<h3 class = "panel-title"><%= @user.first %> <%=@user.last%></h3>
+	</div>
+	<div class="panel-body">
+		<div class = "row">
+			<div class="col-md-3 col-lg-3">
+				<% if @user.picture %>
+					<img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image" width="250" height="250" style="float:left; margin: 0 5px 0 0">
+				<% else %>
+					<img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image" style="float:left; margin: 0 5px 0 0">
+				<% end %>
+			</div>
+			<div class ="col-md-9 col-lg-9">
+				<div class="col-md-4 col-lg-4">
+					<table class = "table table-user-information">
+						<tbody>
+							<tr>
+								<td> Age: <%=@user.age%> </td>
+							</tr>
+							<tr>
+								<td> Phone: <%=@user.phone%> </td>
+							</tr>
+							<tr>
+								<td> Address: <%=@user.address%> </td>
+							</tr>
+							<tr>
+								<td> Average Provider Rating: <%=@user.provider.rating%> </td>
+							</tr>
+							<tr>
+								<td> Average Consumer Rating: <%=@user.consumer.rating%> </td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class = "col-md-8" "col-md-8">
+					<% if @reviews.any? %>
+						<h4> All the reviews of this user as a provider: </h4>
+							<table class="pure-table">
+								<thead>
+	    							<tr>
+	        							<th>Rating</th>
+	        							<th>Description</th>
+	    							</tr>
+								</thead>
+								<tbody>
+									<% @reviews.each do |review|%>
+										<tr class="pure-table-odd">
+											<td><%= review.rating%></td>
+											<td><%= review.description %> </td>
+										</tr>
+									<% end %>
+								</tbody>
+							</table>
+					<% end %>
+					<% if @reviews_con.any? %>
+						<h4> All the reviews of this user as a consumer: </h4>
+							<table class="pure-table">
+								<thead>
+								    <tr>
+								        <th>Rating</th>
+								        <th>Description</th>
+								    </tr>
+								</thead>
+								<tbody>
+									<% @reviews_con.each do |review|%>
+										<tr class="pure-table-odd">
+											<td><%= review.rating%></td>
+											<td><%= review.description %> </td>
+										</tr>
+									<% end %>
+								</tbody>
+							</table>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </div>
 
+ <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
+                    "data-sid" => current_user.id, "data-rip" => @user.id, id: "chatbtn" %>
 
-<% if @user.picture %>
-	<img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image" width="250" height="250">
-<% else %>
-<img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image">
-<% end %>
 
-<% if @reviews.any? %>
-<h4> All the reviews of this user as a provider: </h4>
-<table class="pure-table">
-	<thead>
-	    <tr>
-	        <th>Rating</th>
-	        <th>Description</th>
-	    </tr>
-	</thead>
-	<tbody>
-		<% @reviews.each do |review|%>
-			<tr class="pure-table-odd">
-				<td><%= review.rating%></td>
-				<td><%= review.description %> </td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
-<% end %>
 
-<% if @reviews_con.any? %>
-<h4> All the reviews of this user as a consumer: </h4>
-<table class="pure-table">
-	<thead>
-	    <tr>
-	        <th>Rating</th>
-	        <th>Description</th>
-	    </tr>
-	</thead>
-	<tbody>
-		<% @reviews_con.each do |review|%>
-			<tr class="pure-table-odd">
-				<td><%= review.rating%></td>
-				<td><%= review.description %> </td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
-<% end %>
