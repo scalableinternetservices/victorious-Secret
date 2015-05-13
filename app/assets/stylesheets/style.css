@@ -46,10 +46,19 @@
 	margin-top: 0px;
 	margin-bottom: 10px;
 	color:white;
-	max-width: 256px;}
+	max-width: 256px;
+	word-wrap: break-word;}
 
 .modal-content{padding-bottom: 15px;}
 .modal{ overflow-y: scroll;}
 .bidmap{margin-top: 10px;}
 #popupthree{min-height: 50%}
 #postinfo form{float: right;}
+
+.imagepin img{    position:relative;
+}
+.imagepin .label {
+    position:absolute;
+    left: 0px;
+    top: 0px
+}
