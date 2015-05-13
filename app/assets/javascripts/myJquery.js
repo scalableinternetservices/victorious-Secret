@@ -381,13 +381,6 @@ var chatBoxes = new Array();
 		$( ".signupbtn" ).click(function() {
 		  $("#popuptwo").modal('show');
 		});
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> origin/master
 });
 
 $(window).scroll(function() {   
