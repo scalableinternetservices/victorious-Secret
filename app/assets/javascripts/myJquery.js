@@ -46,7 +46,8 @@ var collapseMyMenu, expandMyMenu, hideMenuTexts, showMenuTexts;
     });
         $(".alert-success").delay(2000).fadeOut("slow");
         $(".alert-danger").delay(4000).fadeOut("slow");
-
+        map_initialize();
+        $("#post-submit").bind('submit',codeAddress);
 
         /**google maps **/
         /**$("#post-submit").submit(map_initialize());**/
@@ -407,6 +408,10 @@ var collapseMyMenu, expandMyMenu, hideMenuTexts, showMenuTexts;
 		$( ".postmodal_link" ).click(function() {
 		  $("#popupthree").modal();
 		});
+
+		$( ".bidmodal_link" ).click(function() {
+		  $("#popupfour").modal();
+		});
 		
 		document.getElementById("wavegif").playbackRate = 3.0;
 		
@@ -439,6 +444,7 @@ $(window).scroll(function() {
 			$(".footer").css("color","white");
 		}
 });
+
 
 expandMyMenu = function() {
   return $("nav.sidebar").removeClass("sidebar-menu-collapsed").addClass("sidebar-menu-expanded");

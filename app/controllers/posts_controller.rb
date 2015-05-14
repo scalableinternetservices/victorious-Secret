@@ -63,17 +63,11 @@ class PostsController < ApplicationController
       @post.categories<<'general'
     end
 
-    address = ''
-    ##iff address is provided
-    if (params.has_key?(:address))
-    address = address+params[:address]
-    end
+    @post.address = params[:address]
+    @post.lat = params[:lat].to_f
+    @post.lon = params[:lon].to_f
 
-    if params.has_key?(:zip)
-      address = address+' '+params[:zip]
-    end
-
-    @post.address = address
+    
     
     respond_with do |format|
       if @post.save
@@ -113,7 +107,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :description, :picture, :price,:categories,:address,:zip)
+      params.require(:post).permit(:title, :description, :picture, :price,:categories,:address,:lat, :lon)
     end
 
     

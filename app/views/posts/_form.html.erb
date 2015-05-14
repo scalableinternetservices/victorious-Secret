@@ -40,12 +40,12 @@
   
   <div class='field'>
   	<%= label_tag 'address' %><br />
-  	<%= text_field_tag :address, nil, placeholder: 'enter the address in one line',id: 'address' %>
+  	<%= text_field_tag :address, nil,id: 'address', size: '50' %>
   </div>
 
   <div class ='field' >
-  	<%= label_tag 'zip' %><br />
-  	<%= text_field_tag :zip %>
+  	<%= hidden_field_tag :lat,'lat', id:'lat' %>
+    <%= hidden_field_tag :lon ,'lon', id:'lon'%>
   </div>
 
   <% end %>
@@ -56,6 +56,8 @@
 
   
   <div class="actions submitbutton">
-    <%= f.submit %>
+    <%= f.submit id: 'submitbutton'%>
   </div>
 <% end %>
+
+
