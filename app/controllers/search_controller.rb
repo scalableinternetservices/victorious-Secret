@@ -22,21 +22,23 @@ class SearchController < ApplicationController
     @search_posts = []
     @search_users = []
     if params[:query]!=nil
-      search= Sunspot.search User, Post do |query|
-        query.keywords params[:query]
+      search= User.search do
+        keywords params[:query]
       end
       @results = search.results
-      @results.each do |result|
-        if result.class.to_s=="Post"
-          @search_posts<<result
-        else
-          @search_users<<result
-        end
-        Rails.logger.debug("My object: #{result.class}")
+      @search_users = @results
+      if params[:radius].nil?
+        params[:radius]=25; # default radius is assumed to be 25
       end
+      search = Post.search do
+        keywords params[:query]
+          if !params[:lat].nil? && !params[:lon].nil?
+             with(:location).in_radius(params[:lat], params[:lon], params[:radius])
+          end
+      end
+      @search_posts=search.results
       Rails.logger.debug("My object: #{@search_users.inspect}")
       Rails.logger.debug("My object: #{@search_posts.inspect}")
-      Rails.logger.debug("My object: #{search.total.inspect}")
     end
   end
 end
