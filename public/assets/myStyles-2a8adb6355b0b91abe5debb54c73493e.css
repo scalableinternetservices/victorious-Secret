@@ -1,0 +1,350 @@
+/* line 1, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.itemDesc {
+  float: right;
+  padding-right: 45%;
+}
+
+/* line 5, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.itemPic {
+  float: left;
+}
+
+/* line 9, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+html {
+  height: 100%;
+}
+
+/* line 13, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+#wrapper {
+  width: 90%;
+  min-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 20, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+#columns {
+  -webkit-column-count: 3;
+  -webkit-column-gap: 10px;
+  -webkit-column-fill: auto;
+  -moz-column-count: 3;
+  -moz-column-gap: 10px;
+  -moz-column-fill: auto;
+  column-count: 3;
+  column-gap: 15px;
+  column-fill: auto;
+}
+
+@media (min-width: 960px) {
+  /* line 33, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+  #columns {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+  }
+}
+@media (min-width: 1100px) {
+  /* line 41, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+  #columns {
+    -webkit-column-count: 5;
+    -moz-column-count: 5;
+    column-count: 5;
+  }
+}
+/* line 48, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.bidbtn:visited {
+  color: #FFF;
+}
+
+/*#wrapper {
+	width: 90%;
+	max-width: 1100px;
+	min-width: 800px;
+	margin: 50px auto;
+}
+
+#columns {
+	-webkit-column-count: 3;
+	-webkit-column-gap: 10px;
+	-webkit-column-fill: auto;
+	-moz-column-count: 3;
+	-moz-column-gap: 10px;
+	-moz-column-fill: auto;
+	column-count: 3;
+	column-gap: 15px;
+	column-fill: auto;
+	
+}
+
+
+@media (min-width: 960px) {
+	#columns {
+		-webkit-column-count: 4;
+		-moz-column-count: 4;
+		column-count: 4;
+	}
+}
+
+@media (min-width: 1100px) {
+	#columns {
+		-webkit-column-count: 5;
+		-moz-column-count: 5;
+		column-count: 5;
+	}
+}*/
+/* line 88, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.footerText {
+  color: white;
+}
+
+/* line 92, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.menuText {
+  text-decoration: none !important;
+  color: white !important;
+}
+
+/* line 96, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.menuText:hover {
+  background-color: #6363c3 !important;
+}
+
+/* line 100, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.pure-menu-item {
+  text-decoration: none !important;
+  color: white !important;
+}
+
+/* line 105, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+#popup {
+  width: 50%;
+  height: 50%;
+  margin-left: 25%;
+  margin-top: 12%;
+}
+
+/* line 112, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.welcomeMsg {
+  margin-top: 16px;
+}
+
+/* line 116, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+#bid_page h4 {
+  font-size: 1.8em;
+  color: #3276b1;
+  margin-left: 200px;
+}
+
+/* line 122, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+#bid_page h5 {
+  margin-left: 200px;
+  font-size: 1em;
+}
+
+/* line 127, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+#bid_page .timestamp {
+  color: #999999;
+}
+
+/* line 131, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+#bid_page th {
+  border: none;
+  padding: 20px 20px 0px 0px;
+}
+
+/* line 136, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+#bid_page table {
+  margin-left: 200px;
+}
+
+/* line 140, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+#bid_page td {
+  padding: 20px 20px 0px 0px;
+}
+
+/* line 144, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+#bid_table th {
+  padding: 21px 25px 22px 25px;
+  border-top: 1px solid #fafafa;
+  border-bottom: 1px solid #e0e0e0;
+  background: #ededed;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
+  background: -moz-linear-gradient(top, #ededed, #ebebeb);
+}
+
+/* line 154, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+#bid_table {
+  margin-top: 20px;
+  margin-left: 200px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #666;
+  font-size: 12px;
+  text-shadow: 1px 1px 0px #fff;
+  background: #eaebec;
+  border: #ccc 1px solid;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: 0 1px 2px #d1d1d1;
+  -webkit-box-shadow: 0 1px 2px #d1d1d1;
+  box-shadow: 0 1px 2px #d1d1d1;
+}
+
+/* line 173, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+#bid_table tr {
+  text-align: center;
+  padding-left: 20px;
+}
+
+/* line 178, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+#bid_table td {
+  padding: 18px;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
+  background: #fafafa;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
+  background: -moz-linear-gradient(top, #fbfbfb, #fafafa);
+}
+
+/* line 189, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+#bid_page img {
+  float: left;
+}
+
+/* line 193, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.new {
+  display: inline-block;
+  background: #DA1F1F;
+  border: 2px solid #FAFAFA;
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  margin: 0 2px 15px;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
+  padding: 15px;
+  padding-bottom: 5px;
+  background: -webkit-linear-gradient(45deg, white, #da1f1f);
+  opacity: 1;
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+/* line 216, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.loginbtn {
+  background: transparent;
+}
+
+/* line 219, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.signupbtn {
+  background: transparent;
+}
+
+/* line 223, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.modal {
+  overflow: hidden;
+}
+
+/* line 227, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.navbar-default {
+  background-color: #0079BA !important;
+  background-image: none !important;
+}
+
+/* line 232, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.navText {
+  color: white !important;
+}
+
+/* line 236, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.navText:hover {
+  background-color: #28A4C9 !important;
+}
+
+/* line 240, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.navbar-default .navbar-nav > .active > a {
+  background-image: linear-gradient(#28a4c9 0%, #28a4c9 100%);
+}
+
+/* line 242, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+[datanotifications] {
+  position: relative;
+}
+
+/* line 246, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+[datanotifications]:after {
+  content: attr(datanotifications);
+  position: absolute;
+  background: red;
+  border-radius: 50%;
+  display: inline-block;
+  padding: 0.3em;
+  color: #f2f2f2;
+  right: -10px;
+  top: 20px;
+}
+
+/* line 258, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.nobackground {
+  background-color: #E4E4E4 !important;
+  font-family: HelveticaNeue-Light;
+}
+
+/* line 263, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.addbackground {
+  background-image: url("/assets/wallpapertwo.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* line 272, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.navbar-form {
+  width: 400px;
+}
+
+/* line 274, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+video {
+  width: auto;
+  min-width: 100%;
+  height: auto;
+  min-height: 100%;
+}
+
+/* line 281, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.navbar {
+  border: none !important;
+  opacity: 0.6;
+}
+
+/* line 286, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.navbar:hover {
+  opacity: 1.0;
+}
+
+/* line 290, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.footer {
+  color: transparent;
+}
+
+/* line 294, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.userpicture {
+  width: 250px;
+  height: 250px;
+  float: left;
+}
+
+/* line 300, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.userinfo {
+  margin-left: 300px;
+  height: 250px;
+}
+
+/* line 305, /home/naren/Documents/cs219/victorious-Secret/app/assets/stylesheets/myStyles.css.scss.erb */
+.table-user-information td {
+  width: 456px;
+  font-size: 15px;
+}

@@ -15,6 +15,19 @@ module VictoriousSecret
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
+    initializer 'setup_asset_pipeline', :group => :all  do |app|
+  # We don't want the default of everything that isn't js or css, because it pulls too many things in
+    app.config.assets.precompile.shift
+
+  # Explicitly register the extensions we are interested in compiling
+    app.config.assets.precompile.push(Proc.new do |path|
+        File.extname(path).in? [
+          '.html', '.erb', '.haml', '.css','.js','.coffee',                # Templates
+          '.png',  '.gif', '.jpg', '.jpeg','.webm',         # Images
+          '.eot',  '.otf', '.svc', '.woff', '.ttf','.mp3' # Fonts
+        ]
+    end)
+  end
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]

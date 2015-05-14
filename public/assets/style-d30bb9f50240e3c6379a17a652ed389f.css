@@ -1,0 +1,56 @@
+/* COMMON CLASSES */
+
+.break { clear:both; }
+
+/* WRAPPER */
+#wrapper { margin-top: -75px}
+
+/* CONTENT */
+#content { }
+#content .info { padding:5px; }
+
+/* MOVIE POSTERS */
+#movieposters { list-style:none; margin:100px 0; height:550px; }
+#movieposters li { display:inline; float:left;
+	-webkit-perspective: 500; -webkit-transform-style: preserve-3d;
+	-webkit-transition-property: perspective; -webkit-transition-duration: 0.5s; }
+#movieposters li:hover { -webkit-perspective: 5000; }
+
+#movieposters li img{border:3px solid #fcfafa; -moz-box-shadow:0 3px 5px #888;color: white !important;}
+#movieposters li .contentmove{-webkit-transform: rotateY(30deg);
+	-webkit-transition-property: transform; -webkit-transition-duration: 0.5s; }
+#movieposters li:hover .contentmove { -webkit-transform: rotateY(0deg); }
+
+.movieinfo {padding:5px; width:200px; height:auto; background-color:rgb(0, 101, 173); opacity:0.5; margin:-195px 0 0 55px; position:absolute;
+	-moz-box-shadow:0 20px 40px #888; -webkit-box-shadow:0 20px 40px #888;
+	-webkit-transform: translateZ(30px) rotateY(30deg);
+	-webkit-transition-property: transform, box-shadow, margin; -webkit-transition-duration: 0.5s; opacity:0;}
+	
+#movieposters li:hover .movieinfo { -webkit-transform: rotateY(0deg); -webkit-box-shadow:0 5px 15px #888; margin:-175px 0 0 30px; }
+	
+.movieinfo h3 { color:#7a3f3a; font-variant: small-caps; font-family:Georgia,serif,Times; text-align:center; padding-bottom:15px; }
+
+#movieposters li:hover .movieinfo {opacity: 0.9;
+	color: white !important;
+	border:2px solid #fcfafa;
+}
+
+#movieposters > li{
+	padding-top: 30px;
+	margin-bottom: 50px;
+}
+
+#movieposters a:hover{background-color: transparent; text-decoration: none;}
+#movieposters .newbid img{border:5px solid #00C03D;}
+#movieposters .pintext{
+	text-align:center;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	color:white;
+	max-width: 256px;}
+
+.modal-content{padding-bottom: 15px;}
+.modal{ overflow-y: scroll;}
+.bidmap{margin-top: 10px;}
+#popupthree{min-height: 50%}
+#postinfo form{float: right;}
