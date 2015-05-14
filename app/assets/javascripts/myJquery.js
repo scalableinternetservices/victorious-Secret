@@ -4,7 +4,8 @@ var chatBoxes = new Array();
 	$(document).ready(function(){
         $(".alert-success").delay(2000).fadeOut("slow");
         $(".alert-danger").delay(4000).fadeOut("slow");
-
+        map_initialize();
+        $("#post-submit").bind('submit',codeAddress);
 
         /**google maps **/
         /**$("#post-submit").submit(map_initialize());**/
