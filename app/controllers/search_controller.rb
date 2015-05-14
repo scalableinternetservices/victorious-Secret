@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
-  respond_to :html
+  respond_to :html,:js
   def posts
     # @term = "Praveen"
     # @search = User.find_with_ferret("(#{@term})^2 OR (#{@term.split.map {|t| t + "*" }.join(' ')})", {:limit => 100})
