@@ -4,6 +4,11 @@ var chatBoxes = new Array();
 	$(document).ready(function(){
         $(".alert-success").delay(2000).fadeOut("slow");
         $(".alert-danger").delay(4000).fadeOut("slow");
+
+
+        /**google maps **/
+        /**$("#post-submit").submit(map_initialize());**/
+
 		/**
      * When the send message link on our home page is clicked
      * send an ajax request to our rails app with the sender_id and
@@ -392,3 +397,7 @@ $(window).scroll(function() {
 			$(".footer").css("color","white");
 		}
 });
+
+
+
+
