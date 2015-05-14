@@ -27,7 +27,8 @@ Overall Average Rating: <%=@user.provider.rating %>
 
 <div class = "panel panel-info">
 	<div class = "panel-heading">
-		<h3 class = "panel-title"><%= @user.first %> <%=@user.last%></h3>
+		<h3 class = "panel-title"><%= @user.first %> <%=@user.last%>  <%= link_to "Send Message", "#", class: "btn btn-success btn-xs pull-right start-conversation",
+                    "data-sid" => current_user.id, "data-rip" => @user.id, id: "chatbtn" %></h3>
 	</div>
 	<div class="panel-body">
 		<div class = "row">
@@ -52,10 +53,10 @@ Overall Average Rating: <%=@user.provider.rating %>
 								<td> Address: <%=@user.address%> </td>
 							</tr>
 							<tr>
-								<td> Average Provider Rating: <%=@user.provider.rating%> </td>
+								<td> Average Provider Rating: <span class = "provider_rating"><%=@user.provider.rating%></span> </td>
 							</tr>
 							<tr>
-								<td> Average Consumer Rating: <%=@user.consumer.rating%> </td>
+								<td> Average Consumer Rating: <span class = "consumer_rating"><%=@user.consumer.rating%></span> </td>
 							</tr>
 						</tbody>
 					</table>
@@ -103,11 +104,7 @@ Overall Average Rating: <%=@user.provider.rating %>
 			</div>
 		</div>
 	</div>
-
 </div>
-
- <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
-                    "data-sid" => current_user.id, "data-rip" => @user.id, id: "chatbtn" %>
 
 
 

@@ -1,7 +1,7 @@
 class BidsController < ApplicationController
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
+  respond_to :html, :js
 
   def accept
   	@bid = Bid.find(params[:bid_id])
