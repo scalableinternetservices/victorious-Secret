@@ -16,7 +16,7 @@
 	<% end %>
 	<h4>Price:  <%= number_to_currency(@post.price) %></h4>
 	<p><b>Description:</b> <%= sanitize(@post.description) %></p>
-	<p><b>Categories: </b><%= @post.categories%></p>
+	<p><b>Categories: </b><%= @post.categories.to_sentence%></p>
 	<p><b>Seller: </b> <%= link_to view_path(user_id: @post.consumer.user.id) do%>
 						<%=@post.consumer.user.first%><%=@post.consumer.user.last%>
 						<% end %></p>

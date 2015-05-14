@@ -31,7 +31,7 @@
 							<%= link_to post_path(post.id), :remote => true, :class => "postmodal_link", "data-toggle" => "modal" do%>
 									<h4 class="pintext"><%= number_to_currency(post.price)%></h4>
 									<h5 class="pintext"><%= pluralize(post.bids.count,'Bid')%></h5>
-									<p class="pintext">Categories: <i><%= post.categories%></i></p>
+									<p class="pintext">Categories: <i><%= post.categories.to_sentence%></i></p>
 							<% end %>
 							<% if !(current_user.consumer.posts.include?(post))  %>
 								<%= link_to 'BID', new_bid_path(post_id: post) , method: :post, :class => 'btn btn-success btn-xs center-block bidmodal_link', "data-toggle" => "modal", :remote => true%>			
