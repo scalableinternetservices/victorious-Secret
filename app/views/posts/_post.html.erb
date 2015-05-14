@@ -7,7 +7,9 @@
 
 <div id="postinfo" class="pull-right col-md-8">
 	<% if !(@current_user.consumer.posts.include?(@post))  %>
-		<%= button_to 'BID', new_bid_path(post_id: @post) , method: :post, :class => 'btn btn-success center-block'%>			
+		<div id="switchmodal">
+		<%= link_to 'BID', new_bid_path(post_id: @post) , method: :post, :class => 'btn btn-success btn-xs center-block', "data-toggle" => "modal", :remote => true, :id => "doublemodal_link"%>	
+		</div>
 	<% end %>
 	<% if(@post.consumer.user == @current_user) %>
 		<%= button_to 'Edit', edit_post_path(@post), method: :get, :class => 'btn btn-warning center-block' %>

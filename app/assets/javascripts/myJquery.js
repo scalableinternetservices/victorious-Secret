@@ -407,6 +407,10 @@ var collapseMyMenu, expandMyMenu, hideMenuTexts, showMenuTexts;
 		$( ".postmodal_link" ).click(function() {
 		  $("#popupthree").modal();
 		});
+
+		$( ".bidmodal_link" ).click(function() {
+		  $("#popupfour").modal();
+		});
 		
 		document.getElementById("wavegif").playbackRate = 3.0;
 		
@@ -439,6 +443,7 @@ $(window).scroll(function() {
 			$(".footer").css("color","white");
 		}
 });
+
 
 expandMyMenu = function() {
   return $("nav.sidebar").removeClass("sidebar-menu-collapsed").addClass("sidebar-menu-expanded");
