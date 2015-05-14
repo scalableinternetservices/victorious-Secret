@@ -4,4 +4,12 @@
 <%= text_field_tag(:query) %>
 <%= submit_tag("Search") %>
 <% end %>
-<%= render 'results' %>
+<div>
+  <table>
+    <% @results.each do |result| %>
+        <tr>
+          <td><%= link_to result.first+" " +result.last, {:controller => :welcome, :action => :view_profile, :user_id => result.id } %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>
