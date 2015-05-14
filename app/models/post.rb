@@ -16,7 +16,8 @@ class Post < ActiveRecord::Base
     text :title
     text :description
     text :categories
-    latlon(:location) { Sunspot::Util::Coordinates.new(lat, lon) }
+    time :updated_at
+    latlon(:location) { Sunspot::Util::Coordinates.new(lat, lon)}
   end
 
   has_one :notification

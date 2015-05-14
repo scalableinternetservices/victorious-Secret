@@ -12,8 +12,6 @@ class SearchController < ApplicationController
         keywords params[:query]
       end
       @results = search.results
-      Rails.logger.debug("My object: #{@results.inspect}")
-      Rails.logger.debug("My object: #{search.total.inspect}")
     end
   end
 
@@ -35,6 +33,7 @@ class SearchController < ApplicationController
           if !params[:lat].nil? && !params[:lon].nil?
              with(:location).in_radius(params[:lat], params[:lon], params[:radius])
           end
+        order_by(:updated_at, :desc)
       end
       @search_posts=search.results
       Rails.logger.debug("My object: #{@search_users.inspect}")

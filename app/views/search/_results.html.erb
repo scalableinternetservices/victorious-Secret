@@ -1,0 +1,10 @@
+<div>
+  <table>
+  <% @results.each do |result| %>
+      <tr>
+        <td><%= link_to result.first+" " +result.last, {:controller => :welcome, :action => :view_profile, :user_id => result.id } %></td>
+        <td> <%= link_to "Chat!", "#", class: "btn btn-success btn-xs pull-right start-conversation", id: "chat" %></td>
+      </tr>
+  <% end %>
+  </table>
+</div>
