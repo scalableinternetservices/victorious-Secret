@@ -4,81 +4,7 @@ var collapseMyMenu, expandMyMenu, hideMenuTexts, showMenuTexts;
 	
 	$(document).ready(function(){
 
-    $(".provider_rating").each(function() {
-        // Get the value
-        var val = parseFloat($(".provider_rating").html());
-        // Make sure that the value is in 0 - 5 range, multiply to get width
-        var size = Math.max(0, (Math.min(5, val))) * 16;
-        // Create stars holder
-        var $span = $('<span />').width(size);
-        // Replace the numerical value with stars
-        $(".provider_rating").html($span);
-    });
-
-    $(".consumer_rating").each(function() {
-        // Get the value
-        var val = parseFloat($(".consumer_rating").html());
-        // Make sure that the value is in 0 - 5 range, multiply to get width
-        var size = Math.max(0, (Math.min(5, val))) * 16;
-        // Create stars holder
-        var $span = $('<span />').width(size);
-        // Replace the numerical value with stars
-        $(".consumer_rating").html($span);
-    });
-
-		$("#justify-icon").click(function(e) {
-      if ($(this).parent("nav.sidebar").hasClass("sidebar-menu-collapsed")) {
-        expandMyMenu();
-        $("#chatsearch").removeClass('hide');
-        showMenuTexts();
-        $(this).css({
-          color: "#000"
-        });
-      } else if ($(this).parent("nav.sidebar").hasClass("sidebar-menu-expanded")) {
-      	$("#chatsearch").addClass('hide');
-        collapseMyMenu();
-        hideMenuTexts();
-        $(this).css({
-          color: "#FFF"
-        });
-      }
-      return false;
-    });
-		$( ".loginbtn" ).click(function() {
-		  $("#popup").modal('show');
-		});
-		
-		$( ".signupbtn" ).click(function() {
-		  $("#popuptwo").modal('show');
-		});
-
-		$( ".postmodal_link" ).click(function() {
-		  $("#popupthree").modal();
-		});
-
-		$( ".bidmodal_link" ).click(function() {
-		  $("#popupfour").modal();
-		});
-
-		
-
-
-        $(".alert-success").delay(2000).fadeOut("slow");
-        $(".alert-danger").delay(4000).fadeOut("slow");
-
-        map_initialize();
-        $("#post-submit").bind('submit',codeAddress);
-
-        /**google maps **/
-        /**$("#post-submit").submit(map_initialize());**/
-
-		/**
-     * When the send message link on our home page is clicked
-     * send an ajax request to our rails app with the sender_id and
-     * recipient_id
-     */
-
-    $('.start-conversation').click(function (e) {
+		    $('.start-conversation').click(function (e) {
         e.preventDefault();
 
         var sender_id = $(this).data('sid');
@@ -372,6 +298,82 @@ var collapseMyMenu, expandMyMenu, hideMenuTexts, showMenuTexts;
 
 
     }
+
+
+    $(".provider_rating").each(function() {
+        // Get the value
+        var val = parseFloat($(".provider_rating").html());
+        // Make sure that the value is in 0 - 5 range, multiply to get width
+        var size = Math.max(0, (Math.min(5, val))) * 16;
+        // Create stars holder
+        var $span = $('<span />').width(size);
+        // Replace the numerical value with stars
+        $(".provider_rating").html($span);
+    });
+
+    $(".consumer_rating").each(function() {
+        // Get the value
+        var val = parseFloat($(".consumer_rating").html());
+        // Make sure that the value is in 0 - 5 range, multiply to get width
+        var size = Math.max(0, (Math.min(5, val))) * 16;
+        // Create stars holder
+        var $span = $('<span />').width(size);
+        // Replace the numerical value with stars
+        $(".consumer_rating").html($span);
+    });
+
+		$("#justify-icon").click(function(e) {
+      if ($(this).parent("nav.sidebar").hasClass("sidebar-menu-collapsed")) {
+        expandMyMenu();
+        $("#chatsearch").removeClass('hide');
+        showMenuTexts();
+        $(this).css({
+          color: "#000"
+        });
+      } else if ($(this).parent("nav.sidebar").hasClass("sidebar-menu-expanded")) {
+      	$("#chatsearch").addClass('hide');
+        collapseMyMenu();
+        hideMenuTexts();
+        $(this).css({
+          color: "#FFF"
+        });
+      }
+      return false;
+    });
+		$( ".loginbtn" ).click(function() {
+		  $("#popup").modal('show');
+		});
+		
+		$( ".signupbtn" ).click(function() {
+		  $("#popuptwo").modal('show');
+		});
+
+		$( ".postmodal_link" ).click(function() {
+		  $("#popupthree").modal();
+		});
+
+		$( ".bidmodal_link" ).click(function() {
+		  $("#popupfour").modal();
+		});
+
+
+
+
+        $(".alert-success").delay(2000).fadeOut("slow");
+        $(".alert-danger").delay(4000).fadeOut("slow");
+
+        map_initialize();
+        $("#post-submit").bind('submit',codeAddress);
+
+        /**google maps **/
+        /**$("#post-submit").submit(map_initialize());**/
+
+		/**
+     * When the send message link on our home page is clicked
+     * send an ajax request to our rails app with the sender_id and
+     * recipient_id
+     */
+
 
 
     /**
