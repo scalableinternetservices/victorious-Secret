@@ -2,5 +2,12 @@
 <div class = "edit_post_form">
 <%= render 'form' %>
 </div>
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', welcome_path %>
+
+
+<iframe 
+			  width="560"
+			  height="450"
+			  frameborder="0" style="border:0; float:right !important; margin-top:-500px !important"
+			  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAgFblGV3TfMawjKrWeOoCMjEJKN6RGn5A
+			    &q=<%=@post.address%>" >
+</iframe>
