@@ -5,7 +5,8 @@
 			<%if (@post.picture.present?)%>
 			<%= image_tag(@post.picture_url, size: "150x150") %>
 			<%else%>
-				<img src="http://lorempixel.com/150/150/nature/" alt="no_image">
+				<%= image_tag(asset_path('noimageicon.png'), size: "150x150") %>
+				<!-- <img src="http://lorempixel.com/150/150/nature/" alt="no_image"> -->
 				<!-- <img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image" class="pull-left"> -->
 			<%end%>
 		</div>
