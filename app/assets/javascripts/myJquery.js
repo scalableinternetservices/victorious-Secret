@@ -67,23 +67,21 @@ var collapseMyMenu, expandMyMenu, hideMenuTexts, showMenuTexts;
         $(".alert-success").delay(2000).fadeOut("slow");
         $(".alert-danger").delay(4000).fadeOut("slow");
 
-       
-
-        /**google maps **/
-        /**$("#post-submit").submit(map_initialize());**/
+      $('#search-results').bind('DOMNodeInserted DOMNodeRemoved', function(event) {
+          if (event.type == 'DOMNodeInserted') {
+            $( "#chat" ).click(function() {
+              alert("div content changed!");
+            });
+          }
+      });
+    /**google maps **/
+    /**$("#post-submit").submit(map_initialize());**/
          
 		/**
      * When the send message link on our home page is clicked
      * send an ajax request to our rails app with the sender_id and
      * recipient_id
      */
-
-
-
-    
-		
-		
-		document.getElementById("wavegif").playbackRate = 3.0;
 		
 		$('a[href^="#"]').on('click',function (e) {
 		    e.preventDefault();
@@ -95,8 +93,7 @@ var collapseMyMenu, expandMyMenu, hideMenuTexts, showMenuTexts;
 		        window.location.hash = target;
 		    });
 		});
-
-		
+    document.getElementById("wavegif").playbackRate = 3.0;
 });
 
 $(window).scroll(function() {   
