@@ -1,43 +1,96 @@
+<div class = "row">
+<div id="leftcontentmodal">
+	<div id="imageandinfo">
+		<div id="modalimagecontent">
+			<%if (@post.picture.present?)%>
+			<%= image_tag(@post.picture_url, size: "150x150") %>
+			<%else%>
+				<img src="http://lorempixel.com/150/150/nature/" alt="no_image">
+				<!-- <img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image" class="pull-left"> -->
+			<%end%>
+		</div>
 
-<%if (@post.picture.present?)%>
-<%= image_tag(@post.picture_url, size: "150x150", class: "col-md-4") %>
-<%else%>
-	<img src="http://lorempixel.com/150/150/nature/" alt="no_image" class="col-md-4">
-	<!-- <img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image" class="pull-left"> -->
-<%end%>
+		<div id="postinfo">
+			<p><b>Price:  </b><%= number_to_currency(@post.price) %></h4></p>
+			<p><b>Description:</b> <%= sanitize(@post.description) %></p>
+			<p><b>Categories: </b><%= @post.categories.to_sentence%></p>
+			<p><b>Seller: </b> <%= link_to view_path(user_id: @post.consumer.user.id) do%>
+								<%=@post.consumer.user.first%><%=@post.consumer.user.last%>
+								<% end %></p>
+			<p><b>Address: </b><%=@post.address%></p>
+			<% if(@post.consumer.user == current_user) %>
+			<%= link_to 'Edit', edit_post_path(@post) %>
+			<% end %>
+		</div>
+	</div>
 
-<div id="postinfo" class="col-md-8">
-	<p><b>Price:  </b><%= number_to_currency(@post.price) %></h4>
-	<p><b>Description:</b> <%= sanitize(@post.description) %></p>
-	<p><b>Categories: </b><%= @post.categories.to_sentence%></p>
-	<p><b>Seller: </b> <%= link_to view_path(user_id: @post.consumer.user.id) do%>
-						<%=@post.consumer.user.first%><%=@post.consumer.user.last%>
-						<% end %></p>
-	<p><b>Address: </b><%=@post.address%></p>
-	<% if(@post.consumer.user == current_user) %>
-	<%= link_to 'Edit', edit_post_path(@post) %>
+
+	
+		<div>
+			<iframe class="bidmap"
+			  width="560"
+			  height="450"
+			  frameborder="0" style="border:0"
+			  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAgFblGV3TfMawjKrWeOoCMjEJKN6RGn5A
+			    &q=<%=@post.address%>">
+			</iframe>
+		</div>
+			<% if !(@current_user.consumer.posts.include?(@post))  %>
+			<%= link_to 'BID', new_bid_path(post_id: @post) , method: :post, :class => 'btn btn-success btn-xs center-block postmodal_link', "data-toggle" => "modal", :remote => true, id: "bidmodalbtn"%>			
+	<% end %>
+	<% if(@post.consumer.user == @current_user) %>
+		<%= button_to 'Edit', edit_post_path(@post), method: :get, :class => 'btn btn-warning center-block' %>
+		<div id="rightcontentmodal">
+			<% if @post.provider %>
+				<% if @post.consumer == current_user.consumer %>
+					<h1> This bid is won by <%=@post.provider.user.first%> <%=@post.provider.user.last%> </h1>	
+						<% if @post.proreview.nil? %>
+						<%= button_to 'rate this provider', new_proreview_path(post_id: @post),method: :post %>
+						<% end %>
+				<% else %>
+				<% if @post.provider == current_user.provider %>
+					<h1> you have won this bid </h1>
+				<% else %>
+					<h1> this post is closed. The provider has chosen a winner </h1>	
+				<% end %>
+				<% end %>
+			<% end %>
+
+			<!-- if the current user has won the bid and he hasn't rated the consumer yet, he can rate him -->
+			<% if (@post.provider == current_user.provider) && (@post.conreview.nil?) %>
+			<h2> you haven't rated this consumer yet for the service. you can <%= button_to 'rate this consumer', new_conreview_path(post_id: @post),method: :post %>
+			</h2>
+			<% end %>
+
+			<% if @post.bids.length !=0 %>
+				<table cellspacing = '0' id = "bid_table">
+				<thead>
+					<tr>
+						<th>Bidder</th>
+						<th>Amount</th>
+						<th>Description</th>
+						<th>Accept Bid</th>
+					</tr>
+				</thead>
+				<% @post.bids.each do |bid| %>
+				
+				<tbody>
+					<tr>
+							<%if current_user.provider == bid.provider%> <td><%= link_to view_path(user_id: current_user.id) do %> <%= current_user.first %><%= current_user.last %><p>(you)</p> <% end %> </td><td><%= number_to_currency(bid.amount) %></td> 
+							<td><%= bid.description %></td><td></td>
+					</tr>
+					<tr>
+							<% else %> <td><%= link_to view_path(user_id: bid.provider.user.id) do %> <%= bid.provider.user.first %> <%= bid.provider.user.last %> <% end %></td><td><%= number_to_currency(bid.amount) %> </td><td><%= bid.description %></td>
+							<% if (@show_accept) %>
+								<% if(@post.provider.nil?)%>
+									<td><%= link_to 'accept the bid', accept_bids_path(post_id: @post, bid_id: bid), :class => 'btn btn-primary btn-xs bidbtn' %></td></tr>
+								<% end %>
+							<% end %>
+						<% end %> 
+				<% end %>
+				</tbody>
+				</table>
+			<% end %>
+		</div>
 	<% end %>
 </div>
-
-
-<div class = "row">
-	<div class = "col-md-12">
-		<iframe class="bidmap"
-		  width="560"
-		  height="450"
-		  frameborder="0" style="border:0"
-		  
-		  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAgFblGV3TfMawjKrWeOoCMjEJKN6RGn5A
-		    &q=<%=@post.address%>">
-		</iframe>
-	</div>
-</div>
-
-<% if !(@current_user.consumer.posts.include?(@post))  %>
-		<div id="switchmodal">
-		<%= link_to 'BID', new_bid_path(post_id: @post) , method: :post, :class => 'btn btn-success btn-xs center-block', "data-toggle" => "modal", :remote => true, :id => "doublemodal_link"%>	
-		</div>
-<% end %>
-<% if(@post.consumer.user == @current_user) %>
-	<%= button_to 'Edit', edit_post_path(@post), method: :get, :class => 'btn btn-warning center-block' %>
-<% end %>

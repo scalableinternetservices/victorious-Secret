@@ -1,2 +1,5 @@
 $("#popupthreebody").html("<%= escape_javascript(render(:partial => 'posts/post')) %>");
 $(".modal-title").html("<%=@post.title%>");
+$(".modal-dialog").css("width", "600px");
+$("#leftcontentmodal").removeClass("col-md-6");
+$("#rightcontentmodal").removeClass("col-md-6");

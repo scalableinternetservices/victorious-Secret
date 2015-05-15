@@ -68,3 +68,14 @@
 .panel{  width: 92%;
   margin-left: auto;
   margin-right: auto;}
+
+#postinfo{
+  	margin-left: 160px;
+  	margin-top: -150px;
+}
+#modalimagecontent{
+}
+#leftcontentmodal, #rightcontentmodal{
+	width: 550px;
+	margin: 0px 20px;
+}

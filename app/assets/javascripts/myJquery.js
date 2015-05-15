@@ -57,13 +57,6 @@ var collapseMyMenu, expandMyMenu, hideMenuTexts, showMenuTexts;
 		  $("#popupthree").modal();
 		});
 
-		$( ".bidmodal_link" ).click(function() {
-		  $("#popupfour").modal();
-		});
-
-
-
-
         $(".alert-success").delay(2000).fadeOut("slow");
         $(".alert-danger").delay(4000).fadeOut("slow");
 
