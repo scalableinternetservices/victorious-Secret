@@ -67,13 +67,7 @@ var collapseMyMenu, expandMyMenu, hideMenuTexts, showMenuTexts;
         $(".alert-success").delay(2000).fadeOut("slow");
         $(".alert-danger").delay(4000).fadeOut("slow");
 
-      $('#search-results').bind('DOMNodeInserted DOMNodeRemoved', function(event) {
-          if (event.type == 'DOMNodeInserted') {
-            $( "#chat" ).click(function() {
-              alert("div content changed!");
-            });
-          }
-      });
+     
     /**google maps **/
     /**$("#post-submit").submit(map_initialize());**/
          

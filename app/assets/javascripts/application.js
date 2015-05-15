@@ -19,4 +19,5 @@
 //= require jquery-ui
 //= require bootstrap
 //= require private_pub
+//= require ajax-chat
 
