@@ -340,7 +340,7 @@ form.new_bid{
 	margin-top: 10px;
 }
 
-form.new_post {
+form.new_post{
 	margin-left: auto;
 	marign-right: auto;
 	background: #E4E4E4;
@@ -351,13 +351,17 @@ form.new_post {
 	border: 1px solid #E4E4E4;
 }
 
-form.new_bid label, form.new_post label{
+form.edit_post {
+	font: 16px Georgia, "Times New Roman", Times, serif;
+}
+
+form.new_bid label, form.new_post label, form.edit_post label{
 	display: block;
 	margin: 0px;
 }
 
 
-form.new_bid input[type="submit"], form.new_post input[type="submit"]{
+form.new_bid input[type="submit"], form.new_post input[type="submit"], form.edit_post input[type="submit"]{
 	background: #E27575;
 	border: none;
 	padding: 10px 25px 10px 25px;
@@ -368,7 +372,7 @@ form.new_bid input[type="submit"], form.new_post input[type="submit"]{
 	cursor: pointer;
 }
 
-form.new_bid input[type="submit"]:hover, form.new_post input[type="submit"]:hover{
+form.new_bid input[type="submit"]:hover, form.new_post input[type="submit"]:hover, form.edit_post input[type="submit"]:hover{
 	background: #CF7A7A;
 }
 
@@ -390,6 +394,11 @@ form.new_bid input[type="number"], form.new_bid textarea {
 form.new_post input, form.new_post textarea, form.new_post select{
 	width: 250px;
 }
+
+form.edit_post input, form.edit_post textarea, form.edit_post select {
+	width: 500px;
+}
+
 .row {
 	margin-right: 10px !important;
 }
@@ -401,4 +410,15 @@ form.new_post input, form.new_post textarea, form.new_post select{
 .alert {
 	position: absolute;
 	z-index: 2;
+}
+
+.btn {
+	width: 50%;
+}
+
+.edit_post_form {
+  text-align: left;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -36,7 +36,7 @@
 			</iframe>
 		</div>
 			<% if !(@current_user.consumer.posts.include?(@post))  %>
-			<%= link_to 'BID', new_bid_path(post_id: @post) , method: :post, :class => 'btn btn-success btn-xs center-block postmodal_link', "data-toggle" => "modal", :remote => true, id: "bidmodalbtn"%>			
+			<%= link_to 'BID', new_bid_path(post_id: @post) , method: :post, :class => 'btn btn-success btn center-block postmodal_link', "data-toggle" => "modal", :remote => true, id: "bidmodalbtn"%>			
 	<% end %>
 	<% if(@post.consumer.user == @current_user) %>
 		<%= button_to 'Edit', edit_post_path(@post), method: :get, :class => 'btn btn-warning center-block' %>
