@@ -1,4 +1,4 @@
- 
+ $(document).ready(function(){
  //initialize a new map
   function map_initialize() {
     geocoder = new google.maps.Geocoder();
@@ -82,6 +82,21 @@ function codeAddress() {
        return false;
   
 }
+
+$("#post-submit").bind('submit',codeAddress);
+
+if ( $( "#map-canvas" ).length ) {
+ map_initialize();
+}
+
+});
+
+
+
+
+
+
+
 
 
   

@@ -3,7 +3,7 @@
   <% @results.each do |result| %>
       <tr>
         <td><%= link_to result.first+" " +result.last, {:controller => :welcome, :action => :view_profile, :user_id => result.id } %></td>
-        <td> <%= link_to "Chat!", "#", class: "btn btn-success btn-xs pull-right start-conversation", id: "chat" %></td>
+        <td> <%= link_to "Chat!", "#", class: "btn btn-success btn-xs pull-right start-conversation","data-sid" => current_user.id, "data-rip" => result.id,  id: "chat" %></td>
       </tr>
   <% end %>
   </table>
