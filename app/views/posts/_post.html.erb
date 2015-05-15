@@ -1,20 +1,13 @@
+
 <%if (@post.picture.present?)%>
-<%= image_tag(@post.picture_url, size: "150x150", class: "pull-left col-md-4") %>
+<%= image_tag(@post.picture_url, size: "150x150", class: "col-md-4") %>
 <%else%>
-	<img src="http://lorempixel.com/150/150/nature/" alt="no_image" class="pull-left">
+	<img src="http://lorempixel.com/150/150/nature/" alt="no_image" class="col-md-4">
 	<!-- <img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image" class="pull-left"> -->
 <%end%>
 
-<div id="postinfo" class="pull-right col-md-8">
-	<% if !(@current_user.consumer.posts.include?(@post))  %>
-		<div id="switchmodal">
-		<%= link_to 'BID', new_bid_path(post_id: @post) , method: :post, :class => 'btn btn-success btn-xs center-block', "data-toggle" => "modal", :remote => true, :id => "doublemodal_link"%>	
-		</div>
-	<% end %>
-	<% if(@post.consumer.user == @current_user) %>
-		<%= button_to 'Edit', edit_post_path(@post), method: :get, :class => 'btn btn-warning center-block' %>
-	<% end %>
-	<h4>Price:  <%= number_to_currency(@post.price) %></h4>
+<div id="postinfo" class="col-md-8">
+	<p><b>Price:  </b><%= number_to_currency(@post.price) %></h4>
 	<p><b>Description:</b> <%= sanitize(@post.description) %></p>
 	<p><b>Categories: </b><%= @post.categories.to_sentence%></p>
 	<p><b>Seller: </b> <%= link_to view_path(user_id: @post.consumer.user.id) do%>
@@ -25,11 +18,26 @@
 	<%= link_to 'Edit', edit_post_path(@post) %>
 	<% end %>
 </div>
-<iframe class="bidmap"
-  width="560"
-  height="450"
-  frameborder="0" style="border:0"
-  
-  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAgFblGV3TfMawjKrWeOoCMjEJKN6RGn5A
-    &q=<%=@post.address%>">
-</iframe>
+
+
+<div class = "row">
+	<div class = "col-md-12">
+		<iframe class="bidmap"
+		  width="560"
+		  height="450"
+		  frameborder="0" style="border:0"
+		  
+		  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAgFblGV3TfMawjKrWeOoCMjEJKN6RGn5A
+		    &q=<%=@post.address%>">
+		</iframe>
+	</div>
+</div>
+
+<% if !(@current_user.consumer.posts.include?(@post))  %>
+		<div id="switchmodal">
+		<%= link_to 'BID', new_bid_path(post_id: @post) , method: :post, :class => 'btn btn-success btn-xs center-block', "data-toggle" => "modal", :remote => true, :id => "doublemodal_link"%>	
+		</div>
+<% end %>
+<% if(@post.consumer.user == @current_user) %>
+	<%= button_to 'Edit', edit_post_path(@post), method: :get, :class => 'btn btn-warning center-block' %>
+<% end %>
