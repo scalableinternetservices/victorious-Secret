@@ -1,21 +1,27 @@
-<div>
-<h1>Users Results</h1>
+<div class = "row">
+  <div class = "col-lg-6">
+    <div class = "panel panel-default">
+      <div class = "panel-heading">Users</div>
+      <table class = "table">
+      <% @search_users.each do |result| %>
+          <tr>
+    	      <td><%= link_to result.first+" " +result.last, {:controller => :welcome, :action => :view_profile, :user_id => result.id } %></td>
+          </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
 
-  <% @search_users.each do |result| %>
-      <tr>
-	      <td><%= link_to result.first+" " +result.last, {:controller => :welcome, :action => :view_profile, :user_id => result.id } %></td>
-      </tr>
-  <% end %>
-</div>
-<div>
-  <h1>Posts Results</h1>
-  <table>
-  <% @search_posts.each do |result| %>
-      <tr>
-        <td> <%= link_to result.title+" ", result %></td>
-        <td> Categories: <%= result.categories %></td>
-        <td> Description: <%= result.description %></td>
-      </tr>
-  <% end %>
-  </table>
+  <div class = "col-lg-6">
+    <div class = "panel panel-default">
+    <div class = "panel-heading">Posts</div>
+      <table class = "table">
+      <% @search_posts.each do |result| %>
+          <tr> 
+            <td> <%= link_to result.title+" ", result %></td>
+          </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
 </div>
