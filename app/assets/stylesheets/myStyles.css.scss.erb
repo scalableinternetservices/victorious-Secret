@@ -142,7 +142,7 @@ html{
 }
 
 #bid_table th {
-	padding:21px 25px 22px 25px;
+	text-align: center;
 	border-top:1px solid #fafafa;
 	border-bottom:1px solid #e0e0e0;
 
@@ -153,7 +153,6 @@ html{
 
 #bid_table {
 	margin-top: 20px;
-	margin-left: 200px;
 	font-family:Arial, Helvetica, sans-serif;
 	color:#666;
 	font-size:12px;
@@ -329,3 +328,97 @@ span.consumer_rating span {
     background-position: 0 0;
 }
 
+form.new_bid{
+	margin-left: auto;
+	marign-right: auto;
+	background: #F7F7F7;
+	padding: 25px 15px 25px 10px;
+	font: 12px Georgia, "Times New Roman", Times, serif;
+	color: #888;
+	text-shadow: 1px 1px 1px #FFF;
+	border: 1px solid #E4E4E4;
+	margin-top: 10px;
+}
+
+form.new_post{
+	margin-left: auto;
+	marign-right: auto;
+	background: #E4E4E4;
+	padding: 25px 15px 25px 10px;
+	font: 12px Georgia, "Times New Roman", Times, serif;
+	color: #888;
+	text-shadow: 1px 1px 1px #FFF;
+	border: 1px solid #E4E4E4;
+}
+
+form.edit_post {
+	font: 16px Georgia, "Times New Roman", Times, serif;
+}
+
+form.new_bid label, form.new_post label, form.edit_post label{
+	display: block;
+	margin: 0px;
+}
+
+
+form.new_bid input[type="submit"], form.new_post input[type="submit"], form.edit_post input[type="submit"]{
+	background: #E27575;
+	border: none;
+	padding: 10px 25px 10px 25px;
+	color: #FFF;
+	box-shadow: 1px 1px 5px #B6B686;
+	border-radius: 3px;
+	text-shadow: 1px 1px 1px #9E3F3F;
+	cursor: pointer;
+}
+
+form.new_bid input[type="submit"]:hover, form.new_post input[type="submit"]:hover, form.edit_post input[type="submit"]:hover{
+	background: #CF7A7A;
+}
+
+form.new_bid input[type="number"], form.new_bid textarea {
+	border: 1px solid #DADADA;
+	color: #888;
+	height: 30px;
+	margin-bottom: 16px;
+	margin-right: 6px;
+	margin-top: 2px;
+	outline: 0 none;
+	padding: 3px 3px 3px 5px;
+	width: 100%;
+	font-size: 12px;
+	line-height:15px;
+	box-shadow: inset 0px 1px 4px #ECECEC;
+}
+
+form.new_post input, form.new_post textarea, form.new_post select{
+	width: 250px;
+}
+
+form.edit_post input, form.edit_post textarea, form.edit_post select {
+	width: 500px;
+}
+
+.row {
+	margin-right: 10px !important;
+}
+
+.post_form {
+	border-left: solid 1px;
+}
+
+.alert {
+	position: absolute;
+	z-index: 2;
+}
+
+<!-- #bidmodalbtn{
+	width: 50%;
+} -->
+
+.edit_post_form {
+  text-align: left;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,51 +1,4 @@
-<div class = "row">
-<div id="leftcontentmodal">
-	<div id="imageandinfo">
-		<div id="modalimagecontent">
-			<%if (@post.picture.present?)%>
-			<%= image_tag(@post.picture_url, size: "150x150") %>
-			<%else%>
-				<img src="http://lorempixel.com/150/150/nature/" alt="no_image">
-				<!-- <img src="http://www.endorph.me/assets/images/no-thumb.png" alt="no_image" class="pull-left"> -->
-			<%end%>
-		</div>
-
-		<div id="postinfo">
-			<p><b>Price:  </b><%= number_to_currency(@post.price) %></h4></p>
-			<p><b>Description:</b> <%= sanitize(@post.description) %></p>
-			<p><b>Categories: </b><%= @post.categories.to_sentence%></p>
-			<p><b>Seller: </b> <%= link_to view_path(user_id: @post.consumer.user.id) do%>
-								<%=@post.consumer.user.first%><%=@post.consumer.user.last%>
-								<% end %></p>
-			<p><b>Address: </b><%=@post.address%></p>
-			<% if(@post.consumer.user == current_user) %>
-			<%= link_to 'Edit', edit_post_path(@post) %>
-			<% end %>
-		</div>
-	</div>
-
-
-	
-		<div>
-			<iframe class="bidmap"
-			  width="560"
-			  height="450"
-			  frameborder="0" style="border:0"
-			  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAgFblGV3TfMawjKrWeOoCMjEJKN6RGn5A
-			    &q=<%=@post.address%>">
-			</iframe>
-		</div>
-			<% if !(@current_user.consumer.posts.include?(@post))  %>
-				<% if @post.provider %>
-					<%= link_to 'BID', new_bid_path(post_id: @post) , method: :post, :class => 'btn btn-success btn center-block'%>
-				<% else %>
-				<%= link_to 'BID', new_bid_path(post_id: @post) , method: :post, :class => 'btn btn-success btn center-block postmodal_link', "data-toggle" => "modal", :remote => true, id: "bidmodalbtn"%>			
-				<% end %>
-
-	<% end %>
-
-		<div id="rightcontentmodal">
-			<% if @post.provider %>
+<% if @post.provider %>
 				<% if @post.consumer == current_user.consumer %>
 					<h1> This bid is won by <%=@post.provider.user.first%> <%=@post.provider.user.last%> </h1>	
 						<% if @post.proreview.nil? %>
@@ -73,9 +26,7 @@
 						<th>Bidder</th>
 						<th>Amount</th>
 						<th>Description</th>
-						<% if @post.consumer == current_user.consumer %>
 						<th>Accept Bid</th>
-						<% end %>
 					</tr>
 				</thead>
 				<% @post.bids.each do |bid| %>
@@ -97,6 +48,3 @@
 				</tbody>
 				</table>
 			<% end %>
-		</div>
-	
-</div>

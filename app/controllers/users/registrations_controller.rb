@@ -11,6 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
    def create
     
     build_resource(sign_up_params)
+
     resource.consumer = Consumer.new()
     resource.provider = Provider.new()
     resource_saved = resource.save

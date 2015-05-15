@@ -1,8 +1,22 @@
 <div id="wrapper">
 	<div id="content">
 		<ul id="movieposters">
-				<% @posts.each do |post| %>		
-				<li>
+				<% @posts.each do |post| %>	
+				<% if current_page?('/welcome/consumer_side')%>	
+					<% if @posts_update.include? post %>
+						<li class="newbid">
+					<% else %>
+						<li>
+					<%end %>
+				<% elsif current_page?('/welcome/provider_side')%>
+					<% if ( (@posts_provider_update.include? post) && (post.provider == current_user.provider) )%>
+						<li class="newbid">
+					<% else %>
+						<li>
+					<%end %>
+				<%else%>
+					<li>
+				<% end %>	
 					<div class="contentmove">
 					<%= link_to post_path(post.id), :remote => true, :class => "postmodal_link", "data-toggle" => "modal" do%>
 					<div class="imagepin">
@@ -34,7 +48,11 @@
 									<p class="pintext">Categories: <i><%= post.categories.to_sentence%></i></p>
 							<% end %>
 							<% if !(current_user.consumer.posts.include?(post))  %>
-								<%= link_to 'BID', new_bid_path(post_id: post) , method: :post, :class => 'btn btn-success btn-xs center-block bidmodal_link', "data-toggle" => "modal", :remote => true%>			
+								<% if post.provider %>
+								<%= link_to 'BID', new_bid_path(post_id: post) , method: :post, :class => 'btn btn-success btn-xs center-block' %>	
+								<% else %>
+									<%= link_to 'BID', new_bid_path(post_id: post) , method: :post, :class => 'btn btn-success btn-xs center-block postmodal_link', "data-toggle" => "modal", :remote => true%>	
+								<% end %>		
 							<% end %>
 							<% if(post.consumer.user == current_user) %>
 								<%= button_to 'Edit', edit_post_path(post), method: :get, :class => 'btn btn-warning btn-xs bidbtn center-block' %>
@@ -53,17 +71,6 @@
 	                <h4 class="modal-title"></h4>
 	            </div>
 	            <div class="modal-body" id="popupthreebody"></div>
-	        </div>
-	    </div>
-	</div>
-	<div id="popupfour" class="modal fade" tabindex="-1" role="dialogtwo" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-	    <div class="modal-dialog">
-	        <div class="modal-content" id="bidmodal">
-	            <div class="modal-header">
-	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	                <h4 class="modalbid-title"></h4>
-	            </div>
-	            <div class="modal-body" id="popupfourbody"></div>
 	        </div>
 	    </div>
 	</div>

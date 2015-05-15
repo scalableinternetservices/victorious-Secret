@@ -1,4 +1,4 @@
-$("#popupthreebody").html("<%= escape_javascript(render(:partial => 'bids/new')) %>");
+$("#popupthreebody").html("<%= escape_javascript(render(:partial => 'bids/edit')) %>");
 $(".modal-title").html("<%=@post.title%>");
 $("#bidmodalbtn").remove();
 $(".modal-dialog").css("width", "1250px");

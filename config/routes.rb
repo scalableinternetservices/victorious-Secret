@@ -17,10 +17,10 @@ VictoriousSecret::Application.routes.draw do
   end
 
 
-   post "search/posts"
-   get "search/posts"
-   post "search/search"
-   get "search/search"
+   
+   get "search/posts" => 'search#posts', as: :user_search
+   
+   get "search/search" => 'search#search', as: :post_search
    resources :bids do  
     member do
       post :new
