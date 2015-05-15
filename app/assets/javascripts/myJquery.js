@@ -4,6 +4,7 @@ var collapseMyMenu, expandMyMenu, hideMenuTexts, showMenuTexts;
 	
 	$(document).ready(function(){
 
+   
 
     $(".provider_rating").each(function() {
         // Get the value

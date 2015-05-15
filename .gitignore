@@ -14,13 +14,14 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-/solr
+/solr/*
 /log/*.lck
 Gemfile.lock
-
+public/*
 public/uploads/post/picture
 public/uploads/user/picture
 public/uploads/tmp
+
 
 /config/database.yml
 
