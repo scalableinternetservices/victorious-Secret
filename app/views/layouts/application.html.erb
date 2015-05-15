@@ -108,7 +108,7 @@
                 <%end%>
               <%end%>
 	      <li>
-	             <%= form_tag({controller: "search", action: "search"}, method: "post", class:"navbar-form", role:"search") %>
+	             <%= form_tag(post_search_path, method: :get, class:"navbar-form", role:"search") %>
                   <div class="input-group">
                       <input type="text" class="form-control" placeholder="Search" name="query">
                       <div class="input-group-btn">
@@ -140,7 +140,7 @@
         <span class='glyphicon glyphicon-align-justify'></span>
       </a>
       <div id="chatsearch" class="hide">
-        <%= form_tag({controller: "search", action: "posts"}, method: "post", remote: true, class:"navbar-form", role:"search") %>
+        <%= form_tag(user_search_path, method: :get, remote: true, class:"navbar-form", role:"search") %>
           <div class="input-group">
               <input type="text" class="form-control" placeholder="Search" name="query">
               <div class="input-group-btn">
