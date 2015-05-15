@@ -304,7 +304,7 @@ $(document).ready(function(){
 
     }
 
-    
+
     jQuery.cookie = function (name, value, options) {
         if (typeof value != 'undefined') { // name and value given, set cookie
             options = options || {};
@@ -345,7 +345,6 @@ $(document).ready(function(){
             }
             return cookieValue;
         }
-    };
-        
+    });
 
 });
