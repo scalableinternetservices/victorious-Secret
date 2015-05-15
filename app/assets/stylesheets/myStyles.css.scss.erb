@@ -329,7 +329,7 @@ span.consumer_rating span {
     background-position: 0 0;
 }
 
-form.new_bid {
+form.new_bid{
 	margin-left: auto;
 	marign-right: auto;
 	background: #F7F7F7;
@@ -341,13 +341,24 @@ form.new_bid {
 	margin-top: 10px;
 }
 
-form.new_bid label{
+form.new_post {
+	margin-left: auto;
+	marign-right: auto;
+	background: #E4E4E4;
+	padding: 25px 15px 25px 10px;
+	font: 12px Georgia, "Times New Roman", Times, serif;
+	color: #888;
+	text-shadow: 1px 1px 1px #FFF;
+	border: 1px solid #E4E4E4;
+}
+
+form.new_bid label, form.new_post label{
 	display: block;
 	margin: 0px;
 }
 
 
-form.new_bid input[type="submit"] {
+form.new_bid input[type="submit"], form.new_post input[type="submit"]{
 	background: #E27575;
 	border: none;
 	padding: 10px 25px 10px 25px;
@@ -358,7 +369,7 @@ form.new_bid input[type="submit"] {
 	cursor: pointer;
 }
 
-form.new_bid input[type="submit"]:hover {
+form.new_bid input[type="submit"]:hover, form.new_post input[type="submit"]:hover{
 	background: #CF7A7A;
 }
 
@@ -377,8 +388,14 @@ form.new_bid input[type="number"], form.new_bid textarea {
 	box-shadow: inset 0px 1px 4px #ECECEC;
 }
 
+form.new_post input, form.new_post textarea, form.new_post select{
+	width: 250px;
+}
 .row {
 	margin-right: 10px !important;
 }
 
+.post_form {
+	border-left: solid 1px;
+}
 
