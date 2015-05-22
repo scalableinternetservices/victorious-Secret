@@ -1,3 +1,4 @@
+<% arr = ["nature", "abstract", "sports"] %>
 <div class = "row">
 <div id="leftcontentmodal">
 	<div id="imageandinfo">
@@ -14,7 +15,7 @@
 		<div id="postinfo">
 			<p><b>Price:  </b><%= number_to_currency(@post.price) %></h4></p>
 			<p><b>Description:</b> <%= sanitize(@post.description) %></p>
-			<p><b>Categories: </b><%= @post.categories.to_sentence%></p>
+			<p><b>Categories: </b><%= @post.categories%></p>
 			<p><b>Seller: </b> <%= link_to view_path(user_id: @post.consumer.user.id) do%>
 								<%=@post.consumer.user.first%><%=@post.consumer.user.last%>
 								<% end %></p>
