@@ -6,7 +6,8 @@ class MessagesController < ApplicationController
     @message.user_id = current_user.id
     @message.save!
      # PrivatePub.publish_to(conversation_path(@conversation), "alert('#{@message.body}');")
-    @path = conversation_path(@conversation)
+    @path = '/a/b/'+@conversation.sender_id.to_s
+    @path2 = '/a/b/'+@conversation.recipient_id.to_s
   end
 
   private

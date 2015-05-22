@@ -21,6 +21,7 @@ public/*
 public/uploads/post/picture
 public/uploads/user/picture
 public/uploads/tmp
+/lib/tasks/populate.rake
 
 
 /config/database.yml
