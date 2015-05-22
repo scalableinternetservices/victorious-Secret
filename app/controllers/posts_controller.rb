@@ -90,12 +90,16 @@ class PostsController < ApplicationController
       @post.categories = categories
       if(params.has_key?(:address))
       	@post.address = params[:address]
+        @post.lat = params[:lat].to_f
+        @post.lon = params[:lon].to_f
       end
 
       @post.update(post_params)
     rescue
     	if(params.has_key?(:address))
       	@post.address = params[:address]
+        @post.lat = params[:lat].to_f
+        @post.lon = params[:lon].to_f
       end
       @post.update(post_params)
     end

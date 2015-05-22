@@ -58,6 +58,8 @@
 function codeAddress() {
     //its redundant when the user hasn't updated, but can't fix this right now 
     var address = document.getElementById('address').value;
+    
+    geocoder = new google.maps.Geocoder();
     $('#post-submit').unbind('submit');
     geocoder.geocode( { 'address': address}, function(results, status) {
               if (status == google.maps.GeocoderStatus.OK) {
@@ -84,6 +86,7 @@ function codeAddress() {
 }
 
 $("#post-submit").bind('submit',codeAddress);
+
 
 if ( $( "#map-canvas" ).length ) {
  map_initialize();
