@@ -58,3 +58,4 @@ gem 'seed_dumper'
 gem 'faker'
 gem 'populator'
 gem 'jquery-turbolinks'
+gem "paperclip", "~> 4.2"
