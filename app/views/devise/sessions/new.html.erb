@@ -112,7 +112,7 @@
             <div class="modal-body">
                 <%= form_for(resource, as: resource_name, html: {class: "pure-form pure-form-stacked"} , url: session_path(resource_name)) do |f| %>
                   <label for="email">Email</label>
-                  <%= f.email_field :email, autofocus: true %>
+                  <%= f.email_field :email, autofocus: true, id: "loginEmail" %>
                   <label for="password">Password</label>
                   <%= f.password_field :password, autocomplete: "off" %>
                 <%= f.submit "Log in", class: "pure-button" %>

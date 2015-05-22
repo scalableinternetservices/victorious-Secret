@@ -3,9 +3,6 @@ var chatBoxes = new Array();
 var collapseMyMenu, expandMyMenu, hideMenuTexts, showMenuTexts;
 	
 	$(document).ready(function(){
-
-   
-
     $(".provider_rating").each(function() {
         // Get the value
         var val = parseFloat($(".provider_rating").html());
@@ -70,7 +67,7 @@ var collapseMyMenu, expandMyMenu, hideMenuTexts, showMenuTexts;
      * send an ajax request to our rails app with the sender_id and
      * recipient_id
      */
-		
+
 		$('a[href^="#"]').on('click',function (e) {
 		    e.preventDefault();
 		    var target = this.hash;

@@ -140,7 +140,7 @@
           <span class='glyphicon glyphicon-align-justify', id="chatsearchicon"></span>
         </a>
       <div id="chatsearch" class="hide">
-        <%= form_tag(user_search_path, method: :get, remote: true, class:"navbar-form", role:"search") %>
+        <%= form_tag(user_search_path, method: :get, remote: true, class:"navbar-form", role:"search", :id => "sidesearchform") %>
           <div class="input-group">
               <input type="text" class="form-control" placeholder="Search" name="query">
               <div class="input-group-btn">

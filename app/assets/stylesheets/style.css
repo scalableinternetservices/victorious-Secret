@@ -82,3 +82,13 @@
 
 #new_bid {
 	width: 600px;}
+
+#bid_page > .row{
+	margin-top: 150px;
+}
+
+#bid_page > .row > #leftcontentmodal, #bid_page > .row > #rightcontentmodal{
+	width: 100%;
+}
+
+#sidesearchform{width:auto !important;}
