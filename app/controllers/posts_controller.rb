@@ -88,8 +88,15 @@ class PostsController < ApplicationController
         categories << x
       end
       @post.categories = categories
+      if(params.has_key?(:address))
+      	@post.address = params[:address]
+      end
+
       @post.update(post_params)
     rescue
+    	if(params.has_key?(:address))
+      	@post.address = params[:address]
+      end
       @post.update(post_params)
     end
     

@@ -34,8 +34,9 @@
   <% if @edit %>
   <div class="field">
     <%= f.label :address %><br>
-    <%= f.text_field :address, id: 'address' %>
+    <%= text_field_tag :address,nil, id: 'address',size:'50',value: @post.address %>
   </div>
+ 
   <% else %>
   
   <div class='field'>
