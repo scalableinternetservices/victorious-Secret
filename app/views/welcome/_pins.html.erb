@@ -1,7 +1,6 @@
 <% arr = ["nature", "abstract", "sports"] %>
 <div id="wrapper">
 	<div id="content">
-		<h4><%= will_paginate @posts %></h4>
 		<ul id="movieposters">
 				<% @posts.each do |post| %>	
 				<% if current_page?('/welcome/consumer_side')%>	
@@ -60,7 +59,6 @@
 						</div>
 					</li>
 				<% end %>
-		<h4 class="bottompaginate"><%= will_paginate @posts %></h4>
 		</ul>
 	</div>
 
