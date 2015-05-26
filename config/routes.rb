@@ -40,7 +40,6 @@ VictoriousSecret::Application.routes.draw do
 
   resources :posts
 
-  get "welcome/index"
   resources :consumers
 
   resources :providers

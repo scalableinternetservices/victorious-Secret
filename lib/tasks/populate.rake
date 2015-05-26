@@ -6,7 +6,7 @@ namespace :db do
     require 'faker'
     phone = 1000000000
     index = 0
-    User.populate 1000 do |user|
+    User.populate 100 do |user|
       phone = phone + 1
       index = index + 1
       user.email = "naren"+index.to_s+"@gmail.com"
