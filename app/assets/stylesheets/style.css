@@ -96,3 +96,5 @@
 .pagination > a:hover{background-color: transparent;color: white;}
 .pagination > a:visited{color: rgb(224, 224, 224);}
 .bottompaginate > .pagination{margin-top: 0%;}
+#requestbtnform{margin-bottom: 100px;}
+.morewidth{margin-top: 100px !important; }
