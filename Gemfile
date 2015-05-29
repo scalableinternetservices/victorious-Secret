@@ -59,3 +59,4 @@ gem 'faker'
 gem 'populator'
 gem 'jquery-turbolinks'
 gem "paperclip", "~> 4.2"
+gem 'rack-mini-profiler'
