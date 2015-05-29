@@ -67,6 +67,12 @@ var collapseMyMenu, expandMyMenu, hideMenuTexts, showMenuTexts;
      * send an ajax request to our rails app with the sender_id and
      * recipient_id
      */
+     ulwidth = $("#movieposters").width();
+     numpins = Math.floor(ulwidth/260);
+     overflow = Math.floor(ulwidth % 260);
+     margintoadd = Math.floor(overflow/numpins);
+     $( "#movieposters" ).children('li').css( "margin-left", margintoadd+"px" );
+
 
 		$('a[href^="#"]').on('click',function (e) {
 		    e.preventDefault();
