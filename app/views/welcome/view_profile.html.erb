@@ -1,3 +1,4 @@
+<% cache(@user,:expires_in => 24.hour) do %>
 <!-- <h2><%= @user.first %> <%=@user.last%>'s Profile</h2>
 
 <div class="userinfo">
@@ -107,6 +108,7 @@ Overall Average Rating: <%=@user.provider.rating %>
 		</div>
 	</div>
 </div>
+<%end%>
 
 
 
