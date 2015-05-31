@@ -26,7 +26,7 @@ class SearchController < ApplicationController
       @results = search.results
       @search_users = @results
       if params[:radius].nil?
-        params[:radius]=25; # default radius is assumed to be 25
+        params[:radius]=10; # default radius is assumed to be 25
       end
       search = Post.search do
         keywords params[:query]

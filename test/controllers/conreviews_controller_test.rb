@@ -12,20 +12,7 @@ class ConreviewsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:conreviews)
   end
 
-  test "should get new" do
-    sign_in users(:user1)
-    get :new
-    assert_response :success
-  end
 
-  test "should create conreview" do
-    sign_in users(:user1)
-    assert_difference('Conreview.count') do
-      post :create, conreview: { description: @conreview.description, post_id: @conreview.post_id, provider_id: @conreview.provider_id, rating: @conreview.rating }
-    end
-
-    assert_redirected_to conreview_path(assigns(:conreview))
-  end
 
   test "should show conreview" do
     sign_in users(:user1)
@@ -39,11 +26,6 @@ class ConreviewsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update conreview" do
-    sign_in users(:user1)
-    patch :update, id: @conreview, conreview: { description: @conreview.description, post_id: @conreview.post_id, provider_id: @conreview.provider_id, rating: @conreview.rating }
-    assert_redirected_to conreview_path(assigns(:conreview))
-  end
 
   test "should destroy conreview" do
     sign_in users(:user1)
