@@ -1,3 +1,4 @@
+<% cache("postmodal-#{@post.id}-#{@post.updated_at}") do %>
 <% arr = ["nature", "abstract", "sports"] %>
 <div class = "row">
 <div id="leftcontentmodal">
@@ -20,6 +21,7 @@
 								<%=@post.consumer.user.first%><%=@post.consumer.user.last%>
 								<% end %></p>
 			<p><b>Address: </b><%=@post.address%></p>
+          <% end %>
 			<% if(@post.consumer.user == current_user) %>
 			<%= link_to 'Edit', edit_post_path(@post) %>
 			<% end %>
