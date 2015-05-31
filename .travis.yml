@@ -10,8 +10,8 @@ env:
   - DB=mysql
 script:
   - RAILS_ENV=travis bundle exec rake db:migrate --trace
-  - bundle exec rake db:test:prepare
-  - bundle exec rake
+  - RAILS_ENV=travis bundle exec rake db:test:prepare
+  - RAILS_ENV=travis bundle exec rake
 before_script:
   - mysql -e 'create database library_test'
 # uncomment this line if your project needs to run something other than `rake`:
