@@ -6,7 +6,8 @@
 		<% else %>
 			<ul id="movieposters">
 		<%end%>
-				<% @posts.each do |post| %>	
+				<% @posts.each do |post| %>
+                <% cache(cache_key_for_post_row(post)) do %>
 				<% if current_page?('/welcome/consumer_side')%>	
 					<% if @posts_update.include? post %>
 						<li class="newbid">
@@ -50,6 +51,7 @@
 									<h5 class="pintext"><%= pluralize(post.bids.count,'Bid')%></h5>
 									<p class="pintext">Categories: <i><%= post.categories%></i></p>
 							<% end %>
+                        <% end %>
 							<% if !(current_user.consumer.posts.include?(post))  %>
 								<% if post.provider %>
 								<%= link_to 'BID', new_bid_path(post_id: post) , method: :post, :class => 'btn btn-success btn-xs center-block' %>	
@@ -62,7 +64,8 @@
 							<% end %>
 						</div>
 					</li>
-				<% end %>
+                <% end %>
+
 		</ul>
 	</div>
 
