@@ -21,7 +21,7 @@
 								<% end %></p>
 			<p><b>Address: </b><%=@post.address%></p>
 			<% if(@post.consumer.user == current_user) %>
-			<%= link_to 'Edit', edit_post_path(@post) %>
+			<%= link_to 'Edit', edit_post_path(@post), class: "btn btn-warning btn-xs" %>
 			<% end %>
 		</div>
 	</div>
