@@ -50,16 +50,17 @@
 									<h5 class="pintext"><%= pluralize(post.bids.count,'Bid')%></h5>
 									<p class="pintext">Categories: <i><%= post.categories%></i></p>
 							<% end %>
-							<% if !(current_user.consumer.posts.include?(post))  %>
+							<% if(post.consumer.user == current_user) %>
+								<%= button_to 'Edit', edit_post_path(post), method: :get, :class => 'btn btn-warning btn-xs bidbtn center-block' %>
+							<% else %>
+							
 								<% if post.provider %>
 								<%= link_to 'BID', new_bid_path(post_id: post) , method: :post, :class => 'btn btn-success btn-xs center-block' %>	
 								<% else %>
 									<%= link_to 'BID', new_bid_path(post_id: post) , method: :post, :class => 'btn btn-success btn-xs center-block postmodal_link', "data-toggle" => "modal", :remote => true%>	
 								<% end %>		
 							<% end %>
-							<% if(post.consumer.user == current_user) %>
-								<%= button_to 'Edit', edit_post_path(post), method: :get, :class => 'btn btn-warning btn-xs bidbtn center-block' %>
-							<% end %>
+							
 						</div>
 					</li>
 				<% end %>
