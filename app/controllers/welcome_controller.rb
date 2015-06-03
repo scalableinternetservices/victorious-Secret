@@ -19,7 +19,7 @@ class WelcomeController < ApplicationController
 
    #  end
 
-  	@posts = current_user.consumer.posts
+  	@posts = current_user.consumer.posts.paginate(:page => params[:page], :per_page => 30)
   end
 
   def provider_side 
