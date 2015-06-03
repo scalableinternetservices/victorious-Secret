@@ -76,28 +76,33 @@ class BidsController < ApplicationController
   
 
   def create
-    @post = Post.find(session[:post_id])
-    if !@post.provider.nil?
-      flash[:alert] = 'user has already chosen a service provider'
-      redirect_to welcome_url
-    else 
-        @bid = Bid.new(bid_params)
-        
-        @bid.post = @post
-        @bid.provider = current_user.provider
+    if session[:post_id]
+        @post = Post.find(session[:post_id])
+        if !@post.provider.nil?
+          flash[:alert] = 'user has already chosen a service provider'
+          redirect_to welcome_url
+        else 
+            @bid = Bid.new(bid_params)
+            
+            @bid.post = @post
+            @bid.provider = current_user.provider
 
-        notification = Notification.new()
-        notification.post = nil
-        @bid.notification = notification
+            notification = Notification.new()
+            notification.post = nil
+            @bid.notification = notification
 
-        respond_with do |format|
-          if @bid.save
-           format.html { redirect_to welcome_url, notice: 'Your bid has been placed' }
-         else
-           format.html { render action: 'new' }
-           format.json { render json: @bid.errors, status: :unprocessable_entity }
-         end
-      end
+            respond_with do |format|
+              if @bid.save
+               format.html { redirect_to welcome_url, notice: 'Your bid has been placed' }
+             else
+               format.html { render action: 'new' }
+               format.json { render json: @bid.errors, status: :unprocessable_entity }
+             end
+          end
+        end
+
+    else
+      redirect_to welcome_url,error:'there was some problem'
     end
 
 
