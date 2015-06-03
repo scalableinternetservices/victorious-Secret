@@ -10,20 +10,4 @@
  *
  *= require_self
  *= require_tree .
- *= require jquery-ui
- *= require bootstrap
  */
-
-body { padding-top: 60px; }
-footer { margin-top: 100px; }
-table, td, th { vertical-align: middle; border: none; }
-th { border-bottom: 1px solid #DDD; }
-
-.footer {
-	position:fixed;
-   left:0px;
-   bottom:0px;
-   height:35px;
-   width:100%;
-   background:#999;
-}
