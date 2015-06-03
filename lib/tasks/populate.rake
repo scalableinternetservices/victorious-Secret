@@ -24,7 +24,7 @@ namespace :db do
       user.address = "457 Portola Plaza, Los Angeles, CA 90095"
       user.first =  Faker::Internet.user_name
       user.last = Faker::Internet.user_name
-      Post.populate 50 do |post|
+      Post.populate 4 do |post|
         post.title = Faker::Lorem.sentence(2)
         post.description = Faker::Lorem.paragraph
         post.consumer_id = index
