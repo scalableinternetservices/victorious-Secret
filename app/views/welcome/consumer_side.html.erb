@@ -1,3 +1,4 @@
 <%= button_to 'Request a service', new_post_path, method: :get, class: "pure-button", id: "requestbtnform"%>
+<h4 id="postpagination"><%= will_paginate @posts %></h4>
 <%= render 'pins' %>
 

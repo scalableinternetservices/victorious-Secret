@@ -7,6 +7,7 @@ class WelcomeController < ApplicationController
 
 
   def consumer_side 
+<<<<<<< HEAD
   	# @posts_update = []
    #  Notification.all.each do |n|
    #    unless n.bid.nil?
@@ -20,6 +21,17 @@ class WelcomeController < ApplicationController
    #  end
 
   	@posts = current_user.consumer.posts
+=======
+  	@posts_update = []
+    Notification.all.each do |n|
+      unless n.bid.nil?
+        if n.bid.post.consumer = current_user.consumer
+          @posts_update << n.bid.post
+        end
+      end
+    end
+  	@posts = current_user.consumer.posts.paginate(:page => params[:page], :per_page => 30)
+>>>>>>> minified-files
   end
 
   def provider_side 
@@ -27,6 +39,7 @@ class WelcomeController < ApplicationController
   	provider_bids = current_user.provider.bids
   	provider_bids.each do |bid|
   		@posts << bid.post
+<<<<<<< HEAD
 	end
 
    # @posts_provider_update = []
@@ -40,6 +53,17 @@ class WelcomeController < ApplicationController
 
    # end
 
+=======
+    end
+    @posts_provider_update = []
+    Notification.all.each do |n|
+    unless n.post.nil?
+      if n.post.provider = current_user.provider
+        @posts_provider_update << n.post
+      end
+    end
+   end
+>>>>>>> minified-files
   end
 
 
