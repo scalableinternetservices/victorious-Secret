@@ -1,3 +1,1 @@
-rake db:reset
-rake db:populate
 rake sunspot:solr:start RAILS_ENV=production
