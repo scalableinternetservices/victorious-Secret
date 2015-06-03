@@ -60,3 +60,4 @@ gem 'populator'
 gem 'jquery-turbolinks'
 gem 'will_paginate', '~> 3.0.6'
 gem 'rack-mini-profiler'
+
