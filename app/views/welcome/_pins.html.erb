@@ -8,13 +8,22 @@
 		<%end%>
 				<% @posts.each do |post| %>	
 				<% if current_page?('/welcome/consumer_side')%>	
-					<% if @posts_update.include? post %>
+					<% flag = false %>
+					<% post.bids.each do |bid| %>
+						<% unless bid.notification.nil? %>
+							<% flag = true %>	
+							<% break %>
+						<% end %>
+						<% end %>
+
+					<% if flag %>
 						<li class="newbid">
 					<% else %>
 						<li>
 					<%end %>
+
 				<% elsif current_page?('/welcome/provider_side')%>
-					<% if ( (@posts_provider_update.include? post) && (post.provider == current_user.provider) )%>
+					<% if ( (!post.notification.nil?) && (post.provider == current_user.provider) )%>
 						<li class="newbid">
 					<% else %>
 						<li>

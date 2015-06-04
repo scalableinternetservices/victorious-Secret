@@ -30,7 +30,6 @@ namespace :db do
         post.consumer_id = index
         post.price = Faker::Number.number(2)
         post.categories = ["creative"]
-        post.provider_id = nil
         post.address = "457 Portola Plaza, Los Angeles, CA 90095"
       end
       Consumer.populate 1 do |consumer|

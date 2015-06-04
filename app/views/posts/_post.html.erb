@@ -1,6 +1,25 @@
 <% arr = ["nature", "abstract", "sports"] %>
 <div class = "row">
 <div id="leftcontentmodal">
+	<div id="acceptinfo">
+			<% if @post.provider %>
+				<% if @post.consumer == current_user.consumer %>
+					<h4 id="bidwinner"> This bid is won by <%=@post.provider.user.first%> <%=@post.provider.user.last%> </h4>	
+						<% if @post.proreview.nil? %>
+						<%= button_to 'rate this provider', new_proreview_path(post_id: @post),method: :post, class: "btn btn-success btn"%>
+						<% end %>
+				<% else %>
+					<% if @post.provider == current_user.provider %>
+						<h4 id="winnerinfo"> You have won this bid! </h4>
+						<% if (@post.provider == current_user.provider) && (@post.conreview.nil?) %>
+							<%= button_to 'Rate Consumer', new_conreview_path(post_id: @post),method: :post, class: "btn btn-success btn" %>
+						<% end %>
+					<% else %>
+						<h4 id="notwinnerinfo"> this post is closed. The provider has chosen a winner </h4>	
+					<% end %>
+				<% end %>
+			<% end %>
+	</div>
 	<div id="imageandinfo">
 		<div id="modalimagecontent">
 			<%if (@post.picture.present?)%>
@@ -21,7 +40,7 @@
 								<% end %></p>
 			<p><b>Address: </b><%=@post.address%></p>
 			<% if(@post.consumer.user == current_user) %>
-			<%= link_to 'Edit', edit_post_path(@post) %>
+			<%= link_to 'Edit', edit_post_path(@post), class: "btn btn-warning btn-xs" %>
 			<% end %>
 		</div>
 	</div>
@@ -45,29 +64,9 @@
 				<% end %>
 
 	<% end %>
-
+	
+</div>
 		<div id="rightcontentmodal">
-			<% if @post.provider %>
-				<% if @post.consumer == current_user.consumer %>
-					<h1> This bid is won by <%=@post.provider.user.first%> <%=@post.provider.user.last%> </h1>	
-						<% if @post.proreview.nil? %>
-						<%= button_to 'rate this provider', new_proreview_path(post_id: @post),method: :post %>
-						<% end %>
-				<% else %>
-				<% if @post.provider == current_user.provider %>
-					<h1> you have won this bid </h1>
-				<% else %>
-					<h1> this post is closed. The provider has chosen a winner </h1>	
-				<% end %>
-				<% end %>
-			<% end %>
-
-			<!-- if the current user has won the bid and he hasn't rated the consumer yet, he can rate him -->
-			<% if (@post.provider == current_user.provider) && (@post.conreview.nil?) %>
-			<h2> you haven't rated this consumer yet for the service. you can <%= button_to 'rate this consumer', new_conreview_path(post_id: @post),method: :post %>
-			</h2>
-			<% end %>
-
 			<% if @post.bids.length !=0 %>
 				<table cellspacing = '0' id = "bid_table">
 				<thead>
@@ -99,6 +98,3 @@
 				</tbody>
 				</table>
 			<% end %>
-		</div>
-	
-</div>
