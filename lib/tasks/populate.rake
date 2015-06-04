@@ -6,7 +6,7 @@ namespace :db do
     require 'faker'
     phone = 1000000000
     index = 0
-    User.populate 1000 do |user|
+    User.populate 2500 do |user|
       phone = phone + 1
       index = index + 1
       user.email = "naren"+index.to_s+"@gmail.com"
@@ -30,7 +30,6 @@ namespace :db do
         post.consumer_id = index
         post.price = Faker::Number.number(2)
         post.categories = ["creative"]
-        post.provider_id = nil
         post.address = "457 Portola Plaza, Los Angeles, CA 90095"
       end
       Consumer.populate 1 do |consumer|

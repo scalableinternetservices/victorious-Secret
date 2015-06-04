@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  before_action :get_notifications
+  # before_action :get_notifications
   
 
   protected
@@ -27,29 +27,29 @@ class ApplicationController < ActionController::Base
     welcome_url
   end
 
-  def get_notifications
-    if user_signed_in?
-        @count = 0
+  # def get_notifications
+  #   if user_signed_in?
+  #       @count = 0
 
-        @won = 0
-        Notification.all.each do |n|
-          unless n.bid.nil?
-            if n.bid.post.consumer == current_user.consumer
-              @count = @count + 1
-            end
+  #       @won = 0
+  #       Notification.all.each do |n|
+  #         unless n.bid.nil?
+  #           if n.bid.post.consumer == current_user.consumer
+  #             @count = @count + 1
+  #           end
 
-          end
+  #         end
 
-          unless n.post.nil?
-            if n.post.provider == current_user.provider
-              @won = @won+1
-            end
-          end
+  #         unless n.post.nil?
+  #           if n.post.provider == current_user.provider
+  #             @won = @won+1
+  #           end
+  #         end
 
 
-        end
-    end
-  end
+  #       end
+  #   end
+  # end
 
 
 
