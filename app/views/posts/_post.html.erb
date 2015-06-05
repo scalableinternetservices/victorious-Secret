@@ -58,9 +58,9 @@
 		</div>
 			<% if !(@current_user.consumer.posts.include?(@post))  %>
 				<% if @post.provider %>
-					<%= link_to 'BID', new_bid_path(post_id: @post) , method: :post, :class => 'btn btn-success btn center-block'%>
+					<%= link_to 'BID', new_bid_path(post_id: @post) , method: :post, :class => 'btn btn-success btn center-block bidmodalbtn'%>
 				<% else %>
-				<%= link_to 'BID', new_bid_path(post_id: @post) , method: :post, :class => 'btn btn-success btn center-block postmodal_link', "data-toggle" => "modal", :remote => true, id: "bidmodalbtn"%>			
+				<%= link_to 'BID', new_bid_path(post_id: @post) , method: :post, :class => 'btn btn-success btn center-block postmodal_link bidmodalbtn', "data-toggle" => "modal", :remote => true%>			
 				<% end %>
 
 	<% end %>
