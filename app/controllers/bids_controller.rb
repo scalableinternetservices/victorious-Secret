@@ -29,7 +29,9 @@ class BidsController < ApplicationController
   end
 
   def new
-    post = Post.find(params[:post_id])
+    post = Rails.cache.fetch("#{params[:post_id]}", expires_in: 24.hours) do
+      Post.find(params[:post_id])
+    end
 
     @post = post
     $flag = false
@@ -73,11 +75,14 @@ class BidsController < ApplicationController
     @post = @bid.post
   end
 
-  
+
 
   def create
+
     if session[:post_id]
-        @post = Post.find(session[:post_id])
+      @post = Rails.cache.fetch("#{session[:post_id]}", expires_in: 24.hours) do
+        Post.find(session[:post_id])
+      end
         if !@post.provider.nil?
           flash[:alert] = 'user has already chosen a service provider'
           redirect_to welcome_url
